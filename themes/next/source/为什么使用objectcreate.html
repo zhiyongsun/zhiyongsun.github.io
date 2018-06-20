@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<pre style="font-size: 25px">
+
+  function Foo() {
+    this.value = 42;
+  }
+  Foo.prototype = {
+    method: function() {},
+    value: 43
+  };
+
+  function Bar() {}
+  function Ccc() {}
+
+  // 设置Bar的prototype属性为Foo的实例对象
+  Ccc.prototype = new Foo();
+  Bar.prototype = Object.create(Foo.prototype);
+  Bar.prototype.foo = 'Hello World';
+  Ccc.prototype.foo = 'Hello World';
+
+  // 修正Bar.prototype.constructor为Bar本身
+  Bar.prototype.constructor = Bar;
+  Ccc.prototype.Ccc = Ccc;
+
+  var test = new Bar() // 创建Bar的一个新实例
+  var test2 = new Ccc() // 创建Bar的一个新实例
+  console.log(test.value)
+  console.log(test2.value)
+    console.log(test)
+    console.log(test2)
+</pre>
+<body>
+<script>
+
+  function Foo() {
+    this.value = 42;
+  }
+  Foo.prototype = {
+    method: function() {},
+    value: 43
+  };
+
+  function Bar() {}
+  function Ccc() {}
+
+  // 设置Bar的prototype属性为Foo的实例对象
+  Ccc.prototype = new Foo();
+  Bar.prototype = Object.create(Foo.prototype);
+  Bar.prototype.foo = 'Hello World';
+  Ccc.prototype.foo = 'Hello World';
+
+  // 修正Bar.prototype.constructor为Bar本身
+  Bar.prototype.constructor = Bar;
+  Ccc.prototype.Ccc = Ccc;
+
+  var test = new Bar() // 创建Bar的一个新实例
+  var test2 = new Ccc() // 创建Bar的一个新实例
+  console.log(test.value)
+  console.log(test2.value)
+  console.log(test)
+  console.log(test2)
+</script>
+</body>
+</html>

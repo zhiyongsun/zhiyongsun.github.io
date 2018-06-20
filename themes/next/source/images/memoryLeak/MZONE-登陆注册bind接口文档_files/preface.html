@@ -1,0 +1,1999 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0103)http://172.20.249.6:8080/mzonedoc/detail8/com.pinganfu.mzone.web.controller.FinancialMallController.htm -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="X-Doccat" content="mzone-lrb">
+<meta name="tags" content="理财商城">
+<meta name="brief" content="含理财产品、购买（下单）及资产等相关接口">
+<meta name="APIUrl" content="com.pinganfu.mzone.web.controller.FinancialMallController">
+<meta name="tooltip" content="">
+<meta name="methodType" content="">
+<meta name="systemName" content="mzone-lrb">
+<meta name="branchName" content="mtp-branch">
+
+<title>MTP接口文档</title>
+<style type="text/css">
+body{font-size: 12px; font-family: Arial;}
+h1{margin-top:15px; width:300px; margin-bottom:8px; font-size:20px; font-weight: bolder;}
+h2{padding-left:20px; margin-top:15px; width:300px; margin-bottom:8px; font-size:18px; font-family:"黑体"}
+h3{padding-left:20px; margin-top:8px; margin-bottom:5px; font-size:14px; font-weight: bolder;}
+h4{padding-left:20px; margin-top:5px; margin-bottom:5px; font-size:12px; font-weight: bolder;}
+p{padding-left:20px;}
+table{table-layout: fixed; border-collapse: collapse; border-spacing: 0; width: 80%; margin-left:20px; margin-bottom:20px;border:1px solid #666;border-collapse:collapse;border-spacing:0;box-shadow:0 1px 3px rgba(0,0,0,0.1);}
+table thead tr th{font-size:12px; font-weight:bolder; background-color:#ef7722; color:#ffffff; border-bottom: 1px solid darkgray;border-left: 1px solid darkgray;border-right: 1px solid darkgray;border-top: 1px solid darkgray;}
+table tbody tr td{font-size:12px; height:20px; border: 1px solid #ccc;}
+.ecUl{list-style:none;margin-left:20px; padding-left:0;}
+.ecUl li{float:left;width:70px;background:#eeeeee; margin-left:3px;line-height:26px; text-align:center; font-family:Arial}
+
+.label {
+	display: inline-block;
+	padding: 2px 4px;
+	margin-right:10px;
+	font-size: 10.998px;
+	font-weight: bold;
+	line-height: 14px;
+	color: #ffffff;
+	vertical-align: baseline;
+	white-space: nowrap;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+	background-color: #999999;
+}
+
+.label-method-POST{background-color: #55aa55;}
+</style>
+</head>
+
+<body>
+	<h1>理财商城</h1>
+	<p>含理财产品、购买（下单）及资产等相关接口</p>
+    <p>com.pinganfu.mzone.web.controller.FinancialMallController</p>
+	
+	<div style="border-top:2px solid red; width:100%;">
+	<h2>理财产品详情</h2>
+	<h3>描述</h3>
+	<p>获取理财产品详细信息</p>
+	<h3>起始加入版本号</h3>
+	<p><span style="background-color:#ffff00;">20171116</span></p>
+	<h3>协议作者</h3>
+	<p>Wenhao Wei</p>
+    <h3>对应功能方法名</h3>
+    <p>getFinProductInfo</p>
+	<div style="clear:both"></div>
+	<h3>协议</h3>
+	<h4>URI</h4>
+	<p><span class="label label-method-POST">POST</span>/finance/get_product_info</p>
+	<h4>请求</h4>
+	<table id="reqTable" class="inputtable wh">
+	<thead>
+	<tr>
+	<th style="width: 22%">名称</th>
+	<th style="width: 22%">类型</th>
+	<th>含义</th>
+	<th>是否必须</th>
+	<th>备注</th>
+    <th>版本</th>
+	</tr>
+	</thead>
+	<tbody>
+    <tr>
+	<td><span>productId</span></td>
+	<td>java.lang.String</td>
+	<td>产品编号</td>
+	<td>必须</td>
+	<td>产品ID</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span>deviceId</span></td>
+	<td>java.lang.String</td>
+	<td>设备id</td>
+	<td>可选</td>
+	<td>修改和删除设备信息时该字段必须传递</td>
+    <td></td>
+	</tr>
+    <tr>
+	<td><span>deviceInfo</span></td>
+	<td>java.lang.String</td>
+	<td>设备信息</td>
+	<td>可选</td>
+	<td></td>
+    <td></td>
+	</tr>
+    <tr>
+	<td><span>appId</span></td>
+	<td>java.lang.String</td>
+	<td>appid,通常值为 100001-壹钱包，100002-临用钱，200000-SDK收银台，100004-农村版壹钱包，100005-分乐宝， 100003-健康卡，200001-社交网络，100019-CMA300000-集团统一SDK收银台， 400000-插件收银台</td>
+	<td>可选</td>
+	<td></td>
+    <td></td>
+	</tr>
+    <tr>
+	<td><span>inApp</span></td>
+	<td>boolean</td>
+	<td>是否在壹钱包app内部</td>
+	<td>可选</td>
+	<td></td>
+    <td></td>
+	</tr>
+    <tr>
+	<td><span>agreementType</span></td>
+	<td>java.lang.String</td>
+	<td>协议类型</td>
+	<td>必须</td>
+	<td><br>00：购买前<br>01：购买后<br>02：全部（购买前和购买后）<br>03：到期前（针对结构化产品的收益计算规则）</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+	</tbody>
+	</table>
+	
+	<h4>响应</h4>
+	<table id="resTable" class="inputtable wh">
+	<thead>
+	<tr>
+	<th style="background-color: #225588; width: 22%">名称</th>
+	<th style="background-color: #225588; width: 22%">类型</th>
+	<th style="background-color: #225588">含义</th>
+	<th style="background-color: #225588">是否必须</th>
+	<th style="background-color: #225588">备注</th>
+    <th style="background-color: #225588">版本</th>
+	</tr>
+	</thead>
+	<tbody>
+    <tr>
+	<td><span style="font-weight:bolder">&lt;BaseResponse&gt;</span></td>
+	<td>com.pinganfu.mbiz.common.bean.BaseResponse</td>
+	<td></td>
+	<td></td>
+	<td></td>
+    <td></td>
+	</tr>
+    <tr>
+	<td><span>resultCode</span></td>
+	<td>java.lang.String</td>
+	<td>返回码 </td>
+	<td>可选</td>
+	<td></td>
+    <td></td>
+	</tr>
+    <tr>
+	<td><span>resultMsg</span></td>
+	<td>java.lang.String</td>
+	<td>返回结果</td>
+	<td>可选</td>
+	<td></td>
+    <td></td>
+	</tr>
+    <tr>
+	<td><span>tn</span></td>
+	<td>java.lang.String</td>
+	<td>追踪号</td>
+	<td>可选</td>
+	<td></td>
+    <td></td>
+	</tr>
+    <tr>
+	<td><span>data</span></td>
+	<td>FinProductInfoRes</td>
+	<td>返回数据</td>
+	<td>可选</td>
+	<td></td>
+    <td></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">profitMethod</span></td>
+	<td>java.lang.String</td>
+	<td>收益方式</td>
+	<td>可选</td>
+	<td>0：本息一次性发放，1：每年付息，2：每月等额本金，3：每月等额本息</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">expectProfitType</span></td>
+	<td>java.lang.String</td>
+	<td>预期收益类型 </td>
+	<td>可选</td>
+	<td>0.预期最高收益，1.预期最低收益，2.预期收益<br><span style="color:blue"><strong>废弃字段</strong></span></td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">riskLevel</span></td>
+	<td>java.lang.String</td>
+	<td>产品风险级别</td>
+	<td>可选</td>
+	<td>0：低<br>1：中低<br>2：中<br>3：中高<br>4：高</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">establishDate</span></td>
+	<td>java.lang.String</td>
+	<td>产品成立时间</td>
+	<td>可选</td>
+	<td>格式为：yyyyMMdd HHmmss</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">expirationDate</span></td>
+	<td>java.lang.String</td>
+	<td>产品结束时间</td>
+	<td>可选</td>
+	<td>格式为：yyyyMMdd HHmmss</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">agreements</span></td>
+	<td>List&lt;class com.pinganfu.mbiz.finance.mall.bean.AgreementInfoBean&gt;</td>
+	<td>电子协议ID</td>
+	<td>可选</td>
+	<td>可多个协议，用逗号分隔</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:14px;">name</span></td>
+	<td>java.lang.String</td>
+	<td>电子协议名称</td>
+	<td>可选</td>
+	<td>协议名称</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:14px;">path</span></td>
+	<td>java.lang.String</td>
+	<td>电子协议路径</td>
+	<td>可选</td>
+	<td>协议链接</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">valPerUnit</span></td>
+	<td>long</td>
+	<td>每份金额 </td>
+	<td>可选</td>
+	<td>单位为分，只有在投资单位为份数才有意义</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">investIncrease</span></td>
+	<td>long</td>
+	<td>递增金额</td>
+	<td>可选</td>
+	<td>如果是金额则单位为分,否则为份数</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">limitPerOrder</span></td>
+	<td>long</td>
+	<td>每单限额 </td>
+	<td>可选</td>
+	<td>如果是金额则单位为分</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">remainAmount</span></td>
+	<td>long</td>
+	<td>剩余额度</td>
+	<td>可选</td>
+	<td>单位为分<br><span style="color:blue"><strong>-1代表无穷大</strong></span></td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">raiseProgress</span></td>
+	<td>java.lang.String</td>
+	<td>募集进度</td>
+	<td>可选</td>
+	<td>募集百分比带有%</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">redeemFrom</span></td>
+	<td>long</td>
+	<td>起赎金额</td>
+	<td>可选</td>
+	<td>单位为分</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">redeemLimit</span></td>
+	<td>long</td>
+	<td>赎回上限金额</td>
+	<td>可选</td>
+	<td>单位为分</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">dataDate</span></td>
+	<td>java.lang.String</td>
+	<td>数据日期</td>
+	<td>可选</td>
+	<td>货基产品返回，yyyyMMdd HHmmss</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">daysPerYear</span></td>
+	<td>int</td>
+	<td>产品年天数</td>
+	<td>可选</td>
+	<td>产品年天数</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">speedupRate</span></td>
+	<td>long</td>
+	<td>下次加速收益率</td>
+	<td>可选</td>
+	<td>单位万分之一</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">maxSpeedupRate</span></td>
+	<td>long</td>
+	<td>最大加速收益率</td>
+	<td>可选</td>
+	<td>单位万分之一</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">speedupFlag</span></td>
+	<td>int</td>
+	<td>是否参加加速活动标志</td>
+	<td>可选</td>
+	<td>0：不能参加 <br>1：能参加</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">addedSpeedupRate</span></td>
+	<td>long</td>
+	<td>已加速收益率</td>
+	<td>可选</td>
+	<td>单位万分之一</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">limitProduct</span></td>
+	<td>int</td>
+	<td>是否为限购产品</td>
+	<td>可选</td>
+	<td>0:否，1：是</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">canUserBuy</span></td>
+	<td>int</td>
+	<td>当前用户能否购买</td>
+	<td>可选</td>
+	<td>0:否，1：是</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">riskLevelDesc</span></td>
+	<td>java.lang.String</td>
+	<td>风险级别描述</td>
+	<td>可选</td>
+	<td>20150521新增</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">attachmentPaths</span></td>
+	<td>java.lang.String</td>
+	<td>附件路径</td>
+	<td>可选</td>
+	<td>包含产品规则、组合说明和风险提示等相关附件路径<br>仅结构化理财产品会有返回值，其他产品仍使用对应的四个字段</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">assetConfig</span></td>
+	<td>java.lang.String</td>
+	<td>资产配置</td>
+	<td>可选</td>
+	<td>资产配置</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">commonQuestion</span></td>
+	<td>java.lang.String</td>
+	<td>常见问题</td>
+	<td>可选</td>
+	<td>常见问题</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">prdRule</span></td>
+	<td>java.lang.String</td>
+	<td>产品规则</td>
+	<td>可选</td>
+	<td>产品规则</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">riskPrompt</span></td>
+	<td>java.lang.String</td>
+	<td>产品风险提示</td>
+	<td>可选</td>
+	<td>产品风险提示</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">canPurchFlag</span></td>
+	<td>int</td>
+	<td>产品是否可购买</td>
+	<td>可选</td>
+	<td>20150625新增,0:不可以，1：可以</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">canRedeemFlag</span></td>
+	<td>int</td>
+	<td>产品是否可赎回</td>
+	<td>可选</td>
+	<td>20150625新增,0:不可以，1：可以</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">maxSpeedupAmt</span></td>
+	<td>long</td>
+	<td>最高可加速金额</td>
+	<td>可选</td>
+	<td>单位为分, 20150820新增</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">subscribePrdFlag</span></td>
+	<td>int</td>
+	<td>是否预约产品</td>
+	<td>可选</td>
+	<td>20150917新增,0 : 正常产品，1:预约产品</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">confirmDays</span></td>
+	<td>java.lang.Long</td>
+	<td>购买预计确认所需天数</td>
+	<td>可选</td>
+	<td>含义如例中的XX。“购买后预计XX天内确认购买结果”</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">applyDate</span></td>
+	<td>java.lang.String</td>
+	<td>开始认购时间</td>
+	<td>可选</td>
+	<td><span style="color:blue"><strong>富盈七号产品</strong></span><br>格式 yyyyMMddHHmmss</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">valueDate</span></td>
+	<td>java.lang.String</td>
+	<td>开始计息时间</td>
+	<td>可选</td>
+	<td><span style="color:blue"><strong>富盈七号产品</strong></span><br>格式 yyyyMMddHHmmss</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">avlRedeemDate</span></td>
+	<td>java.lang.String</td>
+	<td>可赎回日期/到期日期</td>
+	<td>可选</td>
+	<td><span style="color:blue"><strong>富盈七号产品</strong></span><br>格式 yyyyMMddHHmmss</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">lastModifyRedeemDate</span></td>
+	<td>java.lang.String</td>
+	<td>最后可修改到期赎回方式时间</td>
+	<td>可选</td>
+	<td><span style="color:blue"><strong>富盈七号产品</strong></span><br>格式 yyyyMMddHHmmss</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">totalAmount</span></td>
+	<td>long</td>
+	<td>产品总额</td>
+	<td>可选</td>
+	<td>单位为分<br><span style="color:blue"><strong>-1代表无穷大</strong></span></td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">orderableAmount</span></td>
+	<td>long</td>
+	<td>可购买金额</td>
+	<td>可选</td>
+	<td>单位为分</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">millionGains</span></td>
+	<td>long</td>
+	<td>基金万份收益</td>
+	<td>可选</td>
+	<td>单位<span style="color:red"><strong>百万</strong></span>分之一</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">timeLimit</span></td>
+	<td>long</td>
+	<td>产品投资期限(久期)</td>
+	<td>可选</td>
+	<td>单位为天数</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">raisingStartTime</span></td>
+	<td>java.lang.String</td>
+	<td>募集开始时间</td>
+	<td>可选</td>
+	<td>格式为：yyyyMMdd HHmmss<br><span style="color:blue"><strong>字段命名有更新!</strong></span></td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">raisingEndTime</span></td>
+	<td>java.lang.String</td>
+	<td>募集结束时间</td>
+	<td>可选</td>
+	<td>格式为：yyyyMMdd HHmmss<br><span style="color:blue"><strong>字段命名有更新!</strong></span></td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">approachSeconds</span></td>
+	<td>java.lang.Integer</td>
+	<td>距离募集开始时间</td>
+	<td>可选</td>
+	<td>单位为秒数<br><span style="color:red">前端计算，MZONE不再提供计算<span></span></span></td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">remainSeconds</span></td>
+	<td>java.lang.Integer</td>
+	<td>距离募集结束时间</td>
+	<td>可选</td>
+	<td>单位为秒数<br><span style="color:red">前端计算，MZONE不再提供计算<span></span></span></td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">remainPercent</span></td>
+	<td>int</td>
+	<td>剩余百分比</td>
+	<td>可选</td>
+	<td>当前产品剩余可投金额百分比, 仅返回数字</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">yieldRateType</span></td>
+	<td>java.lang.String</td>
+	<td>收益率类型</td>
+	<td>可选</td>
+	<td>预期年化收益率<br>历史年化收益率<br>年化收益率<br>七日年化收益率<br>预期最高年化收益率</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">profitRateFlag</span></td>
+	<td>java.lang.String</td>
+	<td>收益率标识</td>
+	<td>可选</td>
+	<td>0：单收益率(默认)，1：区间收益率(结构化产品)</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">profitRateDesc</span></td>
+	<td>java.lang.String</td>
+	<td>区间收益率描述</td>
+	<td>可选</td>
+	<td><span style="color:blue"><strong>结构化产品</strong></span><br>用于描述区间收益率，例如：3.00-9.50% <br><span style="color:blue"><strong>原native兼容使用字段， H5可根据区间收益率最大（小）值自行拼接</strong></span></td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">profitMaxRate</span></td>
+	<td>long</td>
+	<td>区间收益率最大值</td>
+	<td>可选</td>
+	<td><span style="color:blue"><strong>结构化产品</strong></span><br>区间收益率的最大值，单位万分之一</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">profitMinRate</span></td>
+	<td>long</td>
+	<td>区间收益率最小值</td>
+	<td>可选</td>
+	<td><span style="color:blue"><strong>结构化产品</strong></span><br>区间收益率的最小值，单位万分之一</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">minHoldPeriod</span></td>
+	<td>int</td>
+	<td>产品锁定期</td>
+	<td>可选</td>
+	<td><span style="color:blue"><strong>富盈七号</strong></span><br>为基本锁定期</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">productId</span></td>
+	<td>java.lang.String</td>
+	<td>产品编号</td>
+	<td>可选</td>
+	<td>产品id</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">productName</span></td>
+	<td>java.lang.String</td>
+	<td>产品显示名称</td>
+	<td>可选</td>
+	<td>产品名称</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">productCode</span></td>
+	<td>java.lang.String</td>
+	<td>产品代码</td>
+	<td>可选</td>
+	<td>产品码<br><span style="color:blue"><strong>注意字段名</strong></span></td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">merchantCustId</span></td>
+	<td>java.lang.String</td>
+	<td>商户会员号</td>
+	<td>可选</td>
+	<td> 商户会员号</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">introduction</span></td>
+	<td>java.lang.String</td>
+	<td>产品介绍</td>
+	<td>可选</td>
+	<td>产品说明</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">proIntroduction</span></td>
+	<td>java.lang.String</td>
+	<td>产品说明</td>
+	<td>可选</td>
+	<td>图文详情的产品说明</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">providerName</span></td>
+	<td>java.lang.String</td>
+	<td>供应商名称</td>
+	<td>可选</td>
+	<td>产品提供商名称</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">providerPhoneNo</span></td>
+	<td>java.lang.String</td>
+	<td>供应商客服电话</td>
+	<td>可选</td>
+	<td>产品提供商客服电话</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">yieldType</span></td>
+	<td>java.lang.String</td>
+	<td>产品收益类型</td>
+	<td>可选</td>
+	<td>保本浮动收益<br>非保本浮动收益<br>固定收益</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">proClassifyCode</span></td>
+	<td>java.lang.String</td>
+	<td>产品类别码</td>
+	<td>可选</td>
+	<td>通过该编码解析出该产品的四级分类</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">investFrom</span></td>
+	<td>long</td>
+	<td>起投金额</td>
+	<td>可选</td>
+	<td>理财产品最小投资金额<br>单位为分</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">investFromUnit</span></td>
+	<td>long</td>
+	<td>灵活期限类产品起投份数 </td>
+	<td>可选</td>
+	<td>平安金1克为1份，单位为万分之一克</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">yieldRate</span></td>
+	<td>long</td>
+	<td>产品收益率/最新净值</td>
+	<td>可选</td>
+	<td>显示收益率，单位万分之一</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">netValue</span></td>
+	<td>long</td>
+	<td>股票等部分基金产品的基金净值 </td>
+	<td>可选</td>
+	<td>单位为分</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">investUnit</span></td>
+	<td>short</td>
+	<td>投资单位</td>
+	<td>可选</td>
+	<td>投资单位:0表示金额; 1表示份数</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">productStatus</span></td>
+	<td>java.lang.String</td>
+	<td>产品状态</td>
+	<td>可选</td>
+	<td>产品状态:<br>00：新增<br>01：募集开始<br>02：募集结束<br>03：产品成立<br>04：产品到期<br>05：产品售完<br>06：募集成功<br>07：募集失败<br>08：产品不成立</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">currentTime</span></td>
+	<td>java.lang.String</td>
+	<td>系统当前时间</td>
+	<td>可选</td>
+	<td>格式为yyyyMMdd HHmmss</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-weight:bolder">&lt;/BaseResponse&gt;</span></td>
+	<td>com.pinganfu.mbiz.common.bean.BaseResponse</td>
+	<td></td>
+	<td></td>
+	<td></td>
+    <td></td>
+	</tr>
+	</tbody>
+	</table>
+	
+	
+	<div style="border-top:2px solid red; width:100%;">
+	<h2>平安金详情</h2>
+	<h3>描述</h3>
+	<p>获取平安金产品详细信息</p>
+	<h3>起始加入版本号</h3>
+	<p><span style="background-color:#ffff00;">20171116</span></p>
+	<h3>协议作者</h3>
+	<p>Wenhao Wei</p>
+    <h3>对应功能方法名</h3>
+    <p>getPingAnGoldInfo</p>
+	<div style="clear:both"></div>
+	<h3>协议</h3>
+	<h4>URI</h4>
+	<p><span class="label label-method-POST">POST</span>/finance/get_ping_an_gold_info</p>
+	<h4>请求</h4>
+	<table id="reqTable" class="inputtable wh">
+	<thead>
+	<tr>
+	<th style="width: 22%">名称</th>
+	<th style="width: 22%">类型</th>
+	<th>含义</th>
+	<th>是否必须</th>
+	<th>备注</th>
+    <th>版本</th>
+	</tr>
+	</thead>
+	<tbody>
+    <tr>
+	<td><span>agreementType</span></td>
+	<td>java.lang.String</td>
+	<td>协议类型</td>
+	<td>必须</td>
+	<td><br>00：购买前<br>01：购买后<br>02：全部（购买前和购买后）<br>03：到期前（针对结构化产品的收益计算规则）</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span>productId</span></td>
+	<td>java.lang.String</td>
+	<td>产品编号</td>
+	<td>必须</td>
+	<td>产品ID</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span>deviceId</span></td>
+	<td>java.lang.String</td>
+	<td>设备id</td>
+	<td>可选</td>
+	<td>修改和删除设备信息时该字段必须传递</td>
+    <td></td>
+	</tr>
+    <tr>
+	<td><span>deviceInfo</span></td>
+	<td>java.lang.String</td>
+	<td>设备信息</td>
+	<td>可选</td>
+	<td></td>
+    <td></td>
+	</tr>
+    <tr>
+	<td><span>appId</span></td>
+	<td>java.lang.String</td>
+	<td>appid,通常值为 100001-壹钱包，100002-临用钱，200000-SDK收银台，100004-农村版壹钱包，100005-分乐宝， 100003-健康卡，200001-社交网络，100019-CMA300000-集团统一SDK收银台， 400000-插件收银台</td>
+	<td>可选</td>
+	<td></td>
+    <td></td>
+	</tr>
+    <tr>
+	<td><span>inApp</span></td>
+	<td>boolean</td>
+	<td>是否在壹钱包app内部</td>
+	<td>可选</td>
+	<td></td>
+    <td></td>
+	</tr>
+	</tbody>
+	</table>
+	
+	<h4>响应</h4>
+	<table id="resTable" class="inputtable wh">
+	<thead>
+	<tr>
+	<th style="background-color: #225588; width: 22%">名称</th>
+	<th style="background-color: #225588; width: 22%">类型</th>
+	<th style="background-color: #225588">含义</th>
+	<th style="background-color: #225588">是否必须</th>
+	<th style="background-color: #225588">备注</th>
+    <th style="background-color: #225588">版本</th>
+	</tr>
+	</thead>
+	<tbody>
+    <tr>
+	<td><span style="font-weight:bolder">&lt;BaseResponse&gt;</span></td>
+	<td>com.pinganfu.mbiz.common.bean.BaseResponse</td>
+	<td></td>
+	<td></td>
+	<td></td>
+    <td></td>
+	</tr>
+    <tr>
+	<td><span>resultCode</span></td>
+	<td>java.lang.String</td>
+	<td>返回码 </td>
+	<td>可选</td>
+	<td></td>
+    <td></td>
+	</tr>
+    <tr>
+	<td><span>resultMsg</span></td>
+	<td>java.lang.String</td>
+	<td>返回结果</td>
+	<td>可选</td>
+	<td></td>
+    <td></td>
+	</tr>
+    <tr>
+	<td><span>tn</span></td>
+	<td>java.lang.String</td>
+	<td>追踪号</td>
+	<td>可选</td>
+	<td></td>
+    <td></td>
+	</tr>
+    <tr>
+	<td><span>data</span></td>
+	<td>PingAnGoldInfoRes</td>
+	<td>返回数据</td>
+	<td>可选</td>
+	<td></td>
+    <td></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">investAmount</span></td>
+	<td>long</td>
+	<td>投资金额</td>
+	<td>可选</td>
+	<td>单位为分</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">profitTotalUnits</span></td>
+	<td>long</td>
+	<td>累计分红克数</td>
+	<td>可选</td>
+	<td>平安金1克为1份，单位为百万分之一克</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">investUnits</span></td>
+	<td>long</td>
+	<td>投资黄金份额</td>
+	<td>可选</td>
+	<td>平安金1克为1份，单位为百万分之一克</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">riskLevel</span></td>
+	<td>java.lang.String</td>
+	<td>产品风险级别</td>
+	<td>可选</td>
+	<td>0：低<br>1：中低<br>2：中<br>3：中高<br>4：高</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">agreements</span></td>
+	<td>List&lt;class com.pinganfu.mbiz.finance.mall.bean.AgreementInfoBean&gt;</td>
+	<td>电子协议ID</td>
+	<td>可选</td>
+	<td>可多个协议，用逗号分隔</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:14px;">name</span></td>
+	<td>java.lang.String</td>
+	<td>电子协议名称</td>
+	<td>可选</td>
+	<td>协议名称</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:14px;">path</span></td>
+	<td>java.lang.String</td>
+	<td>电子协议路径</td>
+	<td>可选</td>
+	<td>协议链接</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">investIncrease</span></td>
+	<td>long</td>
+	<td>申购递增金额</td>
+	<td>可选</td>
+	<td>单位为分</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">redeemFrom</span></td>
+	<td>long</td>
+	<td>起赎金额</td>
+	<td>可选</td>
+	<td>单位为分</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">redeemLimit</span></td>
+	<td>long</td>
+	<td>赎回上限金额</td>
+	<td>可选</td>
+	<td>单位为分</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">arriveDateDesc</span></td>
+	<td>java.lang.String</td>
+	<td>到帐时间描述</td>
+	<td>可选</td>
+	<td>到账时间描述</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">riskLevelDesc</span></td>
+	<td>java.lang.String</td>
+	<td>风险级别描述</td>
+	<td>可选</td>
+	<td>风险级别描述</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">attachmentPaths</span></td>
+	<td>java.lang.String</td>
+	<td>附件路径</td>
+	<td>可选</td>
+	<td>包含产品规则、组合说明和风险提示等相关附件路径<br>仅结构化理财产品会有返回值，其他产品仍使用对应的四个字段</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">assetConfig</span></td>
+	<td>java.lang.String</td>
+	<td>资产配置</td>
+	<td>可选</td>
+	<td>资产配置</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">commonQuestion</span></td>
+	<td>java.lang.String</td>
+	<td>常见问题</td>
+	<td>可选</td>
+	<td>常见问题</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">prdRule</span></td>
+	<td>java.lang.String</td>
+	<td>产品规则</td>
+	<td>可选</td>
+	<td>产品规则</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">riskPrompt</span></td>
+	<td>java.lang.String</td>
+	<td>产品风险提示</td>
+	<td>可选</td>
+	<td>产品风险提示</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">canPurchFlag</span></td>
+	<td>int</td>
+	<td>产品是否可购买</td>
+	<td>可选</td>
+	<td>0:不可以，1：可以</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">canRedeemFlag</span></td>
+	<td>int</td>
+	<td>产品是否可赎回</td>
+	<td>可选</td>
+	<td>0:不可以，1：可以</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">investIncreaseUnit</span></td>
+	<td>long</td>
+	<td>申购递增份数</td>
+	<td>可选</td>
+	<td>平安金1克为1份，单位为百万分之一克</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">limitPerOrderUnit</span></td>
+	<td>long</td>
+	<td>每单总限额(份数)</td>
+	<td>可选</td>
+	<td>平安金1克为1份，单位为百万分之一克</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">redeemFromUnit</span></td>
+	<td>long</td>
+	<td>最低赎回份额</td>
+	<td>可选</td>
+	<td>平安金1克为1份，单位为百万分之一克</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">redeemLimitUnit</span></td>
+	<td>long</td>
+	<td>最高赎回份额</td>
+	<td>可选</td>
+	<td>平安金1克为1份，单位为百万分之一克</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">redeemIncreaseUnit</span></td>
+	<td>long</td>
+	<td>赎回递增份额</td>
+	<td>可选</td>
+	<td>平安金1克为1份，单位为百万分之一克</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">redeemIncrease</span></td>
+	<td>long</td>
+	<td>赎回递增金额</td>
+	<td>可选</td>
+	<td>单位为分</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">valPerUnit</span></td>
+	<td>long</td>
+	<td>每份金额 </td>
+	<td>可选</td>
+	<td>单位为分</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">buyPrice</span></td>
+	<td>long</td>
+	<td>买入价格</td>
+	<td>可选</td>
+	<td>单位为分</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">sellPrice</span></td>
+	<td>long</td>
+	<td>卖出价格</td>
+	<td>可选</td>
+	<td>单位为分</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">availibleUnits</span></td>
+	<td>long</td>
+	<td>可用份额</td>
+	<td>可选</td>
+	<td>平安金1克为1份，单位为百万分之一克</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">productId</span></td>
+	<td>java.lang.String</td>
+	<td>产品编号</td>
+	<td>可选</td>
+	<td>产品id</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">productName</span></td>
+	<td>java.lang.String</td>
+	<td>产品显示名称</td>
+	<td>可选</td>
+	<td>产品名称</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">productCode</span></td>
+	<td>java.lang.String</td>
+	<td>产品代码</td>
+	<td>可选</td>
+	<td>产品码<br><span style="color:blue"><strong>注意字段名</strong></span></td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">merchantCustId</span></td>
+	<td>java.lang.String</td>
+	<td>商户会员号</td>
+	<td>可选</td>
+	<td> 商户会员号</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">introduction</span></td>
+	<td>java.lang.String</td>
+	<td>产品介绍</td>
+	<td>可选</td>
+	<td>产品说明</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">proIntroduction</span></td>
+	<td>java.lang.String</td>
+	<td>产品说明</td>
+	<td>可选</td>
+	<td>图文详情的产品说明</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">providerName</span></td>
+	<td>java.lang.String</td>
+	<td>供应商名称</td>
+	<td>可选</td>
+	<td>产品提供商名称</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">providerPhoneNo</span></td>
+	<td>java.lang.String</td>
+	<td>供应商客服电话</td>
+	<td>可选</td>
+	<td>产品提供商客服电话</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">yieldType</span></td>
+	<td>java.lang.String</td>
+	<td>产品收益类型</td>
+	<td>可选</td>
+	<td>保本浮动收益<br>非保本浮动收益<br>固定收益</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">proClassifyCode</span></td>
+	<td>java.lang.String</td>
+	<td>产品类别码</td>
+	<td>可选</td>
+	<td>通过该编码解析出该产品的四级分类</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">investFrom</span></td>
+	<td>long</td>
+	<td>起投金额</td>
+	<td>可选</td>
+	<td>理财产品最小投资金额<br>单位为分</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">investFromUnit</span></td>
+	<td>long</td>
+	<td>灵活期限类产品起投份数 </td>
+	<td>可选</td>
+	<td>平安金1克为1份，单位为万分之一克</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">yieldRate</span></td>
+	<td>long</td>
+	<td>产品收益率/最新净值</td>
+	<td>可选</td>
+	<td>显示收益率，单位万分之一</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">netValue</span></td>
+	<td>long</td>
+	<td>股票等部分基金产品的基金净值 </td>
+	<td>可选</td>
+	<td>单位为分</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">investUnit</span></td>
+	<td>short</td>
+	<td>投资单位</td>
+	<td>可选</td>
+	<td>投资单位:0表示金额; 1表示份数</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">productStatus</span></td>
+	<td>java.lang.String</td>
+	<td>产品状态</td>
+	<td>可选</td>
+	<td>产品状态:<br>00：新增<br>01：募集开始<br>02：募集结束<br>03：产品成立<br>04：产品到期<br>05：产品售完<br>06：募集成功<br>07：募集失败<br>08：产品不成立</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">currentTime</span></td>
+	<td>java.lang.String</td>
+	<td>系统当前时间</td>
+	<td>可选</td>
+	<td>格式为yyyyMMdd HHmmss</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-weight:bolder">&lt;/BaseResponse&gt;</span></td>
+	<td>com.pinganfu.mbiz.common.bean.BaseResponse</td>
+	<td></td>
+	<td></td>
+	<td></td>
+    <td></td>
+	</tr>
+	</tbody>
+	</table>
+	
+	
+	<div style="border-top:2px solid red; width:100%;">
+	<h2>理财货架图标</h2>
+	<h3>描述</h3>
+	<p>获取理财频道产品货架图标</p>
+	<h3>起始加入版本号</h3>
+	<p><span style="background-color:#ffff00;">20171116</span></p>
+	<h3>协议作者</h3>
+	<p>Wenhao Wei</p>
+    <h3>对应功能方法名</h3>
+    <p>getFinShelfIcon</p>
+	<div style="clear:both"></div>
+	<h3>协议</h3>
+	<h4>URI</h4>
+	<p><span class="label label-method-POST">POST</span>/finance/get_shelf_icon</p>
+	<h4>请求</h4>
+	<table id="reqTable" class="inputtable wh">
+	<thead>
+	<tr>
+	<th style="width: 22%">名称</th>
+	<th style="width: 22%">类型</th>
+	<th>含义</th>
+	<th>是否必须</th>
+	<th>备注</th>
+    <th>版本</th>
+	</tr>
+	</thead>
+	<tbody>
+    <tr>
+	<td><span>deviceId</span></td>
+	<td>java.lang.String</td>
+	<td>设备id</td>
+	<td>可选</td>
+	<td>修改和删除设备信息时该字段必须传递</td>
+    <td></td>
+	</tr>
+    <tr>
+	<td><span>deviceInfo</span></td>
+	<td>java.lang.String</td>
+	<td>设备信息</td>
+	<td>可选</td>
+	<td></td>
+    <td></td>
+	</tr>
+    <tr>
+	<td><span>appId</span></td>
+	<td>java.lang.String</td>
+	<td>appid,通常值为 100001-壹钱包，100002-临用钱，200000-SDK收银台，100004-农村版壹钱包，100005-分乐宝， 100003-健康卡，200001-社交网络，100019-CMA300000-集团统一SDK收银台， 400000-插件收银台</td>
+	<td>可选</td>
+	<td></td>
+    <td></td>
+	</tr>
+    <tr>
+	<td><span>inApp</span></td>
+	<td>boolean</td>
+	<td>是否在壹钱包app内部</td>
+	<td>可选</td>
+	<td></td>
+    <td></td>
+	</tr>
+	</tbody>
+	</table>
+	
+	<h4>响应</h4>
+	<table id="resTable" class="inputtable wh">
+	<thead>
+	<tr>
+	<th style="background-color: #225588; width: 22%">名称</th>
+	<th style="background-color: #225588; width: 22%">类型</th>
+	<th style="background-color: #225588">含义</th>
+	<th style="background-color: #225588">是否必须</th>
+	<th style="background-color: #225588">备注</th>
+    <th style="background-color: #225588">版本</th>
+	</tr>
+	</thead>
+	<tbody>
+    <tr>
+	<td><span style="font-weight:bolder">&lt;BaseResponse&gt;</span></td>
+	<td>com.pinganfu.mbiz.common.bean.BaseResponse</td>
+	<td></td>
+	<td></td>
+	<td></td>
+    <td></td>
+	</tr>
+    <tr>
+	<td><span>resultCode</span></td>
+	<td>java.lang.String</td>
+	<td>返回码 </td>
+	<td>可选</td>
+	<td></td>
+    <td></td>
+	</tr>
+    <tr>
+	<td><span>resultMsg</span></td>
+	<td>java.lang.String</td>
+	<td>返回结果</td>
+	<td>可选</td>
+	<td></td>
+    <td></td>
+	</tr>
+    <tr>
+	<td><span>tn</span></td>
+	<td>java.lang.String</td>
+	<td>追踪号</td>
+	<td>可选</td>
+	<td></td>
+    <td></td>
+	</tr>
+    <tr>
+	<td><span>data</span></td>
+	<td>FinShelfIconRes</td>
+	<td>返回数据</td>
+	<td>可选</td>
+	<td></td>
+    <td></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">iconList</span></td>
+	<td>List&lt;class com.pinganfu.mbiz.finance.mall.bean.fbs.FinShelfIconRes$FinanceScreenBean&gt;</td>
+	<td>推荐图标列表</td>
+	<td>可选</td>
+	<td>理财频道首页理财导航图标</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:14px;">financeScreenId</span></td>
+	<td>java.lang.String</td>
+	<td>图标id</td>
+	<td>可选</td>
+	<td>图标id</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:14px;">name</span></td>
+	<td>java.lang.String</td>
+	<td>图标名称</td>
+	<td>可选</td>
+	<td>图标名称</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:14px;">desc</span></td>
+	<td>java.lang.String</td>
+	<td>图标描述</td>
+	<td>可选</td>
+	<td>图标描述</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:14px;">status</span></td>
+	<td>java.lang.String</td>
+	<td>图标状态</td>
+	<td>可选</td>
+	<td>图标状态</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:14px;">sort</span></td>
+	<td>long</td>
+	<td>图标排序优先级</td>
+	<td>可选</td>
+	<td>数据越大优先级越高</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:14px;">imageInfo</span></td>
+	<td>CmsImageInfoBean</td>
+	<td>图片信息</td>
+	<td>可选</td>
+	<td>图片信息</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:21px;">imgSrc</span></td>
+	<td>java.lang.String</td>
+	<td>图片源</td>
+	<td>可选</td>
+	<td>图片访问地址</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:21px;">imgWidth</span></td>
+	<td>java.lang.String</td>
+	<td>图片宽度</td>
+	<td>可选</td>
+	<td>单位:像素</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:21px;">imgHeight</span></td>
+	<td>java.lang.String</td>
+	<td>图片高度</td>
+	<td>可选</td>
+	<td>单位:像素</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:21px;">imgkind</span></td>
+	<td>java.lang.String</td>
+	<td>图片类型</td>
+	<td>可选</td>
+	<td>图片类型</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:14px;">forward</span></td>
+	<td>MtpForward</td>
+	<td>跳转链接信息</td>
+	<td>可选</td>
+	<td>详情请查看CMS对应接口文档</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:21px;">id</span></td>
+	<td>java.lang.String</td>
+	<td>id</td>
+	<td>可选</td>
+	<td>id</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:21px;">name</span></td>
+	<td>java.lang.String</td>
+	<td>跳转名称</td>
+	<td>可选</td>
+	<td>跳转名称</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:21px;">type</span></td>
+	<td>java.lang.String</td>
+	<td>跳转类型</td>
+	<td>可选</td>
+	<td>跳转类型</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:21px;">url</span></td>
+	<td>java.lang.String</td>
+	<td>跳转url</td>
+	<td>可选</td>
+	<td>跳转url</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:21px;">param</span></td>
+	<td>java.lang.String</td>
+	<td>跳转参数</td>
+	<td>可选</td>
+	<td>跳转参数</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:21px;">h5Url</span></td>
+	<td>java.lang.String</td>
+	<td>H5跳转url</td>
+	<td>可选</td>
+	<td>H5跳转url</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-weight:bolder">&lt;/BaseResponse&gt;</span></td>
+	<td>com.pinganfu.mbiz.common.bean.BaseResponse</td>
+	<td></td>
+	<td></td>
+	<td></td>
+    <td></td>
+	</tr>
+	</tbody>
+	</table>
+	
+	
+	<div style="border-top:2px solid red; width:100%;">
+	<h2>理财产品列表</h2>
+	<h3>描述</h3>
+	<p>获取理财产品列表</p>
+	<h3>起始加入版本号</h3>
+	<p><span style="background-color:#ffff00;">20171116</span></p>
+	<h3>协议作者</h3>
+	<p>Wenhao Wei</p>
+    <h3>对应功能方法名</h3>
+    <p>getFinProductList</p>
+	<div style="clear:both"></div>
+	<h3>协议</h3>
+	<h4>URI</h4>
+	<p><span class="label label-method-POST">POST</span>/finance/get_product_list</p>
+	<h4>请求</h4>
+	<table id="reqTable" class="inputtable wh">
+	<thead>
+	<tr>
+	<th style="width: 22%">名称</th>
+	<th style="width: 22%">类型</th>
+	<th>含义</th>
+	<th>是否必须</th>
+	<th>备注</th>
+    <th>版本</th>
+	</tr>
+	</thead>
+	<tbody>
+    <tr>
+	<td><span>deviceId</span></td>
+	<td>java.lang.String</td>
+	<td>设备id</td>
+	<td>可选</td>
+	<td>修改和删除设备信息时该字段必须传递</td>
+    <td></td>
+	</tr>
+    <tr>
+	<td><span>deviceInfo</span></td>
+	<td>java.lang.String</td>
+	<td>设备信息</td>
+	<td>可选</td>
+	<td></td>
+    <td></td>
+	</tr>
+    <tr>
+	<td><span>appId</span></td>
+	<td>java.lang.String</td>
+	<td>appid,通常值为 100001-壹钱包，100002-临用钱，200000-SDK收银台，100004-农村版壹钱包，100005-分乐宝， 100003-健康卡，200001-社交网络，100019-CMA300000-集团统一SDK收银台， 400000-插件收银台</td>
+	<td>可选</td>
+	<td></td>
+    <td></td>
+	</tr>
+    <tr>
+	<td><span>inApp</span></td>
+	<td>boolean</td>
+	<td>是否在壹钱包app内部</td>
+	<td>可选</td>
+	<td></td>
+    <td></td>
+	</tr>
+    <tr>
+	<td><span>pageNum</span></td>
+	<td>int</td>
+	<td>页号</td>
+	<td>必须</td>
+	<td>从1开始记页。</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span>pageSize</span></td>
+	<td>int</td>
+	<td>分页条数</td>
+	<td>必须</td>
+	<td>必须大于0小于等于200。</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span>shelfId</span></td>
+	<td>long</td>
+	<td>货架号</td>
+	<td>必须</td>
+	<td>理财货架id</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span>durationType</span></td>
+	<td>java.lang.String</td>
+	<td>久期类型</td>
+	<td>可选</td>
+	<td>用于筛选产品<br>01:[1,90]<br>02:[91,180]<br>03:[181,∞]</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span>proType</span></td>
+	<td>java.lang.String</td>
+	<td>产品系列类型</td>
+	<td>可选</td>
+	<td>用于筛选产品<br>01:新手<br>02:任性<br>03:享盈<br>04:财富盈<br>05:新锐<br>06:结构化产品<br>07:富盈+</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+	</tbody>
+	</table>
+	
+	<h4>响应</h4>
+	<table id="resTable" class="inputtable wh">
+	<thead>
+	<tr>
+	<th style="background-color: #225588; width: 22%">名称</th>
+	<th style="background-color: #225588; width: 22%">类型</th>
+	<th style="background-color: #225588">含义</th>
+	<th style="background-color: #225588">是否必须</th>
+	<th style="background-color: #225588">备注</th>
+    <th style="background-color: #225588">版本</th>
+	</tr>
+	</thead>
+	<tbody>
+    <tr>
+	<td><span style="font-weight:bolder">&lt;BaseResponse&gt;</span></td>
+	<td>com.pinganfu.mbiz.common.bean.BaseResponse</td>
+	<td></td>
+	<td></td>
+	<td></td>
+    <td></td>
+	</tr>
+    <tr>
+	<td><span>resultCode</span></td>
+	<td>java.lang.String</td>
+	<td>返回码 </td>
+	<td>可选</td>
+	<td></td>
+    <td></td>
+	</tr>
+    <tr>
+	<td><span>resultMsg</span></td>
+	<td>java.lang.String</td>
+	<td>返回结果</td>
+	<td>可选</td>
+	<td></td>
+    <td></td>
+	</tr>
+    <tr>
+	<td><span>tn</span></td>
+	<td>java.lang.String</td>
+	<td>追踪号</td>
+	<td>可选</td>
+	<td></td>
+    <td></td>
+	</tr>
+    <tr>
+	<td><span>data</span></td>
+	<td>FinProductListRes</td>
+	<td>返回数据</td>
+	<td>可选</td>
+	<td></td>
+    <td></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">pageNum</span></td>
+	<td>int</td>
+	<td>页号</td>
+	<td>可选</td>
+	<td>当前页号</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">nextPageFlag</span></td>
+	<td>java.lang.Boolean</td>
+	<td>是否有下一页</td>
+	<td>可选</td>
+	<td>true: 有下一页<br>false: 没有下一页</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">shelfName</span></td>
+	<td>java.lang.String</td>
+	<td>货架名称</td>
+	<td>可选</td>
+	<td>货架名称，仅查询产品列表会返回，推荐列表无值</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:7px;">productList</span></td>
+	<td>List&lt;class com.pinganfu.mbiz.finance.mall.bean.FinProOverviewInfo&gt;</td>
+	<td>理财产品列表</td>
+	<td>可选</td>
+	<td>理财产品列表</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:14px;">productDetailH5Url</span></td>
+	<td>java.lang.String</td>
+	<td>产品详情H5地址</td>
+	<td>可选</td>
+	<td>理财频道页跳转产品详情使用，仅包含链接前缀，产品ID和产品类别码由H5拼接。该字段仅供H5使用</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:5px;">totalAmount</span></td>
+	<td>long</td>
+	<td>产品总额</td>
+	<td>可选</td>
+	<td>单位为分<br><span style="color:blue"><strong>-1代表无穷大</strong></span></td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:5px;">orderableAmount</span></td>
+	<td>long</td>
+	<td>可购买金额</td>
+	<td>可选</td>
+	<td>单位为分</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:5px;">millionGains</span></td>
+	<td>long</td>
+	<td>基金万份收益</td>
+	<td>可选</td>
+	<td>单位<span style="color:red"><strong>百万</strong></span>分之一</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:5px;">timeLimit</span></td>
+	<td>long</td>
+	<td>产品投资期限(久期)</td>
+	<td>可选</td>
+	<td>单位为天数</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:5px;">raisingStartTime</span></td>
+	<td>java.lang.String</td>
+	<td>募集开始时间</td>
+	<td>可选</td>
+	<td>格式为：yyyyMMdd HHmmss<br><span style="color:blue"><strong>字段命名有更新!</strong></span></td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:5px;">raisingEndTime</span></td>
+	<td>java.lang.String</td>
+	<td>募集结束时间</td>
+	<td>可选</td>
+	<td>格式为：yyyyMMdd HHmmss<br><span style="color:blue"><strong>字段命名有更新!</strong></span></td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:5px;">approachSeconds</span></td>
+	<td>java.lang.Integer</td>
+	<td>距离募集开始时间</td>
+	<td>可选</td>
+	<td>单位为秒数<br><span style="color:red">前端计算，MZONE不再提供计算<span></span></span></td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:5px;">remainSeconds</span></td>
+	<td>java.lang.Integer</td>
+	<td>距离募集结束时间</td>
+	<td>可选</td>
+	<td>单位为秒数<br><span style="color:red">前端计算，MZONE不再提供计算<span></span></span></td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:5px;">remainPercent</span></td>
+	<td>int</td>
+	<td>剩余百分比</td>
+	<td>可选</td>
+	<td>当前产品剩余可投金额百分比, 仅返回数字</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:5px;">yieldRateType</span></td>
+	<td>java.lang.String</td>
+	<td>收益率类型</td>
+	<td>可选</td>
+	<td>预期年化收益率<br>历史年化收益率<br>年化收益率<br>七日年化收益率<br>预期最高年化收益率</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:5px;">profitRateFlag</span></td>
+	<td>java.lang.String</td>
+	<td>收益率标识</td>
+	<td>可选</td>
+	<td>0：单收益率(默认)，1：区间收益率(结构化产品)</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:5px;">profitRateDesc</span></td>
+	<td>java.lang.String</td>
+	<td>区间收益率描述</td>
+	<td>可选</td>
+	<td><span style="color:blue"><strong>结构化产品</strong></span><br>用于描述区间收益率，例如：3.00-9.50% <br><span style="color:blue"><strong>原native兼容使用字段， H5可根据区间收益率最大（小）值自行拼接</strong></span></td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:5px;">profitMaxRate</span></td>
+	<td>long</td>
+	<td>区间收益率最大值</td>
+	<td>可选</td>
+	<td><span style="color:blue"><strong>结构化产品</strong></span><br>区间收益率的最大值，单位万分之一</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:5px;">profitMinRate</span></td>
+	<td>long</td>
+	<td>区间收益率最小值</td>
+	<td>可选</td>
+	<td><span style="color:blue"><strong>结构化产品</strong></span><br>区间收益率的最小值，单位万分之一</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:5px;">minHoldPeriod</span></td>
+	<td>int</td>
+	<td>产品锁定期</td>
+	<td>可选</td>
+	<td><span style="color:blue"><strong>富盈七号</strong></span><br>为基本锁定期</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:5px;">productId</span></td>
+	<td>java.lang.String</td>
+	<td>产品编号</td>
+	<td>可选</td>
+	<td>产品id</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:5px;">productName</span></td>
+	<td>java.lang.String</td>
+	<td>产品显示名称</td>
+	<td>可选</td>
+	<td>产品名称</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:5px;">productCode</span></td>
+	<td>java.lang.String</td>
+	<td>产品代码</td>
+	<td>可选</td>
+	<td>产品码<br><span style="color:blue"><strong>注意字段名</strong></span></td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:5px;">merchantCustId</span></td>
+	<td>java.lang.String</td>
+	<td>商户会员号</td>
+	<td>可选</td>
+	<td> 商户会员号</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:5px;">introduction</span></td>
+	<td>java.lang.String</td>
+	<td>产品介绍</td>
+	<td>可选</td>
+	<td>产品说明</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:5px;">proIntroduction</span></td>
+	<td>java.lang.String</td>
+	<td>产品说明</td>
+	<td>可选</td>
+	<td>图文详情的产品说明</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:5px;">providerName</span></td>
+	<td>java.lang.String</td>
+	<td>供应商名称</td>
+	<td>可选</td>
+	<td>产品提供商名称</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:5px;">providerPhoneNo</span></td>
+	<td>java.lang.String</td>
+	<td>供应商客服电话</td>
+	<td>可选</td>
+	<td>产品提供商客服电话</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:5px;">yieldType</span></td>
+	<td>java.lang.String</td>
+	<td>产品收益类型</td>
+	<td>可选</td>
+	<td>保本浮动收益<br>非保本浮动收益<br>固定收益</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:5px;">proClassifyCode</span></td>
+	<td>java.lang.String</td>
+	<td>产品类别码</td>
+	<td>可选</td>
+	<td>通过该编码解析出该产品的四级分类</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:5px;">investFrom</span></td>
+	<td>long</td>
+	<td>起投金额</td>
+	<td>可选</td>
+	<td>理财产品最小投资金额<br>单位为分</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:5px;">investFromUnit</span></td>
+	<td>long</td>
+	<td>灵活期限类产品起投份数 </td>
+	<td>可选</td>
+	<td>平安金1克为1份，单位为万分之一克</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:5px;">yieldRate</span></td>
+	<td>long</td>
+	<td>产品收益率/最新净值</td>
+	<td>可选</td>
+	<td>显示收益率，单位万分之一</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:5px;">netValue</span></td>
+	<td>long</td>
+	<td>股票等部分基金产品的基金净值 </td>
+	<td>可选</td>
+	<td>单位为分</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:5px;">investUnit</span></td>
+	<td>short</td>
+	<td>投资单位</td>
+	<td>可选</td>
+	<td>投资单位:0表示金额; 1表示份数</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:5px;">productStatus</span></td>
+	<td>java.lang.String</td>
+	<td>产品状态</td>
+	<td>可选</td>
+	<td>产品状态:<br>00：新增<br>01：募集开始<br>02：募集结束<br>03：产品成立<br>04：产品到期<br>05：产品售完<br>06：募集成功<br>07：募集失败<br>08：产品不成立</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-style: italic; padding-left:5px;">currentTime</span></td>
+	<td>java.lang.String</td>
+	<td>系统当前时间</td>
+	<td>可选</td>
+	<td>格式为yyyyMMdd HHmmss</td>
+    <td><span style="background-color:#ffff00; font-weight:bolder;">20171116</span></td>
+	</tr>
+    <tr>
+	<td><span style="font-weight:bolder">&lt;/BaseResponse&gt;</span></td>
+	<td>com.pinganfu.mbiz.common.bean.BaseResponse</td>
+	<td></td>
+	<td></td>
+	<td></td>
+    <td></td>
+	</tr>
+	</tbody>
+	</table>
+	
+
+</div></div></div></div></body></html>
