@@ -99,7 +99,7 @@
 <meta property="og:site_name" content="孙志勇">
 <meta property="og:description" content="动画css3 中实现动画一般使用 transition 以及 animation transitiontransition可以实现动态效果，实际上是一定时间之内，一组css属性变换到另一组属性的动画展示过程。 为了使transition生效，需要:  两个样式：一个是最初的样式，一个是最终的样式，transition可以实现这两种演示见的转换过程。 transition属性:  transitio">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-29T01:47:19.427Z">
+<meta property="og:updated_time" content="2018-06-29T03:12:13.347Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="动画">
 <meta name="twitter:description" content="动画css3 中实现动画一般使用 transition 以及 animation transitiontransition可以实现动态效果，实际上是一定时间之内，一组css属性变换到另一组属性的动画展示过程。 为了使transition生效，需要:  两个样式：一个是最初的样式，一个是最终的样式，transition可以实现这两种演示见的转换过程。 transition属性:  transitio">
@@ -347,7 +347,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-29T09:47:19+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-29T11:12:13+08:00">
                 2018-06-29
               </time>
             
@@ -441,10 +441,11 @@
 <li><p>动画是否延迟执行（transition-delay）</p>
 </li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">.navButton&#123;</span><br><span class="line">   color:black;</span><br><span class="line">  background-color:#fff;</span><br><span class="line">  transition:color,background-color;</span><br><span class="line">  transition-delay:<span class="number">1</span>s, <span class="number">.5</span>s;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.navButton:hover&#123;</span><br><span class="line">   color:red;</span><br><span class="line">   background-color:#ccc;  </span><br><span class="line">&#125;</span><br><span class="line"><span class="string">``</span><span class="string">`   </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">## animation</span></span><br><span class="line"><span class="string">transition只能从一组css属性变成另一组css属性。animation则可以在多组属性之间变换。    </span></span><br><span class="line"><span class="string">transition必须使用触发器触发，animation可以使用触发器，也可以在页面加载完成的时候自动触发。    </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">###  创建动画有两个步骤：</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">- 定义动画：主要指定义关键帧</span></span><br><span class="line"><span class="string">`</span><span class="string">``</span>css</span><br><span class="line">@keyframes fadeOut &#123;</span><br><span class="line">    <span class="keyword">from</span> &#123;</span><br><span class="line">        opacity: <span class="number">1</span>;</span><br><span class="line">        transform: translateY(<span class="number">0</span>px);</span><br><span class="line">    &#125;</span><br><span class="line">    to &#123;</span><br><span class="line">        opacity: <span class="number">0</span>;</span><br><span class="line">        transform: translateY(<span class="number">-80</span>px);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>将动画应用到元素上</p>
-</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.navButton</span>&#123;</span><br><span class="line">   <span class="attribute">color</span>:black;</span><br><span class="line">  <span class="attribute">background-color</span>:<span class="number">#fff</span>;</span><br><span class="line">  <span class="attribute">transition</span>:color,background-color;</span><br><span class="line">  <span class="attribute">transition-delay</span>:<span class="number">1s</span>, .<span class="number">5s</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.navButton</span><span class="selector-pseudo">:hover</span>&#123;</span><br><span class="line">   <span class="attribute">color</span>:red;</span><br><span class="line">   <span class="attribute">background-color</span>:<span class="number">#ccc</span>;  </span><br><span class="line">&#125;</span><br><span class="line">```   </span><br><span class="line"></span><br><span class="line">## <span class="selector-tag">animation</span></span><br><span class="line"><span class="selector-tag">transition</span>只能从一组<span class="selector-tag">css</span>属性变成另一组<span class="selector-tag">css</span>属性。<span class="selector-tag">animation</span>则可以在多组属性之间变换。    </span><br><span class="line"><span class="selector-tag">transition</span>必须使用触发器触发，<span class="selector-tag">animation</span>可以使用触发器，也可以在页面加载完成的时候自动触发。    </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">###  创建动画有两个步骤：</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">-</span> 定义动画：主要指定义关键帧</span><br><span class="line">```<span class="selector-tag">css</span></span><br><span class="line">@<span class="keyword">keyframes</span> fadeOut &#123;</span><br><span class="line">    <span class="selector-tag">from</span> &#123;</span><br><span class="line">        <span class="attribute">opacity</span>: <span class="number">1</span>;</span><br><span class="line">        <span class="attribute">transform</span>: <span class="built_in">translateY</span>(0px);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-tag">to</span> &#123;</span><br><span class="line">        <span class="attribute">opacity</span>: <span class="number">0</span>;</span><br><span class="line">        <span class="attribute">transform</span>: <span class="built_in">translateY</span>(-80px);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>将动画应用到元素上</li>
 </ul>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.class-name</span>&#123;</span><br><span class="line">    <span class="attribute">animation-name</span>:fadeOut;</span><br><span class="line">    <span class="attribute">animation-duration</span>:<span class="number">2s</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ol>
@@ -503,8 +504,8 @@
   <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
     <p><span>本文标题:</span><a href="/2018/06/29/css/动画/">动画</a></p>
     <p><span>文章作者:</span><a href="/" title="访问 孙志勇 的个人博客">孙志勇</a></p>
-    <p><span>发布时间:</span>2018年06月29日 - 09:06</p>
-    <p><span>最后更新:</span>2018年06月29日 - 09:06</p>
+    <p><span>发布时间:</span>2018年06月29日 - 11:06</p>
+    <p><span>最后更新:</span>2018年06月29日 - 11:06</p>
     <p><span>原始链接:</span><a href="/2018/06/29/css/动画/" title="动画">http://www.sunzhiyong.cn/2018/06/29/css/动画/</a>
       <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://www.sunzhiyong.cn/2018/06/29/css/动画/"  aria-label="复制成功！"></i></span>
     </p>
@@ -541,8 +542,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/21/typescript/typescript/" rel="next" title="typescript">
-                <i class="fa fa-chevron-left"></i> typescript
+              <a href="/2018/06/29/css/特殊有用的选择器/" rel="next" title="选择器">
+                <i class="fa fa-chevron-left"></i> 选择器
               </a>
             
           </div>
@@ -550,10 +551,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/06/29/css/特殊有用的选择器/" rel="prev" title="选择器">
-                选择器 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
