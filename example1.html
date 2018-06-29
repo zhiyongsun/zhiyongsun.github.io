@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<pre style="font-size: 25px">
+
+  var eat = {
+    eatApple: function() {
+      console.log('I can eat apple')
+    },
+    eatRice: function() {
+      console.log('I can eat rice')
+    }
+  }
+
+  function Cat(name, color) {
+    this.name = name;
+    this.color = color;
+  }
+
+  Cat.prototype.type = "猫科动物";
+  Cat.prototype.eat = eat;
+
+  var cat1 = new Cat("大毛", "黄色");
+  var cat2 = new Cat("二毛", "黑色");
+
+  console.log('cat1.eat === cat2.eat', cat1.eat === cat2.eat); //true
+  console.log('cat1.constructor === cat2.constructor', cat1.constructor === cat2.constructor);
+  console.log('cat1.constructor === Cat', cat1.constructor === Cat);
+</pre>
+<body>
+<script>
+
+  var eat = {
+    eatApple: function() {
+      console.log('I can eat apple')
+    },
+    eatRice: function() {
+      console.log('I can eat rice')
+    }
+  }
+
+  function Cat(name, color) {
+    this.name = name;
+    this.color = color;
+  }
+
+  Cat.prototype.type = "猫科动物";
+  Cat.prototype.eat = eat;
+
+  var cat1 = new Cat("大毛", "黄色");
+  var cat2 = new Cat("二毛", "黑色");
+
+  console.log('cat1.eat === cat2.eat', cat1.eat === cat2.eat); //true
+  console.log('cat1.constructor === cat2.constructor', cat1.constructor === cat2.constructor);
+  console.log('cat1.constructor === Cat', cat1.constructor === Cat);
+
+
+</script>
+</body>
+</html>

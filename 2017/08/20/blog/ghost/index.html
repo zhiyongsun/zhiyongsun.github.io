@@ -1,0 +1,1359 @@
+<!DOCTYPE html>
+
+
+
+
+<html class="theme-next gemini" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="blog," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="1 任何信息都有时效性,本文写于2016.3.20凌晨2 不建议参考本文,请直接参考官方英文文档. http://ghost.org 笔者在搭建服务器之前,刚刚接触前端开发半年,对于服务器搭建,nodejs,linux命令等完全是小白,完全靠google 百度,以及自己摸索. 一 服务器购买及域名购买及解析1 服务器,直接阿里云服务器,笔者买了入门1M 1G 1核的Centos6.5 ECS服务器">
+<meta name="keywords" content="blog">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在阿里云 ECS Centos6.5上搭建Ghost博客系统,以及nodejs版本控制工具安装">
+<meta property="og:url" content="http://www.sunzhiyong.cn/2017/08/20/blog/ghost/index.html">
+<meta property="og:site_name" content="孙志勇">
+<meta property="og:description" content="1 任何信息都有时效性,本文写于2016.3.20凌晨2 不建议参考本文,请直接参考官方英文文档. http://ghost.org 笔者在搭建服务器之前,刚刚接触前端开发半年,对于服务器搭建,nodejs,linux命令等完全是小白,完全靠google 百度,以及自己摸索. 一 服务器购买及域名购买及解析1 服务器,直接阿里云服务器,笔者买了入门1M 1G 1核的Centos6.5 ECS服务器">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-06-21T10:17:08.378Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="在阿里云 ECS Centos6.5上搭建Ghost博客系统,以及nodejs版本控制工具安装">
+<meta name="twitter:description" content="1 任何信息都有时效性,本文写于2016.3.20凌晨2 不建议参考本文,请直接参考官方英文文档. http://ghost.org 笔者在搭建服务器之前,刚刚接触前端开发半年,对于服务器搭建,nodejs,linux命令等完全是小白,完全靠google 百度,以及自己摸索. 一 服务器购买及域名购买及解析1 服务器,直接阿里云服务器,笔者买了入门1M 1G 1核的Centos6.5 ECS服务器">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: false,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.sunzhiyong.cn/2017/08/20/blog/ghost/"/>
+
+
+
+
+
+  <title>在阿里云 ECS Centos6.5上搭建Ghost博客系统,以及nodejs版本控制工具安装 | 孙志勇</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f43efa5c672ce94918b62e44b182ddc1";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">孙志勇</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">不念过往,不畏将来</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.sunzhiyong.cn/2017/08/20/blog/ghost/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="孙志勇">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="孙志勇">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">在阿里云 ECS Centos6.5上搭建Ghost博客系统,以及nodejs版本控制工具安装</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-20T22:00:00+08:00">
+                2017-08-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/blog/" itemprop="url" rel="index">
+                    <span itemprop="name">blog</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/08/20/blog/ghost/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/08/20/blog/ghost/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o">本文总阅读量</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>1 任何信息都有时效性,本文写于2016.3.20凌晨<br>2 不建议参考本文,请直接参考官方英文文档. <a href="http://ghost.org" target="_blank" rel="noopener">http://ghost.org</a></p>
+<p>笔者在搭建服务器之前,刚刚接触前端开发半年,对于服务器搭建,nodejs,linux命令等完全是小白,完全靠google 百度,以及自己摸索.</p>
+<h5 id="一-服务器购买及域名购买及解析"><a href="#一-服务器购买及域名购买及解析" class="headerlink" title="一 服务器购买及域名购买及解析"></a>一 服务器购买及域名购买及解析</h5><p>1 服务器,直接阿里云服务器,笔者买了入门1M 1G 1核的Centos6.5 ECS服务器.服务器放在深圳(不要担心备案的是,只不过是有点麻烦),便宜.<br>2 域名购买及解析<br>域名购买,直接在万网上购买就可以,我的域名就是<a href="http://sunzhiyong.cn" target="_blank" rel="noopener">http://sunzhiyong.cn</a><br>29元第一年.域名购买了之后,就实名认证域名.<br>解析:打开阿里云管理控制台,进入云解析,然后将你购买的域名解析到你的服务器(因为,计算机里面都是通过ip地址来访问你的服务器的,要让你的服务器能通过域名来访问你的服务器,需要将域名跟ip对应起来).解析的时候,同时添加’www’及‘@’记录.都很傻瓜式的操作,按照提示就可以完成.</p>
+<p>#####二 服务器node环境的搭建<br>Ghost是基于Node.js构建的开源博客平台，所以我们首先搭建Node环境。<br>我们首先下载xsheel,然后根据提示连接到你的服务器.IP在阿里云管理控制台查看.<br>然后逐行执行以下命令:<br><code><br>wget <a href="http://nodejs.org/dist/v0.10.40/node-v0.10.40.tar.gz" target="_blank" rel="noopener">http://nodejs.org/dist/v0.10.40/node-v0.10.40.tar.gz</a><br>tar zxvf node-v0.10.40.tar.gz<br>cd node-v0.10.40<br>./configure<br>make &amp;&amp; make install<br></code><br>命令执行完毕之后，检测一下环境是否搭建成功,以及查看以下版本信息.<br>执行:<br><code><br>node -v<br></code><br>显示v0.10.40,就说明环境搭建成功.</p>
+<p>#####配置Nginx </p>
+<p>安装好了nginx后，我们需要设置一个代理服务器让我们的博客可以使用域名访问。 在/etc/nginx/conf.d目录下创建一个配置文件ghost.conf：<br>执行:<br><code><br>vi /etc/nginx/conf.d/ghost.conf<br></code><br>写入以下内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">server &#123;  </span><br><span class="line">    listen 80;</span><br><span class="line">    server_name example.com; #将 example.com 改为你的域名或ip。</span><br><span class="line"></span><br><span class="line">    location / &#123;</span><br><span class="line">        proxy_set_header   X-Real-IP $remote_addr;</span><br><span class="line">        proxy_set_header   Host      $http_host;</span><br><span class="line">        proxy_pass         http://127.0.0.1:2368;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>保存退出，重启nginx：</p>
+<p>执行<br><code><br>service nginx restart<br></code><br>没有错误就ok了.</p>
+<p>有的人会安装MySQL,对于小白来说,感觉没有必要,我们尽快搭建好博客系统.</p>
+<p>#####四 安装Ghost<br>这时候我们就需要安装ghost,我们用的是中文版本的.首先要下载,逐行执行:<br><code><br>mkdir var<br>cd var<br>mkdir www<br>cd www<br>wget <a href="http://dl.ghostchina.com/Ghost-0.7.4-zh-full.zip" target="_blank" rel="noopener">http://dl.ghostchina.com/Ghost-0.7.4-zh-full.zip</a><br>unzip Ghost-0.7.4-zh-full.zip -d ghost<br>cd ghost<br></code><br>接着修改默认配置,逐行执行:<br><code><br>cp config.example.js config.js<br>vi config.js<br></code><br>Ghost有产品模式、开发模式和测试模式等多种运行模式，这里我们需要在配置文件中找到production模式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"># 生产模式</span><br><span class="line">production: &#123;  </span><br><span class="line">    url: &apos;http://snowz.me&apos;, # 修改为你的域名或者IP，注意加上http://</span><br><span class="line">    mail: &#123;&#125;,</span><br><span class="line">    database: &#123;</span><br><span class="line">        client: &apos;mysql&apos;</span><br><span class="line">        connection: &#123;</span><br><span class="line">            host     : &apos;127.0.0.1&apos;,</span><br><span class="line">            user     : &apos;ghost&apos;, # 数据库连接的用户</span><br><span class="line">            password : &apos;123456&apos;, # 先前创建的密码</span><br><span class="line">            database : &apos;ghost&apos;, # 先前创建的数据库</span><br><span class="line">            charset  : &apos;utf8&apos;</span><br><span class="line">        &#125;,</span><br><span class="line">    server: &#123;</span><br><span class="line">            host: &apos;127.0.0.1&apos;,</span><br><span class="line">            port: &apos;2368&apos; # 若修改该端口记得在nginx中做相应改变</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<p>保存退出，接下来就到了见证奇迹的时刻啦，输入指令执行：<br><code><br>npm start –production<br></code><br>启动浏览器，输入之前配置的域名或者IP，我们就可以看到建立好的Ghost博客啦。 （Ctrl+C 中断掉开发者模式）</p>
+<p>#####五 让Ghost保持运行之nvm(node版本控制工具)安装<br>前面提到的启动 Ghost 使用 npm start –production 命令。这是一个在开发模式下启动和测试的不错的选择，但是通过这种命令行启动的方式有个缺点，即当你关闭终端窗口或者从 SSH 断开连接时，Ghost 就停止了。为了防止 Ghost 停止工作，我们得解决这个问题。</p>
+<p>接下来安装forever,执行：<br><code><br>npm install -g forever<br></code><br>你会发现提示说,你当前node版本是v0.10.40,而forever需要的版本则是,0.12以上的版本.这样的话,我们怎么办呢,一个方法就是格式化服务器,然后我们装一个高级的版本,但是这样的话,我们以上的努力就白费.另一个方法就是我升级一下nodejs版本. </p>
+<p>nodejs升级,这时候我们就需要node 版本管理工具,这里我们介绍nvm(Node Version Manager 我们参考git:<a href="https://github.com/creationix/nvm),各位读者,在安装的时候请务必参考此网址文档" target="_blank" rel="noopener">https://github.com/creationix/nvm),各位读者,在安装的时候请务必参考此网址文档</a>.</p>
+<p>首先我们Install script,我们来安装,在centos下直接执行代码:<br><code><br>wget -qO- <a href="https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh" target="_blank" rel="noopener">https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh</a> | bash<br></code><br>完成之后,我们执行:</p>
+<p><code>nvp</code></p>
+<p>如果发现找不到nvm命令,我们需要执行</p>
+<p><code>touch ~/.bash_profile</code></p>
+<p>(参考:Note: On OSX, if you get nvm: command not found after running the install script, your system may not have a [.bash_profile file] where the command is set up. Simple create one with touch ~/.bash_profile and run the install script again.)</p>
+<p>然后我们重启连接就可以.</p>
+<p>#####六 让Ghost保持运行之安装新版本node V4.2.4<br>安装好nvm之后,我们就利用nvm来管理我们的node版本.<br>以下是nvm的参考<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">Node Version Manager</span><br><span class="line"></span><br><span class="line">Note: &lt;version&gt; refers to any version-like string nvm understands. This includes:</span><br><span class="line">  - full or partial version numbers, starting with an optional &quot;v&quot; (0.10, v0.1.2, v1)</span><br><span class="line">  - default (built-in) aliases: node, stable, unstable, iojs, system</span><br><span class="line">  - custom aliases you define with `nvm alias foo`</span><br><span class="line"></span><br><span class="line">Usage:</span><br><span class="line">  nvm help                                  Show this message</span><br><span class="line">  nvm --version                             Print out the latest released version of nvm</span><br><span class="line">  nvm install [-s] &lt;version&gt;                Download and install a &lt;version&gt;, [-s] from source. Uses .nvmrc if available</span><br><span class="line">    --reinstall-packages-from=&lt;version&gt;     When installing, reinstall packages installed in &lt;node|iojs|node version number&gt;</span><br><span class="line">  nvm uninstall &lt;version&gt;                   Uninstall a version</span><br><span class="line">  nvm use [--silent] &lt;version&gt;              Modify PATH to use &lt;version&gt;. Uses .nvmrc if available</span><br><span class="line">  nvm exec [--silent] &lt;version&gt; [&lt;command&gt;] Run &lt;command&gt; on &lt;version&gt;. Uses .nvmrc if available</span><br><span class="line">  nvm run [--silent] &lt;version&gt; [&lt;args&gt;]     Run `node` on &lt;version&gt; with &lt;args&gt; as arguments. Uses .nvmrc if available</span><br><span class="line">  nvm current                               Display currently activated version</span><br><span class="line">  nvm ls                                    List installed versions</span><br><span class="line">  nvm ls &lt;version&gt;                          List versions matching a given description</span><br><span class="line">  nvm ls-remote                             List remote versions available for install</span><br><span class="line">  nvm version &lt;version&gt;                     Resolve the given description to a single local version</span><br><span class="line">  nvm version-remote &lt;version&gt;              Resolve the given description to a single remote version</span><br><span class="line">  nvm deactivate                            Undo effects of `nvm` on current shell</span><br><span class="line">  nvm alias [&lt;pattern&gt;]                     Show all aliases beginning with &lt;pattern&gt;</span><br><span class="line">  nvm alias &lt;name&gt; &lt;version&gt;                Set an alias named &lt;name&gt; pointing to &lt;version&gt;</span><br><span class="line">  nvm unalias &lt;name&gt;                        Deletes the alias named &lt;name&gt;</span><br><span class="line">  nvm reinstall-packages &lt;version&gt;          Reinstall global `npm` packages contained in &lt;version&gt; to current version</span><br><span class="line">  nvm unload                                Unload `nvm` from shell</span><br><span class="line">  nvm which [&lt;version&gt;]                     Display path to installed node version. Uses .nvmrc if available</span><br><span class="line"></span><br><span class="line">Example:</span><br><span class="line">  nvm install v0.10.32                  Install a specific version number</span><br><span class="line">  nvm use 0.10                          Use the latest available 0.10.x release</span><br><span class="line">  nvm run 0.10.32 app.js                Run app.js using node v0.10.32</span><br><span class="line">  nvm exec 0.10.32 node app.js          Run `node app.js` with the PATH pointing to node v0.10.32</span><br><span class="line">  nvm alias default 0.10.32             Set default node version on a shell</span><br><span class="line"></span><br><span class="line">Note:</span><br><span class="line">  to remove, delete, or uninstall nvm - just remove the `$NVM_DIR` folder (usually `~/.nvm`)</span><br></pre></td></tr></table></figure></p>
+<p>我们安装所支持的版本,v4.2.4<br><code><br>nvm install v4.2.4<br></code><br>如果默认node版本自动跟换为 4.2.4则不需要再更改,若没有更改则执行<br><code><br>nvm use 4.2.4<br></code><br>这时候我们的node版本就升级好了,以后在开发的过程中,如果需要其他版本,可以通过nvm来管理.</p>
+<p>#####六 让Ghost保持运行之安装forever<br><code><br>npm install -g forever<br></code><br>然后执行：<br><code><br>NODE_ENV=production forever start index.js<br></code><br>接下来看一下forever是否挂在了index.js：</p>
+<p>forever list<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">info:    Forever processes running</span><br><span class="line">data:        uid  command                                  script   forever pid   id logfile                 uptime        </span><br><span class="line">data:    [0] 4EL0 /root/.nvm/versions/node/v4.2.4/bin/node index.js 13249   13565    /root/.forever/4EL0.log 0:1:41:13.947</span><br></pre></td></tr></table></figure></p>
+<p>这个状态的话，你就可以开始你的Ghost之路了！</p>
+<p>结束进程命令：<br>forever index.js</p>
+<p>参考:</p>
+<p><a href="https://www.zhihu.com/question/22755373" target="_blank" rel="noopener">https://www.zhihu.com/question/22755373</a><br><a href="https://snowz.me/how-to-install-ghost/" target="_blank" rel="noopener">https://snowz.me/how-to-install-ghost/</a></p>
+<p>此文花费笔者不少心血编写,转载请注明出处,谢谢</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>如果你觉得此文章对你有帮助，并且想为我买杯咖啡，请扫一扫下面，谢谢</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechat-reward-image.png" alt="孙志勇 WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay-reward-image.png" alt="孙志勇 Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    <div>
+      
+      
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+    <p><span>本文标题:</span><a href="/2017/08/20/blog/ghost/">在阿里云 ECS Centos6.5上搭建Ghost博客系统,以及nodejs版本控制工具安装</a></p>
+    <p><span>文章作者:</span><a href="/" title="访问 孙志勇 的个人博客">孙志勇</a></p>
+    <p><span>发布时间:</span>2017年08月20日 - 22:08</p>
+    <p><span>最后更新:</span>2018年06月21日 - 18:06</p>
+    <p><span>原始链接:</span><a href="/2017/08/20/blog/ghost/" title="在阿里云 ECS Centos6.5上搭建Ghost博客系统,以及nodejs版本控制工具安装">http://www.sunzhiyong.cn/2017/08/20/blog/ghost/</a>
+      <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://www.sunzhiyong.cn/2017/08/20/blog/ghost/"  aria-label="复制成功！"></i></span>
+    </p>
+    <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>
+</div>
+<script>
+  var clipboard = new Clipboard('.fa-clipboard');
+  clipboard.on('success', $(function(){
+  $(".fa-clipboard").click(function(){
+    swal({
+      title: "",
+      text: '复制成功',
+      html: false,
+      timer: 500,
+      showConfirmButton: false
+    });
+  });
+}));
+</script>
+
+      
+    </div>
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/blog/" rel="tag"># blog</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/03/js/window/openNewWin/" rel="next" title="在新的窗口打开页面">
+                <i class="fa fa-chevron-left"></i> 在新的窗口打开页面
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/20/blog/hexo-blog/" rel="prev" title="阿里云服务器搭建hexo博客">
+                阿里云服务器搭建hexo博客 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微薄</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="孙志勇" />
+          <p class="site-author-name" itemprop="name">孙志勇</p>
+           
+              <p class="site-description motion-element" itemprop="description">不念过往,不畏将来</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">127</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">36</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">53</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/sun-zhi-yong-11/activities" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      知乎
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/ysbpysbp" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/p/1005051624860570/home?from=page_100505&mod=TAB#place" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                    
+                      微博
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="/email.html" target="_blank" title="邮箱">
+                  
+                    <i class="fa fa-fw fa-envelope"></i>
+                  
+                    
+                      邮箱
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://zhuanlan.zhihu.com/c_120510408`" target="_blank" title="专栏FFE">
+                  
+                    <i class="fa fa-fw fa-instagram"></i>
+                  
+                    
+                      专栏FFE
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.xiangcs.com/" title="相昌盛" target="_blank">相昌盛</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#一-服务器购买及域名购买及解析"><span class="nav-number">1.</span> <span class="nav-text">一 服务器购买及域名购买及解析</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">孙志勇</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Gemini
+  </a>
+</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user">本站访客数</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye">本站总访问量</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://sunzhiyong.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://www.sunzhiyong.cn/2017/08/20/blog/ghost/';
+          this.page.identifier = '2017/08/20/blog/ghost/';
+          this.page.title = '在阿里云 ECS Centos6.5上搭建Ghost博客系统,以及nodejs版本控制工具安装';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://sunzhiyong.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,444 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0042)http://172.20.249.6:8080/mzonedoc/menu.htm -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>无标题文档</title>
+<script type="text/javascript" src="http://192.168.1.158:8080/dochelper-web/js/jquery-1.9.1.min.js"></script>
+
+<style type="text/css">
+a,a:visited {color: #333;text-decoration: none;}
+a:hover {color: #f60;}
+ul,li {margin: 0; width:300px;padding: 0; list-style: none;}
+.TreeWrap {width: 300px;}
+.MenuBox .titBox a,.MenuBox .titBox a:visited{
+	margin-left: 10px; height: 24px; font-weight:bolder;
+	color: #003;
+	font-size: 13px;
+	display: block;
+}
+
+.MenuBox .preBox a,.MenuBox .preBox a:visited{
+    margin-left: 10px; height: 18px;
+    color: #003;
+    font-size: 13px;
+    display: block;
+}
+
+.MenuBox .txtBox ul li {padding-left: 18px; font-size:12px;line-height: 22px; width:250px;}
+
+.smartsearch {position: relative;border: 1px solid #BBB;background: #FFF;padding: 1px 25px;height: 22px;line-height: 18px;
+	margin: 3px 5px 3px 2px;border-radius: 2px;box-shadow: 0 1px 1px #E6E6E6 inset;
+}
+.smartsearch input.searchinput {background: #fff;height: 22px;width: 80%;_height: 22px;line-height: 22px;
+	font-size: 12px;padding: 0;margin: 0;border: 0;outline: none;
+}
+.ss_drop_wrap .menu_item,.ss_drop_wrap .menu_item_high {height: 30px !important;line-height: 30px !important; padding: 0 !important;}
+.ss_drop_wrap .menu_bd {padding: 0 !important;}
+.ss_icon {width: 18px;height: 18px;display: inline-block;float:right;
+    margin-top: 2px;background: url(http://192.168.1.158:8080/dochelper-web/pic/find.jpg) no-repeat;
+    -webkit-background-size:cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+}
+.ss_fronticon {left: 2px;top: 2px;}
+.ss_fronticon, .ss_endicon {position: absolute;}
+.ss_icon_arrowdown {background-position: -75px 0px;}
+.menu_bd{background:#fff;padding:4px
+		0;border:1px solid #a0a0a0;border-radius:3px;box-shadow:0 1px 3px
+		rgba(0,0,0,0.3);}.menu_item,.menu_item_high,.menu_item_nofun{padding:0
+		14px 0
+		16px;white-space:nowrap;text-overflow:ellipsis;cursor:pointer;
+}
+</style>
+<script language="javascript">
+	function change_view(obj_name) {
+		var aa = document.getElementById(obj_name);
+		if (aa.style.display == "" || aa.style.display=="block") {
+			aa.style.display = "none";
+		} else {
+			aa.style.display = "";
+		}
+	}
+	
+	var tid = null;
+	function smartSearch(){
+		if(tid != null) clearTimeout(tid); 
+		tid = setTimeout("doit()");
+	}
+
+	function doit(){
+        $("#searchResPanel").html("");
+        $("#searchResultTip").text("查找结果:[searching...]");
+        $("#searchResult").css("display","block");
+        var url = 'http://192.168.1.158:8080/dochelper-web/queryDocs?cat=mzone-lrb&key='+$("#subject").val();
+		$.ajax({
+				type:'get',
+				dataType: "json",
+ 				contentType:"application/x-www-form-urlencoded; charset=UTF-8",
+				url: encodeURI(url),
+				success: function(data){
+					var content = "";
+					for(var i=0;!!data && !!data.docs && i<data.docs.length && !!data.docs[i].docTitle;i++){
+					content += '<div class="txtBox"><ul><li> <a href="' + data.docs[i].docUrl + '" target="classFrame">' + data.docs[i].docTitle +'<li><ul></div></a>';
+                    }
+					$("#searchResPanel").html(content);
+                    $("#searchResPanel").css("display","block");
+					$("#searchResult").css("display","block");
+                    if( !!data && !!data.docs ){
+                        $("#searchResultTip").text("查找结果:["+ data.docs.length + "]")
+                    }else{
+                        $("#searchResultTip").text("查找结果:[]");
+                    }
+				},
+				error: function(e){
+                    $("#searchResult").css("display","block");
+                    $("#searchResultTip").text("查找结果:[异常]");
+				}
+			});
+	}
+	function smartSearchHide(){
+		$("#searchResult").css("display","none");
+	}
+
+</script>
+</head>
+
+<body>
+	<h1 style="font-family:&#39;黑体&#39;; font-weight: bolder; font-size: 22px;">MZONE-登陆注册bind接口文档</h1>
+	 <div id="smartSearch" class="smartsearch">
+        <input id="subject" class="searchinput" value="" name="subject" autocomplete="off" newattachfolder="0" fullsearch="1" focus="true">
+        <span id="subjectsearchLogo" class="ss_icon" onclick="smartSearch()">
+        </span>
+    </div>
+
+	<div class="TreeWrap">
+        <div class="MenuBox">
+            <div id="searchResult" class="titBox" style="display:none" onclick="change_view(&#39;searchResPanel&#39;)">
+            <a id="searchResultTip" style="color:red; font-weight:bolder">查找结果:[]</a>
+            </div>
+            <div id="searchResPanel" style="display:none"></div>
+        </div>
+
+		<div class="MenuBox" id="Menu_0">
+			<div class="titBox" onclick="change_view(&#39;txtBox_0&#39;)">
+
+				<a>登陆、注册、绑定</a>
+
+			</div>
+            <div id="txtBox_0" style="display:none">
+			<div class="txtBox">
+				<ul>
+					<li><a href="http://172.20.249.6:8080/mzonedoc/detail0/com.pinganfu.mzone.web.UserPassController.htm" target="classFrame">用户密码操作接口</a></li>
+				</ul>
+			</div>
+			<div class="txtBox">
+				<ul>
+					<li><a href="http://172.20.249.6:8080/mzonedoc/detail0/com.pinganfu.mzone.web.UserBindController.htm" target="classFrame">用户bind操作</a></li>
+				</ul>
+			</div>
+			<div class="txtBox">
+				<ul>
+					<li><a href="http://172.20.249.6:8080/mzonedoc/detail0/com.pinganfu.mzone.web.ValidationController.htm" target="classFrame">验证信息接口</a></li>
+				</ul>
+			</div>
+			<div class="txtBox">
+				<ul>
+					<li><a href="http://172.20.249.6:8080/mzonedoc/detail0/com.pinganfu.mzone.web.YztController.htm" target="classFrame">支持一帐通H5连登登陆</a></li>
+				</ul>
+			</div>
+			<div class="txtBox">
+				<ul>
+					<li><a href="http://172.20.249.6:8080/mzonedoc/detail0/com.pinganfu.mzone.web.UserController.htm" target="classFrame">用户操作</a></li>
+				</ul>
+			</div>
+			<div class="txtBox">
+				<ul>
+					<li><a href="http://172.20.249.6:8080/mzonedoc/detail0/com.pinganfu.mzone.web.CaptchaController.htm" target="classFrame">人机区分验证</a></li>
+				</ul>
+			</div>
+			<div class="txtBox">
+				<ul>
+					<li><a href="http://172.20.249.6:8080/mzonedoc/detail0/com.pinganfu.mzone.web.EncryptionController.htm" target="classFrame">加密机秘钥接口</a></li>
+				</ul>
+			</div>
+			<div class="txtBox">
+				<ul>
+					<li><a href="http://172.20.249.6:8080/mzonedoc/detail0/com.pinganfu.mzone.web.UserPhoneSettingController.htm" target="classFrame">用户补充手机号操作接口</a></li>
+				</ul>
+			</div>
+			<div class="txtBox">
+				<ul>
+					<li><a href="http://172.20.249.6:8080/mzonedoc/detail0/com.pinganfu.mzone.web.SmsController.htm" target="classFrame">短信操作</a></li>
+				</ul>
+			</div>
+            </div>
+		</div>
+		<div class="MenuBox" id="Menu_1">
+			<div class="titBox" onclick="change_view(&#39;txtBox_1&#39;)">
+
+				<a>我的功能<span style="color:red; font-weight:bolder">[HOT]</span></a>
+
+			</div>
+            <div id="txtBox_1" style="display:none">
+			<div class="txtBox">
+				<ul>
+					<li><a href="http://172.20.249.6:8080/mzonedoc/detail1/com.pinganfu.mzone.web.UserPhoneApplyController.htm" target="classFrame">手机号占用申诉</a></li>
+				</ul>
+			</div>
+			<div class="txtBox">
+				<ul>
+					<li><a href="http://172.20.249.6:8080/mzonedoc/detail1/com.pinganfu.mzone.web.AssetController.htm" target="classFrame">用户资产操作</a></li>
+				</ul>
+			</div>
+			<div class="txtBox">
+				<ul>
+					<li><a href="http://172.20.249.6:8080/mzonedoc/detail1/com.pinganfu.mzone.web.CouponController.htm" target="classFrame">卡券管理<span style="color:red; font-weight:bolder">[HOT]</span></a></li>
+				</ul>
+			</div>
+			<div class="txtBox">
+				<ul>
+					<li><a href="http://172.20.249.6:8080/mzonedoc/detail1/com.pinganfu.mzone.web.CaController.htm" target="classFrame">数字证书</a></li>
+				</ul>
+			</div>
+			<div class="txtBox">
+				<ul>
+					<li><a href="http://172.20.249.6:8080/mzonedoc/detail1/com.pinganfu.mzone.web.UploadFileController.htm" target="classFrame">通用上传文件</a></li>
+				</ul>
+			</div>
+			<div class="txtBox">
+				<ul>
+					<li><a href="http://172.20.249.6:8080/mzonedoc/detail1/com.pinganfu.mzone.web.UserAuthController.htm" target="classFrame">用户身份认证信息</a></li>
+				</ul>
+			</div>
+			<div class="txtBox">
+				<ul>
+					<li><a href="http://172.20.249.6:8080/mzonedoc/detail1/com.pinganfu.mzone.web.UserPhoneChangeController.htm" target="classFrame">修改手机号</a></li>
+				</ul>
+			</div>
+			<div class="txtBox">
+				<ul>
+					<li><a href="http://172.20.249.6:8080/mzonedoc/detail1/com.pinganfu.mzone.web.TradeQuotaController.htm" target="classFrame">交易方式和限额</a></li>
+				</ul>
+			</div>
+			<div class="txtBox">
+				<ul>
+					<li><a href="http://172.20.249.6:8080/mzonedoc/detail1/com.pinganfu.mzone.web.CardController.htm" target="classFrame">卡管理</a></li>
+				</ul>
+			</div>
+			<div class="txtBox">
+				<ul>
+					<li><a href="http://172.20.249.6:8080/mzonedoc/detail1/com.pinganfu.mzone.web.MultiFundController.htm" target="classFrame">活期资产</a></li>
+				</ul>
+			</div>
+			<div class="txtBox">
+				<ul>
+					<li><a href="http://172.20.249.6:8080/mzonedoc/detail1/com.pinganfu.mzone.web.SuggestionController.htm" target="classFrame">客服反馈接口</a></li>
+				</ul>
+			</div>
+			<div class="txtBox">
+				<ul>
+					<li><a href="http://172.20.249.6:8080/mzonedoc/detail1/com.pinganfu.mzone.web.DeviceManageController.htm" target="classFrame">设备信息管理</a></li>
+				</ul>
+			</div>
+			<div class="txtBox">
+				<ul>
+					<li><a href="http://172.20.249.6:8080/mzonedoc/detail1/com.pinganfu.mzone.web.BillController.htm" target="classFrame">账单相关操作</a></li>
+				</ul>
+			</div>
+			<div class="txtBox">
+				<ul>
+					<li><a href="http://172.20.249.6:8080/mzonedoc/detail1/com.pinganfu.mzone.web.PayLevelController.htm" target="classFrame">出款等级</a></li>
+				</ul>
+			</div>
+			<div class="txtBox">
+				<ul>
+					<li><a href="http://172.20.249.6:8080/mzonedoc/detail1/com.pinganfu.mzone.web.ShareUrlController.htm" target="classFrame">分享长、短链接</a></li>
+				</ul>
+			</div>
+			<div class="txtBox">
+				<ul>
+					<li><a href="http://172.20.249.6:8080/mzonedoc/detail1/com.pinganfu.mzone.web.TokenController.htm" target="classFrame">token相关</a></li>
+				</ul>
+			</div>
+			<div class="txtBox">
+				<ul>
+					<li><a href="http://172.20.249.6:8080/mzonedoc/detail1/com.pinganfu.mzone.web.MessageCenterController.htm" target="classFrame">消息中心接口</a></li>
+				</ul>
+			</div>
+			<div class="txtBox">
+				<ul>
+					<li><a href="http://172.20.249.6:8080/mzonedoc/detail1/com.pinganfu.mzone.web.AcctInfoController.htm" target="classFrame">账户信息/冻结/解冻</a></li>
+				</ul>
+			</div>
+            </div>
+		</div>
+		<div class="MenuBox" id="Menu_2">
+			<div class="titBox" onclick="change_view(&#39;txtBox_2&#39;)">
+
+				<a>活动</a>
+
+			</div>
+            <div id="txtBox_2" style="display: none;">
+			<div class="txtBox">
+				<ul>
+					<li><a href="http://172.20.249.6:8080/mzonedoc/detail2/com.pinganfu.mzone.web.ActivityDrawController.htm" target="classFrame">活动抽奖相关接口</a></li>
+				</ul>
+			</div>
+            </div>
+		</div>
+		<div class="MenuBox" id="Menu_3">
+			<div class="titBox" onclick="change_view(&#39;txtBox_3&#39;)">
+
+				<a>用户权益<span style="color:red; font-weight:bolder">[HOT]</span></a>
+
+			</div>
+            <div id="txtBox_3" style="display:none">
+			<div class="txtBox">
+				<ul>
+					<li><a href="http://172.20.249.6:8080/mzonedoc/detail3/com.pinganfu.mzone.web.InterestController.htm" target="classFrame">用户权益<span style="color:red; font-weight:bolder">[HOT]</span></a></li>
+				</ul>
+			</div>
+            </div>
+		</div>
+		<div class="MenuBox" id="Menu_4">
+			<div class="titBox" onclick="change_view(&#39;txtBox_4&#39;)">
+
+				<a>预付卡相关</a>
+
+			</div>
+            <div id="txtBox_4" style="display:none">
+			<div class="txtBox">
+				<ul>
+					<li><a href="http://172.20.249.6:8080/mzonedoc/detail4/com.pinganfu.mzone.web.PrepaidCardController.htm" target="classFrame">预付卡接口</a></li>
+				</ul>
+			</div>
+            </div>
+		</div>
+		<div class="MenuBox" id="Menu_5">
+			<div class="titBox" onclick="change_view(&#39;txtBox_5&#39;)">
+
+				<a>积分<span style="color:red; font-weight:bolder">[HOT]</span></a>
+
+			</div>
+            <div id="txtBox_5" style="display:none">
+			<div class="txtBox">
+				<ul>
+					<li><a href="http://172.20.249.6:8080/mzonedoc/detail5/com.pinganfu.mzone.web.PointActivateController.htm" target="classFrame">积分激活</a></li>
+				</ul>
+			</div>
+			<div class="txtBox">
+				<ul>
+					<li><a href="http://172.20.249.6:8080/mzonedoc/detail5/com.pinganfu.mzone.web.PointController.htm" target="classFrame">积分管理<span style="color:red; font-weight:bolder">[HOT]</span></a></li>
+				</ul>
+			</div>
+            </div>
+		</div>
+		<div class="MenuBox" id="Menu_6">
+			<div class="titBox" onclick="change_view(&#39;txtBox_6&#39;)">
+
+				<a>收银台相关<span style="color:red; font-weight:bolder">[HOT]</span></a>
+
+			</div>
+            <div id="txtBox_6" style="display:none">
+			<div class="txtBox">
+				<ul>
+					<li><a href="http://172.20.249.6:8080/mzonedoc/detail6/com.pinganfu.mzone.web.controller.BindCardController.htm" target="classFrame">绑卡（签约）相关<span style="color:red; font-weight:bolder">[HOT]</span></a></li>
+				</ul>
+			</div>
+			<div class="txtBox">
+				<ul>
+					<li><a href="http://172.20.249.6:8080/mzonedoc/detail6/com.pinganfu.mzone.web.controller.CardManageController.htm" target="classFrame">银行卡管理</a></li>
+				</ul>
+			</div>
+			<div class="txtBox">
+				<ul>
+					<li><a href="http://172.20.249.6:8080/mzonedoc/detail6/com.pinganfu.mzone.web.controller.StandardCashierController.htm" target="classFrame">支万账户收银台</a></li>
+				</ul>
+			</div>
+			<div class="txtBox">
+				<ul>
+					<li><a href="http://172.20.249.6:8080/mzonedoc/detail6/com.pinganfu.mzone.web.controller.CashierSmsController.htm" target="classFrame">收银台短息模块<span style="color:red; font-weight:bolder">[HOT]</span></a></li>
+				</ul>
+			</div>
+			<div class="txtBox">
+				<ul>
+					<li><a href="http://172.20.249.6:8080/mzonedoc/detail6/com.pinganfu.mzone.web.controller.HelperPayController.htm" target="classFrame">帮帮付</a></li>
+				</ul>
+			</div>
+			<div class="txtBox">
+				<ul>
+					<li><a href="http://172.20.249.6:8080/mzonedoc/detail6/com.pinganfu.mzone.web.controller.AggregateCashierController.htm" target="classFrame">聚合收银台</a></li>
+				</ul>
+			</div>
+            </div>
+		</div>
+		<div class="MenuBox" id="Menu_7">
+			<div class="titBox" onclick="change_view(&#39;txtBox_7&#39;)">
+
+				<a>外部商户对接</a>
+
+			</div>
+            <div id="txtBox_7" style="display:none">
+			<div class="txtBox">
+				<ul>
+					<li><a href="http://172.20.249.6:8080/mzonedoc/detail7/com.pinganfu.mzone.web.ShareUrlController.htm" target="classFrame">分享长、短链接</a></li>
+				</ul>
+			</div>
+			<div class="txtBox">
+				<ul>
+					<li><a href="http://172.20.249.6:8080/mzonedoc/detail7/com.pinganfu.mzone.web.CKBindController.htm" target="classFrame">彩酷绑定</a></li>
+				</ul>
+			</div>
+			<div class="txtBox">
+				<ul>
+					<li><a href="http://172.20.249.6:8080/mzonedoc/detail7/com.pinganfu.mzone.web.PointUnionExtController.htm" target="classFrame">积分激活拓展接口，返回登入态</a></li>
+				</ul>
+			</div>
+			<div class="txtBox">
+				<ul>
+					<li><a href="http://172.20.249.6:8080/mzonedoc/detail7/com.pinganfu.mzone.web.LotteryPaymentController.htm" target="classFrame">彩游协议代扣</a></li>
+				</ul>
+			</div>
+			<div class="txtBox">
+				<ul>
+					<li><a href="http://172.20.249.6:8080/mzonedoc/detail7/com.pinganfu.mzone.web.MerchantUserController.htm" target="classFrame">第三方用户操作</a></li>
+				</ul>
+			</div>
+			<div class="txtBox">
+				<ul>
+					<li><a href="http://172.20.249.6:8080/mzonedoc/detail7/com.pinganfu.mzone.web.PointUnionController.htm" target="classFrame">积分激活</a></li>
+				</ul>
+			</div>
+			<div class="txtBox">
+				<ul>
+					<li><a href="http://172.20.249.6:8080/mzonedoc/detail7/com.pinganfu.mzone.web.PointInterworkingController.htm" target="classFrame">积分互通</a></li>
+				</ul>
+			</div>
+            </div>
+		</div>
+		<div class="MenuBox" id="Menu_8">
+			<div class="titBox" onclick="change_view(&#39;txtBox_8&#39;)">
+
+				<a>金融理财<span style="color:red; font-weight:bolder">[HOT]</span></a>
+
+			</div>
+            <div id="txtBox_8" style="">
+			<div class="txtBox">
+				<ul>
+					<li><a href="http://172.20.249.6:8080/mzonedoc/detail8/com.pinganfu.mzone.web.controller.FinancialMallController.htm" target="classFrame">理财商城<span style="color:red; font-weight:bolder">[HOT]</span></a></li>
+				</ul>
+			</div>
+            </div>
+		</div>
+		<div class="MenuBox" id="Menu_9">
+                 <div class="preBox">
+                     <a href="http://172.20.249.6:8080/mzonedoc/preface.htm" title="引言" target="classFrame">引言</a>
+                 </div>
+		</div>
+		
+	</div>
+
+
+</body></html>
