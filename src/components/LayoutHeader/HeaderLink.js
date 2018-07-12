@@ -39,19 +39,19 @@ const style = {
   },
 
   [media.size('xsmall')]: {
-    paddingLeft: 8,
-    paddingRight: 8,
+    paddingLeft: 0,
+    paddingRight: 0,
   },
 
   [media.between('small', 'medium')]: {
-    paddingLeft: 10,
-    paddingRight: 10,
+    paddingLeft: 5,
+    paddingRight: 5,
   },
 
   [media.greaterThan('xlarge')]: {
-    paddingLeft: 20,
-    paddingRight: 20,
-    fontSize: 18,
+    paddingLeft: 10,
+    paddingRight: 10,
+    fontSize: 16,
 
     ':hover:not(:focus)': {
       color: colors.brand,

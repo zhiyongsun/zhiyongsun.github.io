@@ -115,27 +115,49 @@ const Header = ({location}: {location: Location}) => (
           }}>
           <HeaderLink
             isActive={location.pathname.includes('/docs/')}
-            title="Docs"
+            title="Javacript教程"S
             to="/docs/hello-world.html"
           />
           <HeaderLink
+            isActive={location.pathname.includes('/css/')}
+            title="Css教程"
+            to="/css/css.html"
+          />
+          <HeaderLink
+            isActive={location.pathname.includes('/html/')}
+            title="Html教程"
+            to="/html/html.html"
+          />
+          <HeaderLink
             isActive={location.pathname.includes('/tutorial/')}
-            title="Tutorial"
+            title="git"
             to="/tutorial/tutorial.html"
           />
           <HeaderLink
+            isActive={location.pathname.includes('/blog')}
+            title=" 博客"
+            to="/blog/"
+          />
+          <HeaderLink
             isActive={location.pathname.includes('/community/')}
-            title="Community"
+            title="美食"
             to="/community/support.html"
           />
           <HeaderLink
-            isActive={location.pathname.includes('/blog')}
-            title="Blog"
-            to="/blog/"
+            isActive={location.pathname.includes('/exercise/')}
+            title="健身"
+            to="/exercise/support.html"
           />
+          <HeaderLink
+            isActive={location.pathname.includes('/tools/')}
+            title="工具"
+            to="/tools/support.html"
+          />
+
+
         </nav>
 
-        <DocSearch />
+        <DocSearch/>
 
         <div
           css={{
@@ -147,23 +169,23 @@ const Header = ({location}: {location: Location}) => (
             },
           }}>
           {/*<a*/}
-            {/*css={{*/}
-              {/*padding: '5px 10px',*/}
-              {/*whiteSpace: 'nowrap',*/}
-              {/*...fonts.small,*/}
+          {/*css={{*/}
+          {/*padding: '5px 10px',*/}
+          {/*whiteSpace: 'nowrap',*/}
+          {/*...fonts.small,*/}
 
-              {/*':hover': {*/}
-                {/*color: colors.brand,*/}
-              {/*},*/}
+          {/*':hover': {*/}
+          {/*color: colors.brand,*/}
+          {/*},*/}
 
-              {/*':focus': {*/}
-                {/*outline: 0,*/}
-                {/*backgroundColor: colors.lighter,*/}
-                {/*borderRadius: 15,*/}
-              {/*},*/}
-            {/*}}*/}
-            {/*href="/versions">*/}
-            {/*v{version}*/}
+          {/*':focus': {*/}
+          {/*outline: 0,*/}
+          {/*backgroundColor: colors.lighter,*/}
+          {/*borderRadius: 15,*/}
+          {/*},*/}
+          {/*}}*/}
+          {/*href="/versions">*/}
+          {/*v{version}*/}
           {/*</a>*/}
           <a
             css={{
