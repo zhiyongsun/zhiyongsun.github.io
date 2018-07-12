@@ -62,7 +62,7 @@ const Header = ({location}: {location: Location}) => (
             },
           }}
           to="/">
-          <img src={logoSvg} alt="" height="20" />
+          {/*<img src={logoSvg} alt="" height="20" />*/}
           <span
             css={{
               color: 'inherit',
@@ -86,7 +86,7 @@ const Header = ({location}: {location: Location}) => (
                 border: 0,
               },
             }}>
-            React
+            孙志勇
           </span>
         </Link>
 
@@ -146,25 +146,25 @@ const Header = ({location}: {location: Location}) => (
               width: 'calc(100% / 6)',
             },
           }}>
-          <a
-            css={{
-              padding: '5px 10px',
-              whiteSpace: 'nowrap',
-              ...fonts.small,
+          {/*<a*/}
+            {/*css={{*/}
+              {/*padding: '5px 10px',*/}
+              {/*whiteSpace: 'nowrap',*/}
+              {/*...fonts.small,*/}
 
-              ':hover': {
-                color: colors.brand,
-              },
+              {/*':hover': {*/}
+                {/*color: colors.brand,*/}
+              {/*},*/}
 
-              ':focus': {
-                outline: 0,
-                backgroundColor: colors.lighter,
-                borderRadius: 15,
-              },
-            }}
-            href="/versions">
-            v{version}
-          </a>
+              {/*':focus': {*/}
+                {/*outline: 0,*/}
+                {/*backgroundColor: colors.lighter,*/}
+                {/*borderRadius: 15,*/}
+              {/*},*/}
+            {/*}}*/}
+            {/*href="/versions">*/}
+            {/*v{version}*/}
+          {/*</a>*/}
           <a
             css={{
               padding: '5px 10px',
@@ -182,7 +182,7 @@ const Header = ({location}: {location: Location}) => (
                 borderRadius: 15,
               },
             }}
-            href="https://github.com/facebook/react/"
+            href="https://github.com/ysbpysbp"
             target="_blank"
             rel="noopener">
             GitHub

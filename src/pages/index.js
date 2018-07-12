@@ -51,21 +51,21 @@ class Home extends Component {
   componentDidMount() {
     const {code, examples} = this.state;
 
-    examples.forEach(({id}) => {
-      renderExamplePlaceholder(id);
-    });
+    // examples.forEach(({id}) => {
+    //   renderExamplePlaceholder(id);
+    // });
 
-    function mountCodeExamples() {
-      examples.forEach(({id}) => {
-        mountCodeExample(id, code[id]);
-      });
-    }
+    // function mountCodeExamples() {
+    //   examples.forEach(({id}) => {
+    //     mountCodeExample(id, code[id]);
+    //   });
+    // }
 
-    loadScript(babelURL).then(mountCodeExamples, error => {
-      console.error('Babel failed to load.');
-
-      mountCodeExamples();
-    });
+    // loadScript(babelURL).then(mountCodeExamples, error => {
+    //   console.error('Babel failed to load.');
+    //
+    //   // mountCodeExamples();
+    // });
   }
 
   render() {
@@ -183,123 +183,123 @@ class Home extends Component {
           </div>
         </header>
 
-        <Container>
-          <div css={sharedStyles.markdown}>
-            <section
-              css={[
-                sectionStyles,
-                {
-                  [media.lessThan('medium')]: {
-                    marginTop: 0,
-                    marginBottom: 0,
-                    overflowX: 'auto',
-                    paddingTop: 30,
-                    WebkitOverflowScrolling: 'touch',
-                    position: 'relative',
-                    maskImage:
-                      'linear-gradient(to right, transparent, white 10px, white 90%, transparent)',
-                  },
-                },
-              ]}>
-              <div
-                css={{
-                  display: 'flex',
-                  flexDirection: 'row',
+        {/*<Container>*/}
+          {/*<div css={sharedStyles.markdown}>*/}
+            {/*<section*/}
+              {/*css={[*/}
+                {/*sectionStyles,*/}
+                {/*{*/}
+                  {/*[media.lessThan('medium')]: {*/}
+                    {/*marginTop: 0,*/}
+                    {/*marginBottom: 0,*/}
+                    {/*overflowX: 'auto',*/}
+                    {/*paddingTop: 30,*/}
+                    {/*WebkitOverflowScrolling: 'touch',*/}
+                    {/*position: 'relative',*/}
+                    {/*maskImage:*/}
+                      {/*'linear-gradient(to right, transparent, white 10px, white 90%, transparent)',*/}
+                  {/*},*/}
+                {/*},*/}
+              {/*]}>*/}
+              {/*<div*/}
+                {/*css={{*/}
+                  {/*display: 'flex',*/}
+                  {/*flexDirection: 'row',*/}
 
-                  [media.lessThan('medium')]: {
-                    display: 'block',
-                    whiteSpace: 'nowrap',
-                  },
-                }}>
-                {marketing.map((column, index) => (
-                  <div
-                    key={index}
-                    css={{
-                      display: 'flex',
-                      flexDirection: 'column',
-                      flex: '0 1 33%',
-                      marginLeft: 40,
+                  {/*[media.lessThan('medium')]: {*/}
+                    {/*display: 'block',*/}
+                    {/*whiteSpace: 'nowrap',*/}
+                  {/*},*/}
+                {/*}}>*/}
+                {/*{marketing.map((column, index) => (*/}
+                  {/*<div*/}
+                    {/*key={index}*/}
+                    {/*css={{*/}
+                      {/*display: 'flex',*/}
+                      {/*flexDirection: 'column',*/}
+                      {/*flex: '0 1 33%',*/}
+                      {/*marginLeft: 40,*/}
 
-                      '&:first-of-type': {
-                        marginLeft: 0,
+                      {/*'&:first-of-type': {*/}
+                        {/*marginLeft: 0,*/}
 
-                        [media.lessThan('medium')]: {
-                          marginLeft: 10,
-                        },
-                      },
+                        {/*[media.lessThan('medium')]: {*/}
+                          {/*marginLeft: 10,*/}
+                        {/*},*/}
+                      {/*},*/}
 
-                      [media.lessThan('medium')]: {
-                        display: 'inline-block',
-                        verticalAlign: 'top',
-                        marginLeft: 0,
-                        whiteSpace: 'normal',
-                        width: '75%',
-                        marginRight: 20,
-                        paddingBottom: 40,
+                      {/*[media.lessThan('medium')]: {*/}
+                        {/*display: 'inline-block',*/}
+                        {/*verticalAlign: 'top',*/}
+                        {/*marginLeft: 0,*/}
+                        {/*whiteSpace: 'normal',*/}
+                        {/*width: '75%',*/}
+                        {/*marginRight: 20,*/}
+                        {/*paddingBottom: 40,*/}
 
-                        '&:first-of-type': {
-                          marginTop: 0,
-                        },
-                      },
-                    }}>
-                    <h3
-                      css={[
-                        headingStyles,
-                        {
-                          '&&': {
-                            // Make specificity higher than the site-wide h3 styles.
-                            color: colors.subtle,
-                            paddingTop: 0,
-                            fontWeight: 300,
-                            fontSize: 20,
+                        {/*'&:first-of-type': {*/}
+                          {/*marginTop: 0,*/}
+                        {/*},*/}
+                      {/*},*/}
+                    {/*}}>*/}
+                    {/*<h3*/}
+                      {/*css={[*/}
+                        {/*headingStyles,*/}
+                        {/*{*/}
+                          {/*'&&': {*/}
+                            {/*// Make specificity higher than the site-wide h3 styles.*/}
+                            {/*color: colors.subtle,*/}
+                            {/*paddingTop: 0,*/}
+                            {/*fontWeight: 300,*/}
+                            {/*fontSize: 20,*/}
 
-                            [media.greaterThan('xlarge')]: {
-                              fontSize: 24,
-                              fontWeight: 200,
-                            },
-                          },
-                        },
-                      ]}>
-                      {column.title}
-                    </h3>
-                    <div dangerouslySetInnerHTML={{__html: column.content}} />
-                  </div>
-                ))}
-              </div>
-            </section>
-            <hr
-              css={{
-                height: 1,
-                marginBottom: -1,
-                border: 'none',
-                borderBottom: `1 solid ${colors.divider}`,
-              }}
-            />
-            <section css={sectionStyles}>
-              <div id="examples">
-                {examples.map((example, index) => (
-                  <div
-                    key={index}
-                    css={{
-                      marginTop: 40,
+                            {/*[media.greaterThan('xlarge')]: {*/}
+                              {/*fontSize: 24,*/}
+                              {/*fontWeight: 200,*/}
+                            {/*},*/}
+                          {/*},*/}
+                        {/*},*/}
+                      {/*]}>*/}
+                      {/*{column.title}*/}
+                    {/*</h3>*/}
+                    {/*<div dangerouslySetInnerHTML={{__html: column.content}} />*/}
+                  {/*</div>*/}
+                {/*))}*/}
+              {/*</div>*/}
+            {/*</section>*/}
+            {/*<hr*/}
+              {/*css={{*/}
+                {/*height: 1,*/}
+                {/*marginBottom: -1,*/}
+                {/*border: 'none',*/}
+                {/*borderBottom: `1 solid ${colors.divider}`,*/}
+              {/*}}*/}
+            {/*/>*/}
+            {/*<section css={sectionStyles}>*/}
+              {/*<div id="examples">*/}
+                {/*{examples.map((example, index) => (*/}
+                  {/*<div*/}
+                    {/*key={index}*/}
+                    {/*css={{*/}
+                      {/*marginTop: 40,*/}
 
-                      '&:first-child': {
-                        marginTop: 0,
-                      },
+                      {/*'&:first-child': {*/}
+                        {/*marginTop: 0,*/}
+                      {/*},*/}
 
-                      [media.greaterThan('xlarge')]: {
-                        marginTop: 80,
-                      },
-                    }}>
-                    <h3 css={headingStyles}>{example.title}</h3>
-                    <div dangerouslySetInnerHTML={{__html: example.content}} />
-                    <div id={example.id} />
-                  </div>
-                ))}
-              </div>
-            </section>
-          </div>
-        </Container>
+                      {/*[media.greaterThan('xlarge')]: {*/}
+                        {/*marginTop: 80,*/}
+                      {/*},*/}
+                    {/*}}>*/}
+                    {/*<h3 css={headingStyles}>{example.title}</h3>*/}
+                    {/*<div dangerouslySetInnerHTML={{__html: example.content}} />*/}
+                    {/*<div id={example.id} />*/}
+                  {/*</div>*/}
+                {/*))}*/}
+              {/*</div>*/}
+            {/*</section>*/}
+          {/*</div>*/}
+        {/*</Container>*/}
 
         {/*<section*/}
           {/*css={{*/}

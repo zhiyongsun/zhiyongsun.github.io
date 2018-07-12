@@ -362,7 +362,7 @@ Refer to the following guides on how to best use JAWS:
 
 ### Other Screen Readers
 
-#### ChromeVox in Google Chrome
+#### ChromeVox in Google Chrome 我的
 
 [ChromeVox](http://www.chromevox.com/) is an integrated screen reader on Chromebooks and is available [as an extension](https://chrome.google.com/webstore/detail/chromevox/kgejglhpjiefppelpmljglcjbhoiplfn?hl=en) for Google Chrome.
 
