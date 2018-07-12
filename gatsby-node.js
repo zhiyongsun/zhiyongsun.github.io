@@ -1,46 +1,25 @@
-const parseFilepath = require('parse-filepath');
-const path = require('path');
-const slash = require('slash');
-
-exports.modifyWebpackConfig = ({ config, stage }) => {
-  switch (stage) {
-    case 'develop':
-      config.preLoader('eslint-loader', {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/
-      });
-
-      break;
-  }
-  return config;
-};
-
-exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
-  const { createNodeField } = boundActionCreators;
-  if (node.internal.type === 'MarkdownRemark') {
-    const fileNode = getNode(node.parent);
-    const parsedFilePath = parseFilepath(fileNode.relativePath);
-
-    const slug = `/${parsedFilePath.dir}`;
-    createNodeField({ node, name: 'slug', value: slug });
-  }
-};
+const _ = require('lodash')
+const Promise = require('bluebird')
+const path = require('path')
+const { createFilePath } = require('gatsby-source-filesystem')
 
 exports.createPages = ({ graphql, boundActionCreators }) => {
-  const { createPage } = boundActionCreators;
+  const { createPage } = boundActionCreators
+
   return new Promise((resolve, reject) => {
-    const blogPostTemplate = path.resolve(
-      'src/templates/blog-post-template.js'
-    );
+    const blogPost = path.resolve('./src/templates/blog-post.js')
     resolve(
       graphql(
         `
           {
-            allMarkdownRemark {
+            allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }, limit: 1000) {
               edges {
                 node {
                   fields {
                     slug
+                  }
+                  frontmatter {
+                    title
                   }
                 }
               }
@@ -48,20 +27,42 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           }
         `
       ).then(result => {
-        if (result.error) {
-          reject(result.error);
+        if (result.errors) {
+          console.log(result.errors)
+          reject(result.errors)
         }
 
-        result.data.allMarkdownRemark.edges.forEach(edge => {
+        // Create blog posts pages.
+        const posts = result.data.allMarkdownRemark.edges;
+
+        _.each(posts, (post, index) => {
+          const previous = index === posts.length - 1 ? null : posts[index + 1].node;
+          const next = index === 0 ? null : posts[index - 1].node;
+
           createPage({
-            path: `${edge.node.fields.slug}`,
-            component: slash(blogPostTemplate),
+            path: post.node.fields.slug,
+            component: blogPost,
             context: {
-              slug: edge.node.fields.slug
-            }
-          });
-        });
+              slug: post.node.fields.slug,
+              previous,
+              next,
+            },
+          })
+        })
       })
-    );
-  });
-};
+    )
+  })
+}
+
+exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
+  const { createNodeField } = boundActionCreators
+
+  if (node.internal.type === `MarkdownRemark`) {
+    const value = createFilePath({ node, getNode })
+    createNodeField({
+      name: `slug`,
+      node,
+      value,
+    })
+  }
+}

@@ -1,46 +1,57 @@
 module.exports = {
   siteMetadata: {
-    title: 'My Gatsby Site'
+    title: 'Gatsby Starter Blog',
+    author: 'Kyle Mathews',
+    description: 'A starter blog demonstrating what Gatsby can do.',
+    siteUrl: 'https://gatsbyjs.github.io/gatsby-starter-blog/',
   },
-  mapping: {
-    'MarkdownRemark.frontmatter.author': 'AuthorsYaml'
-  },
+  pathPrefix: '/gatsby-starter-blog',
   plugins: [
-    // Adding various source folders to the GraphQL layer.
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `pages`,
-        path: `${__dirname}/src/pages/`
-      }
+        path: `${__dirname}/src/pages`,
+        name: 'pages',
+      },
     },
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: `gatsby-transformer-remark`,
       options: {
-        name: `data`,
-        path: `${__dirname}/src/data/`
-      }
+        plugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 590,
+            },
+          },
+          {
+            resolve: `gatsby-remark-responsive-iframe`,
+            options: {
+              wrapperStyle: `margin-bottom: 1.0725rem`,
+            },
+          },
+          'gatsby-remark-prismjs',
+          'gatsby-remark-copy-linked-files',
+          'gatsby-remark-smartypants',
+        ],
+      },
     },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `${__dirname}/src/assets/images/`
-      }
-    },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: ``
-      }
+        //trackingId: `ADD YOUR TRACKING ID HERE`,
+      },
     },
-    'gatsby-transformer-remark',
-    'gatsby-transformer-json',
-    'gatsby-transformer-yaml',
-    'gatsby-plugin-sharp',
-    'gatsby-transformer-sharp',
-    'gatsby-plugin-offline',
-    'gatsby-plugin-emotion',
-    'gatsby-plugin-react-next'
-  ]
-};
+    `gatsby-plugin-feed`,
+    `gatsby-plugin-offline`,
+    `gatsby-plugin-react-helmet`,
+    {
+      resolve: 'gatsby-plugin-typography',
+      options: {
+        pathToConfigModule: 'src/utils/typography',
+      },
+    },
+  ],
+}

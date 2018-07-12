@@ -1,54 +1,75 @@
-import React from 'react';
-import styled, { injectGlobal } from 'react-emotion';
-import { fontSize } from 'styled-system';
-import PropTypes from 'prop-types';
-import Navigation from '../components/Navigation';
-import Footer from '../components/Footer';
-import colors from '../utils/colors';
+import React from 'react'
+import Link from 'gatsby-link'
 
-/* eslint-disable */
-import normalize from 'normalize.css';
-injectGlobal`
-  * {
-      font-family: -apple-system, BlinkMacSystemFont,
-             'avenir next', avenir,
-             'helvetica neue', helvetica,
-             ubuntu,
-             roboto, noto,
-             'segoe ui', arial,
-             sans-serif;
-      box-sizing: border-box;
-  };
-  a {
-    text-decoration: none;
-    color: inherit;
-  };
-  a:hover {
-    cursor: pointer;
-  };
-  h1, h2, h3, h4, h5, h6 {
-    color: ${colors.secondary}
-  };
-  p {
-    color: ${colors.accent}
+import { rhythm, scale } from '../utils/typography'
+
+class Template extends React.Component {
+  render() {
+    const { location, children } = this.props
+    let header
+
+    let rootPath = `/`
+    if (typeof __PREFIX_PATHS__ !== `undefined` && __PREFIX_PATHS__) {
+      rootPath = __PATH_PREFIX__ + `/`
+    }
+
+    if (location.pathname === rootPath) {
+      header = (
+        <h1
+          style={{
+            ...scale(1.5),
+            marginBottom: rhythm(1.5),
+            marginTop: 0,
+          }}
+        >
+          <Link
+            style={{
+              boxShadow: 'none',
+              textDecoration: 'none',
+              color: 'inherit',
+            }}
+            to={'/'}
+          >
+            Gatsby Starter Blog
+          </Link>
+        </h1>
+      )
+    } else {
+      header = (
+        <h3
+          style={{
+            fontFamily: 'Montserrat, sans-serif',
+            marginTop: 0,
+            marginBottom: rhythm(-1),
+          }}
+        >
+          <Link
+            style={{
+              boxShadow: 'none',
+              textDecoration: 'none',
+              color: 'inherit',
+            }}
+            to={'/'}
+          >
+            Gatsby Starter Blog
+          </Link>
+        </h3>
+      )
+    }
+    return (
+      <div
+        style={{
+          marginLeft: 'auto',
+          marginRight: 'auto',
+          maxWidth: rhythm(24),
+          padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
+        }}
+      >
+        {header}
+        {children()}
+      </div>
+    )
   }
-`;
-/* eslint-enable */
+}
 
-const FontConfig = styled.div`
-  ${fontSize};
-`;
-
-const Layout = ({ children }) => (
-  <FontConfig fontSize={[2, 3, 4]}>
-    <Navigation />
-    {children()}
-    <Footer />
-  </FontConfig>
-);
-
-Layout.propTypes = {
-  children: PropTypes.func.isRequired
-};
-
-export default Layout;
+export default Template
