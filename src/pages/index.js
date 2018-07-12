@@ -158,26 +158,26 @@ class Home extends Component {
                   }}>
                   孙志勇的博客记录
                 </p>
-                <Flex
-                  valign="center"
-                  css={{
-                    paddingTop: 40,
+                {/*<Flex*/}
+                  {/*valign="center"*/}
+                  {/*css={{*/}
+                    {/*paddingTop: 40,*/}
 
-                    [media.greaterThan('xlarge')]: {
-                      paddingTop: 65,
-                    },
-                  }}>
-                  <CtaItem>
-                    <ButtonLink to="/docs/hello-world.html" type="primary">
-                      Get Started
-                    </ButtonLink>
-                  </CtaItem>
-                  <CtaItem>
-                    <ButtonLink to="/tutorial/tutorial.html" type="secondary">
-                      Take the Tutorial
-                    </ButtonLink>
-                  </CtaItem>
-                </Flex>
+                    {/*[media.greaterThan('xlarge')]: {*/}
+                      {/*paddingTop: 65,*/}
+                    {/*},*/}
+                  {/*}}>*/}
+                  {/*<CtaItem>*/}
+                    {/*<ButtonLink to="/docs/hello-world.html" type="primary">*/}
+                      {/*Get Started*/}
+                    {/*</ButtonLink>*/}
+                  {/*</CtaItem>*/}
+                  {/*<CtaItem>*/}
+                    {/*<ButtonLink to="/tutorial/tutorial.html" type="secondary">*/}
+                      {/*Take the Tutorial*/}
+                    {/*</ButtonLink>*/}
+                  {/*</CtaItem>*/}
+                {/*</Flex>*/}
               </Container>
             </div>
           </div>
@@ -301,28 +301,28 @@ class Home extends Component {
           </div>
         </Container>
 
-        <section
-          css={{
-            background: colors.dark,
-            color: colors.white,
-            paddingTop: 45,
-            paddingBottom: 45,
-          }}>
-          <Container>
-            <Flex valign="center">
-              <CtaItem>
-                <ButtonLink to="/docs/hello-world.html" type="primary">
-                  Get Started
-                </ButtonLink>
-              </CtaItem>
-              <CtaItem>
-                <ButtonLink to="/tutorial/tutorial.html" type="secondary">
-                  Take the Tutorial
-                </ButtonLink>
-              </CtaItem>
-            </Flex>
-          </Container>
-        </section>
+        {/*<section*/}
+          {/*css={{*/}
+            {/*background: colors.dark,*/}
+            {/*color: colors.white,*/}
+            {/*paddingTop: 45,*/}
+            {/*paddingBottom: 45,*/}
+          {/*}}>*/}
+          {/*<Container>*/}
+            {/*<Flex valign="center">*/}
+              {/*<CtaItem>*/}
+                {/*<ButtonLink to="/docs/hello-world.html" type="primary">*/}
+                  {/*Get Started*/}
+                {/*</ButtonLink>*/}
+              {/*</CtaItem>*/}
+              {/*<CtaItem>*/}
+                {/*<ButtonLink to="/tutorial/tutorial.html" type="secondary">*/}
+                  {/*Take the Tutorial*/}
+                {/*</ButtonLink>*/}
+              {/*</CtaItem>*/}
+            {/*</Flex>*/}
+          {/*</Container>*/}
+        {/*</section>*/}
       </div>
     );
   }

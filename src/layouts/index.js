@@ -66,7 +66,7 @@ class Template extends Component<Props> {
           }}>
           {children()}
         </Flex>
-        <Footer layoutHasSidebar={layoutHasSidebar} />
+        {/*<Footer layoutHasSidebar={layoutHasSidebar} />*/}
       </div>
     );
   }
