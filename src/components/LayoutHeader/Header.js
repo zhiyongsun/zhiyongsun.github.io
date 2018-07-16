@@ -149,6 +149,11 @@ const Header = ({location}: {location: Location}) => (
             to="/exercise/support.html"
           />
           <HeaderLink
+            isActive={location.pathname.includes('/pwa/')}
+            title="pwa教程"
+            to="/pwa/support.html"
+          />
+          <HeaderLink
             isActive={location.pathname.includes('/tools/')}
             title="工具"
             to="/tools/support.html"
