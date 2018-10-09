@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.py{
+				padding: 20px;
+			}
+			p{
+				transform: translate(-100px,0);
+				transition: all 0.5s;
+			}
+			.py:hover p{
+				transform:translate(0px,0px) ;
+			}
+			.py:hover p:nth-of-type(2){
+				transition-delay: 0.5s;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="py">平移效果
+		<p>动画平移</p>
+		<p>动画平移2</p>
+		</div>
+		<pre>
+			p{
+				transform: translate(-100px,0);
+				transition: all 0.5s;
+			}
+			.py:hover p{
+				transform:translate(0px,0px) ;
+			}
+			.py:hover p:nth-of-type(2){
+				transition-delay: 0.5s;
+			}
+</pre>
+	</body>
+</html>

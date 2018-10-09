@@ -1,0 +1,9 @@
+# 1：# 此为注释  ，将被git忽略 
+# 2：*.a  忽略所有.a结尾的文件
+# 3：！lib.a   但lib.a除外
+# 4：/TODO   仅仅忽略项目根目录下的TODO文件，不包括subdir/TODO
+# 5：build/    忽略build/目录下的所有文件
+# 6：doc/*.txt  忽略doc/notes.txt，但不包括doc/server/arch.txt
+
+
+.idea/

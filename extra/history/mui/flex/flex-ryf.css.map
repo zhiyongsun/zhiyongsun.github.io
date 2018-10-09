@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,WAAW;EACV,eAAe,EAAE,YAAY",
+"sources": ["flex-ryf.scss"],
+"names": [],
+"file": "flex-ryf.css"
+}

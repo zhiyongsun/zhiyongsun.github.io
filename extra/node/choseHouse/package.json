@@ -1,0 +1,19 @@
+{
+  "name": "zhiyong",
+  "version": "0.0.1",
+  "description": "choose house api",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "keywords": [
+    "choose",
+    "house"
+  ],
+  "author": "zhiyong",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.4",
+    "mongoose": "^4.11.10"
+  }
+}

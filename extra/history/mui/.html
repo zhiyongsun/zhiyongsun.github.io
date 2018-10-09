@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.test{
+				position: relative;
+				background-color: red;
+				right: 10px;
+				left:10px;
+				width: 100px;
+				height: 100px;
+			}
+			.text-shadow{
+				text-shadow: 3px 3px 1px #888;
+				width: 100px;
+				height: 100px;
+
+			}
+		</style>
+	</head>
+	<body>
+	<div class="test"></div>
+	<span class="text-shadow">dffds</span>
+	<span style="position:relative">
+		Shadowed
+		<span style="position: absolute; top:3px; left:3px; z-index: -1; color:#888;">
+			Shadowed
+		</span>
+	</span>
+	<script type="text/javascript">
+		console.log(Math.abs(~2016))
+	</script>
+	</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<a href="javascript:alert(new Date().toLocaleTimeString());">what time is it?</a><br>
+		<a href="javascript:window.open('about:blank');">打开一个新窗口</a><br>
+		<a href='javascript:
+			var e = "", r = "";
+			do{
+				e = prompt("Expression: " + e + "\n" + r + "\n", e);
+				try { r = "Result: " + eval(e);}
+				catch(ex){ r = ex;}
+			} while(e);
+			void 0;
+			'>
+			Javascript Evaluator	
+		</a>
+	</body>
+</html>

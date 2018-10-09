@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../build/react.js"></script>
+    <script src="../build/react-dom.js"></script>
+    <script src="../build/browser.min.js"></script>
+</head>
+
+<body>
+<div id="example"></div>
+<script src="//cdn.bootcss.com/jquery/3.1.0/jquery.js"></script>
+<script type="text/babel">
+    // tutorial1.js
+    var CommentBox = React.createClass({
+        render: function() {
+            return (
+                    <div className="commentBox">
+                        Hello, world! I am a CommentBox.
+                    </div>
+            );
+        }
+    });
+    ReactDOM.render(
+            <CommentBox />,
+            document.getElementById('example')
+    );
+</script>
+</body>
+
+</html>

@@ -1,0 +1,81 @@
+<!doctype html>
+<!--
+ This page is shown when the extension button is clicked, because the
+ "browser_action" field in manifest.json contains the "default_popup" key with
+ value "popup.html".
+ -->
+<html>
+  <head>
+    <title>Getting Started Extension's Popup</title>
+    <style>
+      body {
+        font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
+        font-size: 100%;
+      }
+      #status {
+      }
+    </style>
+    <script src="popup.js"></script>
+  </head>
+  <body>
+  <div>
+    会员号：<input type="text">
+  </div>
+  <div>
+    账号：<input type="text">
+  </div>
+  <div>
+    密码：<input type="text">
+  </div>
+  <div>
+    <div>卖出</div>
+    <div>
+      商品代码：1001：
+      <div>
+        最低价：<input type="text">
+      </div>
+    </div>
+    <div>
+      商品代码：1002：
+      <div>
+        最低价：<input type="text">
+      </div>
+    </div>
+    <div>
+      商品代码：1003：
+      <div>
+        最低价：<input type="text">
+      </div>
+    </div>
+
+  </div>
+  <div>
+    <div>买入</div>
+    <div>
+      商品代码：1001：
+      <div>
+        最高价：<input type="text">
+      </div>
+    </div>
+    <div>
+      商品代码：1002：
+      <div>
+        最高价：<input type="text">
+      </div>
+    </div>
+    <div>
+      商品代码：1003：
+      <div>
+        最高价：<input type="text">
+      </div>
+    </div>
+
+  </div>
+
+  <button>开始</button>
+
+  <div id="status"></div>
+    <img id="image-result" hidden>
+  </body>
+</html>
+

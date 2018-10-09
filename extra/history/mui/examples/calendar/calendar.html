@@ -1,0 +1,600 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>原生Js日历控件-多种状态</title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			#txt {
+				background-color: green;
+				padding: 5px;
+				line-height: 1.5;
+				color: #fff;
+			}
+			/*日历控件*/
+			
+			input.input_Calendar,
+			.div_Calendar button {
+				background: url(http://images.cnblogs.com/cnblogs_com/dtdxrk/485636/o_Calendar_bg.gif) no-repeat;
+			}
+			
+			.div_Calendar {
+				display: none;
+				z-index: 9999;
+				overflow: hidden;
+				font-size: 13px;
+				padding: 0 25px;
+				_padding-bottom: 15px;
+				width: auto;
+				box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
+				font-family: Arial;
+				position: absolute;
+				border: 1px solid #ccc;
+				background-color: #fff;
+			}
+			
+			.div_Calendar div.div_Month {
+				margin: 15px;
+				float: left;
+				_display: inline;
+			}
+			
+			.div_Calendar div.double {
+				margin-left: 0;
+			}
+			
+			.div_Calendar div.div_Month h1 {
+				text-align: center;
+				font-size: 13px;
+				line-height: 1;
+				margin-bottom: 5px;
+			}
+			
+			.div_Calendar div.div_Month table,
+			.div_Calendar div.div_Month table th,
+			.div_Calendar div.div_Month table td {
+				border-collapse: collapse;
+			}
+			
+			.div_Calendar div.div_Month table {
+				border-top: 1px solid #DCDCDC;
+				text-align: center;
+			}
+			
+			.div_Calendar div.div_Month table th {
+				font-weight: normal;
+				padding: 2px 5px;
+			}
+			
+			.div_Calendar div.div_Month table td {
+				border: 1px solid #DCDCDC;
+			}
+			
+			.div_Calendar div.div_Month table td span {
+				padding: 2px 5px;
+				color: #ccc;
+				cursor: default;
+				display: block;
+			}
+			
+			.div_Calendar div.div_Month table td a {
+				text-decoration: none;
+				color: #000;
+				display: block;
+				padding: 2px 5px;
+				font-weight: bold;
+				cursor: pointer;
+			}
+			
+			.div_Calendar div.div_Month table td a:hover {
+				color: #fff;
+				background-color: #5792dc;
+			}
+			
+			.div_Calendar div.div_Month table td a.active,
+			.div_Calendar div.div_Month table td a.on {
+				background-color: #5792dc;
+				color: #fff;
+			}
+			
+			.div_Calendar button {
+				position: absolute;
+				padding: 5px 2px;
+				border: 0;
+				cursor: pointer;
+				text-indent: -9999px;
+			}
+			
+			.div_Calendar button.m_prev {
+				left: 10px;
+				top: 75px;
+				width: 20px;
+				height: 38px;
+			}
+			
+			.div_Calendar button.m_next {
+				right: 10px;
+				top: 75px;
+				background-position: -20px 0;
+				width: 20px;
+				height: 38px;
+			}
+			
+			.div_Calendar button.c_close {
+				right: 5px;
+				top: 5px;
+				width: 17px;
+				height: 17px;
+				background-position: -40px 0;
+			}
+			
+			input.input_Calendar {
+				cursor: pointer;
+				border: 1px solid #ccc;
+				padding: 4px;
+				background-position: 95% -122px;
+				vertical-align: middle;
+				width: 100px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div style="margin-top:200px;margin-left:400px;">
+			入住时间<input type="text" class="input_Calendar" id="inDate" name="inDate" readOnly="true" value=""><br><br> 离店时间
+			<input type="text" class="input_Calendar" id="outDate" name="outDate" readOnly="true" value="">
+			<p>
+				<br>
+				<select name="IE6">
+					<option>测试IE6</option>
+					<option>2</option>
+					<option>3</option>
+				</select>
+				<select name="IE6">
+					<option>测试IE6</option>
+					<option>2</option>
+					<option>3</option>
+				</select>
+				<select name="IE6">
+					<option>测试IE6</option>
+					<option>2</option>
+					<option>3</option>
+				</select>
+				<select name="IE6">
+					<option>测试IE6</option>
+					<option>2</option>
+					<option>3</option>
+				</select>
+				<select name="IE6">
+					<option>测试IE6</option>
+					<option>2</option>
+					<option>3</option>
+				</select>
+				<select name="IE6">
+					<option>测试IE6</option>
+					<option>2</option>
+					<option>3</option>
+				</select>
+			</p>
+		</div>
+
+		其他时间<input type="text" class="input_Calendar" id="Date" name="Date" readOnly="true" value="">
+
+		<script type="text/javascript">
+			var _CalF = {
+				$: function(object) { //选择器
+					if(object === undefined) return;
+					var getArr = function(name, tagName, attr) {
+						var tagName = tagName || '*',
+							eles = document.getElementsByTagName(tagName),
+							clas = (typeof document.body.style.maxHeight === "undefined") ? "className" : "class"; //ie6
+						attr = attr || clas,
+							Arr = [];
+						for(var i = 0; i < eles.length; i++) {
+							if(eles[i].getAttribute(attr) == name) {
+								Arr.push(eles[i]);
+							}
+						}
+						return Arr;
+					};
+
+					if(object.indexOf('#') === 0) { //#id 
+						return document.getElementById(object.substring(1));
+					} else if(object.indexOf('.') === 0) { //.class
+						return getArr(object.substring(1));
+					} else if(object.match(/=/g)) { //attr=name
+						return getArr(object.substring(object.search(/=/g) + 1), null, object.substring(0, object.search(/=/g)));
+					} else if(object.match(/./g)) { //tagName.className
+						return getArr(object.split('.')[1], object.split('.')[0]);
+					}
+				},
+				addHandler: function(node, type, handler) {
+					node.addEventListener ? node.addEventListener(type, handler, false) : node.attachEvent('on' + type, handler);
+				},
+				removeHandler: function(node, type, handler) {
+					node.removeEventListener ? node.removeEventListener(type, handler, false) : node.detachEvent("on" + type, handler);
+				},
+				getPosition: function(obj) { //获取元素在页面里的位置和宽高
+					var top = 0,
+						left = 0,
+						width = obj.offsetWidth,
+						height = obj.offsetHeight;
+
+					while(obj.offsetParent) {
+						top += obj.offsetTop;
+						left += obj.offsetLeft;
+						obj = obj.offsetParent;
+					}
+
+					return {
+						"top": top,
+						"left": left,
+						"width": width,
+						"height": height
+					};
+				},
+				addClass: function(c, node) { // 添加样式名
+					node.className = node.className + ' ' + c;
+				},
+				removeClass: function(c, node) { // 移除样式名
+					var reg = new RegExp("(^|\\s+)" + c + "(\\s+|$)", "g");
+					node.className = node.className.replace(reg, '');
+				},
+				stopPropagation: function(event) { // 阻止冒泡
+					var event = event || window.event;
+					event.stopPropagation ? event.stopPropagation() : event.cancelBubble = true;
+				},
+				ie6: function() {
+					return !!window.ActiveXObject && !window.XMLHttpRequest;
+				}
+
+			};
+
+			function Calender() {
+				this.init.apply(this, arguments);
+			}
+
+			Calender.prototype = {
+				_temp: [ //table数组模板
+					'<table>',
+					'<tr><th>日</th><th>一</th><th>二</th><th>三</th><th>四</th><th>五</th><th>六</th></tr>'
+				],
+				_tempButton: [
+					'<button class="c_close" title="关闭" >关闭</button>',
+					'<button class="m_prev" title="上一月" >上一月</button>',
+					'<button class="m_next" title="下一月" >下一月</button>'
+				],
+				init: function(options) {
+					this.id = options.id; //input id
+					this.input = _CalF.$("#" + this.id); //input
+					this.past = options.past; //以前的日期能不能选择
+					this.select = options.select; //日月选择
+					this.doubleMonths = options.doubleMonths; //显示两个月
+					this.createCalendar();
+					this.inputEvent();
+				},
+				inputEvent: function() { //input事件
+					var that = this;
+					_CalF.addHandler(this.input, 'click', function() {
+						that.createMon(new Date());
+					});
+				},
+				createCalendar: function() { //创建日历div并且定位
+					var div = this.CalendarDiv = document.createElement('div'),
+						input = _CalF.getPosition(this.input),
+						top = input.top,
+						left = input.left,
+						height = input.height;
+					divHtml = this._tempButton.concat(); //复制一个新数组
+
+					div.id = "Calendar_" + this.id;
+					div.className = "div_Calendar";
+					div.innerHTML = divHtml.join("");
+					div.style.top = (top + height) + "px";
+					div.style.left = left + "px";
+					_CalF.addHandler(div, "click", _CalF.stopPropagation); //阻止事件冒泡
+					document.body.appendChild(div);
+					this.btnEvent(); //按钮事件
+				},
+				createIframe: function() { //ie6创建iframe遮罩
+					var myIframe = document.createElement('iframe');
+					myIframe.style.position = 'absolute';
+					myIframe.style.zIndex = '-1';
+					myIframe.style.left = '-1px';
+					myIframe.style.top = 0;
+					myIframe.style.border = 0;
+					myIframe.style.filter = 'alpha(opacity= 0 )';
+					myIframe.style.width = this.CalendarDiv.offsetWidth + 'px';
+					myIframe.style.height = this.CalendarDiv.offsetHeight + 'px';
+					return myIframe;
+				},
+				del_Mon: function() { //删除月节点
+					var that = this,
+						divs = that.CalendarDiv.getElementsByTagName("div");
+					if(divs.length !== 0) {
+						that.CalendarDiv.removeChild(divs[0]);
+						if(this.doubleMonths) that.CalendarDiv.removeChild(divs[0]);
+					}
+				},
+				createMon: function(idate) { //创建div_Month
+					this.del_Mon();
+
+					var now = new Date(),
+						now_year = now.getFullYear(),
+						now_month = now.getMonth(),
+						now_taday = now.getDate(),
+						i = 1, //每月从1号开始
+						trs, //行数
+						h1, //h1 html
+						div_Month, //月div
+						year, month, date, time,
+						firstDay, //当月第一天星期几
+						ifTaday,
+						is_leap = function(year) {
+							return(year % 400 == 0) ? 1 : 0
+						}, //是否为闰年 能够被400整除的闰年2月29天 不能被整除的是平年2月28天
+						months = [31, 28 + is_leap(this.year), 31, 30, 31, 31, 30, 31, 30, 31, 30, 31], //月天数
+						divHmtl = this._temp.concat(); //复制一个新数组
+
+					this.year = year = idate.getFullYear();
+					this.month = month = idate.getMonth();
+					this.date = date = idate.getDate();
+
+					ifTaday = (year == now_year && month == now_month) ? true : false; //判断是不是今年今月
+
+					div_Month = document.createElement("div");
+					div_Month.className = "div_Month";
+
+					this.select ? h1 = this.isSelect(year, month) : h1 = "<h1>" + year + "年" + (month + 1) + "月</h1>";
+
+					firstDay = new Date(year, month, 1).getDay();
+					trs = Math.ceil((months[month] + firstDay) / 7); //行数
+
+					for(var a = 0; a < trs; a++) {
+						divHmtl.push("<tr>")
+						for(var b = 0; b < 7; b++) {
+							divHmtl.push("<td>");
+							if(b >= firstDay) {
+								firstDay = 0;
+								if(i <= months[month]) { //循环当前月日期
+									if(ifTaday && i == now_taday) {
+										divHmtl.push("<a class='live active' date=" + year + "-" + (month + 1) + "-" + i + ">" + i + "</a>")
+									} else if(this.past) { //今天以前的日期不可选
+										var old = new Date(this.year, this.month, i).getTime(),
+											taday = new Date(now_year, now_month, now_taday).getTime();
+										(old < taday) ? divHmtl.push("<span>" + i + "</span>"): divHmtl.push("<a class='live' date=" + year + "-" + (month + 1) + "-" + i + ">" + i + "</a>");
+									} else {
+										divHmtl.push("<a class='live' date=" + year + "-" + (month + 1) + "-" + i + ">" + i + "</a>");
+									}
+									i++;
+								}
+							}
+							divHmtl.push("</td>");
+						}
+						divHmtl.push("</tr>")
+					}
+
+					divHmtl.unshift(h1);
+					div_Month.innerHTML = divHmtl.join("");
+					this.CalendarDiv.appendChild(div_Month);
+
+					//显示两个月
+					if(this.doubleMonths) this.CalendarDiv.appendChild(this.creatdbMonths(idate));
+
+					this.CalendarDiv.style.display = "block";
+
+					this.aClick();
+					this.outClick(); //body点击事件
+					if(this.select) this.selectChange(); //邦定事件
+					if(_CalF.ie6()) {
+						this.CalendarDiv.appendChild(this.createIframe())
+					};
+				},
+				isSelect: function(year, month) { //返回select h1
+					var h1_html = [];
+					h1_html.push('<h1><select id=yearSelect>');
+
+					for(var y = 2030; y > 1941; y--) {
+						if(y == year) {
+							h1_html.push('<option value ="' + y + '" selected>' + y + '</option>');
+						} else {
+							h1_html.push('<option value ="' + y + '">' + y + '</option>');
+						}
+					}
+
+					h1_html.push('</select>');
+					h1_html.push(' 年 ');
+					h1_html.push('<select id=monthSelect>');
+
+					for(var m = 1; m < 13; m++) {
+						if(m == (month + 1)) {
+							h1_html.push('<option value ="' + m + '" selected>' + m + '</option>');
+						} else {
+							h1_html.push('<option value ="' + m + '">' + m + '</option>');
+						}
+					}
+
+					h1_html.push('</select>');
+					h1_html.push(' 月</h1>');
+
+					return h1_html.join("");
+				},
+				creatdbMonths: function(idate) {
+					var now = new Date(),
+						now_year = now.getFullYear(),
+						now_month = now.getMonth(),
+						now_taday = now.getDate(),
+						i = 1, //每月从1号开始
+						trs, //行数
+						h1, //h1 html
+						div_Month, //月div
+						year, month, date, time,
+						firstDay, //当月第一天星期几
+						ifTaday, //
+						is_leap = function(year) {
+							return(year % 400 == 0) ? 1 : 0
+						}, //是否为闰年 能够被400整除的闰年2月29天 不能被整除的是平年2月28天
+						months = [31, 28 + is_leap(this.year), 31, 30, 31, 31, 30, 31, 30, 31, 30, 31], //月天数
+						divHmtl = this._temp.concat(); //复制一个新数组
+
+					year = idate.getFullYear();
+					month = idate.getMonth() + 1;
+					if(month >= 12) {
+						month = 0;
+						year += 1;
+					}
+					date = idate.getDate();
+
+					ifTaday = (year == now_year && month == now_month) ? true : false; //判断是不是今年今月
+
+					div_Month = document.createElement("div");
+					div_Month.className = "div_Month double";
+
+					this.select ? h1 = this.isSelect(year, month) : h1 = "<h1>" + year + "年" + (month + 1) + "月</h1>";
+
+					firstDay = new Date(year, month, 1).getDay();
+					trs = Math.ceil((months[month] + firstDay) / 7); //行数
+
+					for(var a = 0; a < trs; a++) {
+						divHmtl.push("<tr>")
+						for(var b = 0; b < 7; b++) {
+							divHmtl.push("<td>");
+							if(b >= firstDay) {
+								firstDay = 0;
+								if(i <= months[month]) { //循环当前月日期
+									if(ifTaday && i == now_taday) {
+										divHmtl.push("<a class='live active' date=" + year + "-" + (month + 1) + "-" + i + ">" + i + "</a>")
+									} else if(this.past) { //今天以前的日期不可选
+										var old = new Date(year, month, i).getTime(),
+											taday = new Date(now_year, now_month, now_taday).getTime();
+										(old < taday) ? divHmtl.push("<span>" + i + "</span>"): divHmtl.push("<a class='live' date=" + year + "-" + (month + 1) + "-" + i + ">" + i + "</a>");
+									} else {
+										divHmtl.push("<a class='live' date=" + year + "-" + (month + 1) + "-" + i + ">" + i + "</a>");
+									}
+									i++;
+								}
+							}
+							divHmtl.push("</td>");
+						}
+						divHmtl.push("</tr>")
+					}
+
+					divHmtl.unshift(h1);
+					div_Month.innerHTML = divHmtl.join("");
+					return div_Month;
+				},
+				selectChange: function() { //select邦定事件
+
+					var that = this,
+						selects = that.CalendarDiv.getElementsByTagName("select"),
+						year, month,
+						yearSelect = selects[0],
+						monthSelect = selects[1];
+					if(selects.length == 4) {
+						var yearSelect2 = selects[2],
+							monthSelect2 = selects[3];
+						_CalF.addHandler(yearSelect2, 'change', function() {
+							year = yearSelect2.value;
+							month = monthSelect2.value;
+							that.createMon(new Date(year, month - 1, that.date));
+						});
+						_CalF.addHandler(monthSelect2, 'change', function() {
+							year = yearSelect2.value;
+							month = monthSelect2.value;
+							that.createMon(new Date(year, month - 1, that.date));
+						});
+					}
+
+					_CalF.addHandler(yearSelect, 'change', function() {
+						year = yearSelect.value;
+						month = monthSelect.value;
+						that.createMon(new Date(year, month - 1, that.date));
+					});
+					_CalF.addHandler(monthSelect, 'change', function() {
+						year = yearSelect.value;
+						month = monthSelect.value;
+						that.createMon(new Date(year, month - 1, that.date));
+					});
+				},
+				aClick: function() { //a邦定事件
+					var that = this,
+						input = that.input,
+						links = _CalF.$("a.live"),
+						date, _temp = [];
+
+					for(var i in links) {
+						links[i].onclick = function() {
+							date = this.getAttribute("date");
+							_temp = date.split("-");
+							_temp[1] = (parseInt(_temp[1]) < 10) ? "0" + _temp[1] : _temp[1];
+							_temp[2] = (parseInt(_temp[2]) < 10) ? "0" + _temp[2] : _temp[2];
+							date = _temp.join("-");
+							input.value = date;
+							that.removeCalender();
+						};
+						if(_CalF.ie6()) {
+							links[i].onmouseover = function() {
+								_CalF.addClass("on", this);
+							};
+							links[i].onmouseout = function() {
+								_CalF.removeClass("on", this);
+							};
+						}
+					}
+				},
+				btnEvent: function() { // 上一下一月年 按钮事件
+					var that = this,
+						bts = that.CalendarDiv.getElementsByTagName("button");
+					bts[0].onclick = function() {
+						that.removeCalender();
+					};
+					bts[1].onclick = function() {
+						var idate = new Date(that.year, that.month - 1, that.date);
+						that.createMon(idate);
+					};
+					bts[2].onclick = function() {
+						var idate = new Date(that.year, that.month + 1, that.date);
+						that.createMon(idate);
+					};
+				},
+				removeCalender: function() { //删除body点击事件 删除节点
+					this.CalendarDiv.style.display = "none";
+				},
+				outClick: function() { // 鼠标在对象区域外点击，移除日期层
+					var that = this;
+					_CalF.addHandler(document.body, 'click', function(event) {
+						var event = event || window.event,
+							target = event.target || event.srcElement;
+						if(target == that.input || target == that.CalendarDiv) return;
+						that.removeCalender();
+					});
+				}
+
+			}
+
+			var input1 = new Calender({
+					id: "inDate",
+					past: true,
+					select: true,
+					doubleMonths: true
+				}),
+				input2 = new Calender({
+					id: "outDate",
+					past: true,
+					doubleMonths: true
+				}),
+				input3 = new Calender({
+					id: "Date",
+					past: false,
+					select: true
+				});
+		</script>
+
+	</body>
+
+</html>

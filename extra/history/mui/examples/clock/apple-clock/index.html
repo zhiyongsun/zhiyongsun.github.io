@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>App Icon - Clock</title>
+
+		<link rel="stylesheet" href="css/normalize.css">
+
+		<link rel="stylesheet" href="css/style.css">
+
+	</head>
+
+	<body>
+
+		<div class="icon-large icon-clock">
+			<div class="clock">
+				<ol>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ol>
+				<div id="hour"></div>
+				<div id="min"></div>
+				<div id="sec"></div>
+			</div>
+		</div>
+		<div>requestAnimationFrame<br>浏览器专门为动画提供的API，在运行时浏览器会自动优化方法的调用，并且如果页面不是激活状态下的话，动画会自动暂停，有效节省了CPU开销</div>
+		<div>处理兼容问题:setTimeout,频率1000/60</div>
+		<div>webkitTransform,rotate,draw指针偏移</div>
+		<script src="js/index.js"></script>
+
+	</body>
+
+</html>

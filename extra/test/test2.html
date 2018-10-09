@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<pre>
+  class Point {
+
+    constructor(x, y) {
+      this.x = x;
+      this.y = y;
+    }
+
+    toString() {
+      return '(' + this.x + ', ' + this.y + ')';
+    }
+
+  }
+
+  var point = new Point(2, 3);
+
+  point.toString() // (2, 3)
+
+  point.hasOwnProperty('x') // true
+  point.hasOwnProperty('y') // true
+  point.hasOwnProperty('toString') // false
+  point.__proto__.hasOwnProperty('toString') // true
+</pre>
+<script>
+  class Point {
+
+    constructor(x, y) {
+      this.x = x;
+      this.y = y;
+    }
+
+    toString() {
+      return '(' + this.x + ', ' + this.y + ')';
+    }
+
+  }
+
+  var point = new Point(2, 3);
+
+  point.toString() // (2, 3)
+
+  point.hasOwnProperty('x') // true
+  point.hasOwnProperty('y') // true
+  point.hasOwnProperty('toString') // false
+  point.__proto__.hasOwnProperty('toString') // true
+
+  console.log('point.__proto__ === Point.prototype', point.__proto__ === Point.prototype)
+</script>
+</body>
+</html>

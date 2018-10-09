@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+  class A {
+    constructor() {
+      this.a = 1;
+      this.getname = this.getname.bind(this);
+    }
+
+    getname(){
+      console.log('getname prototype')
+    }
+  }
+
+
+  var  a = new A();
+</script>
+</body>
+</html>

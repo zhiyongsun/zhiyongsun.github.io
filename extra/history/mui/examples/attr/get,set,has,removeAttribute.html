@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="a">div.a</div>
+		<script src="../../js/easier.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var divA = document.getElementsByClassName('a')[0];
+			document.write("hasAttribute a ?: " + divA.hasAttribute('class','a') + "<br>");
+			document.write("getAttribute class : " + divA.getAttribute('class') + "<br>");
+			divA.setAttribute('id','b');
+			document.write("hasAttribute id :  " + divA.hasAttribute('id','b') + "<br>");
+			divA.removeAttribute('id','b');
+			document.write("hasAttribute: id(after remove) " + divA.hasAttribute('id','b') + "\n" +"a");
+			document.write("转义"+ "\n" +"成功");
+	</script>
+	</body>
+</html>

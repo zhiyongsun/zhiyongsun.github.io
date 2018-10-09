@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<title>标题</title>
+<link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8"/>
+<script>
+
+var targetOrigin = "http://www.weixiu0376.cn";
+
+// TODO whitelist array
+
+function messageHandler(e) {
+    if (e.origin === "http://www.weixiu0376.cn") {
+        document.getElementById("status").textContent = e.data;
+    } else {
+        // ignore messages from other origins
+    }
+}
+
+function sendString(s) {
+    window.top.postMessage(s, targetOrigin);
+}
+
+function loadDemo() {
+    document.getElementById("actionButton").addEventListener("click",
+        function() {
+            var messageText = document.getElementById("messageText").value;
+            sendString(messageText);
+        }, true);
+
+}
+window.addEventListener("load", loadDemo, true);
+window.addEventListener("message", messageHandler, true);
+
+</script>
+<p>显示接收信息: <strong id="status"></strong><p>
+<div>
+    <input type="text" id="messageText" value="填写消息内容">
+    <button id="actionButton">发送消息</button>
+</div>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		header {
+			width: 300px;
+		}
+	</style>
+
+	<body>
+		<header class="title">vertical-align 只有一个元素属于inline或是inline-block（table-cell也可以理解为inline-block水平）水平，其身上的vertical-align属性才会起作用。所以，类似下面的代码就不会起作用：</header>
+		<!-- moved "vertical-align:middle" style from span to img -->
+		<div>
+			<img style="vertical-align:middle" src="images/60x60.gif">
+			<span style="">Works.</span>
+		</div>
+	</body>
+
+</html>

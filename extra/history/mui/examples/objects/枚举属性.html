@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var o = {x:1, y:2, z:3};
+			o.a= function(){var a = 1}
+//			o.prototype.dom = "1";
+//			console.log(o.propertyIsEnumerable("toString"))
+			for(p in o){
+//				if(!o.hasOwnProperty(p)) continue;
+//				if(typeof o[p] === "function" ) continue;
+			console.log(typeof o[p])
+			}
+
+		</script>
+	</body>
+</html>
