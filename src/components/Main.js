@@ -15,7 +15,7 @@ import ReactMarkdown from 'react-markdown';
 const importAll = (r) => r.keys().map(r);
 
 
-const markdownFiles = importAll(require.context('../../article', false, /\.md$/))
+const markdownFiles = importAll(require.context('../../blog', false, /\.md$/))
   .sort()
   .reverse();
 
