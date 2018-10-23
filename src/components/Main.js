@@ -45,6 +45,7 @@ class WhatsNew extends Component {
         <Helmet title="What's New" />
         <section className="hero">
           ... title stuff
+
         </section>
         <section className="section">
           <div className={`container`}>
