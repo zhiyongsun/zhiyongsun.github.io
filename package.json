@@ -4,6 +4,8 @@
   "description": "my blog and front end tec",
   "main": "index.js",
   "dependencies": {
+    "highlight.js": "^9.13.1",
+    "marked": "^0.5.1",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-helmet": "^5.2.0",
@@ -23,6 +25,7 @@
     "style-loader": "^0.23.1",
     "webpack": "^4.20.2",
     "webpack-cli": "^3.1.2",
+    "raw-loader": "^0.5.1",
     "webpack-dev-server": "^3.1.9"
   },
   "scripts": {

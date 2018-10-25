@@ -1,10 +1,10 @@
-import React, { Fragment, Component } from 'react';
+import React, { Fragment, Component } from 'react'
 import { Switch, Route } from 'react-router-dom'
 import Home from './Home'
 import Roster from './Roster'
 import Schedule from './Schedule'
-import Helmet from 'react-helmet';
-import ReactMarkdown from 'react-markdown';
+import Helmet from 'react-helmet'
+import ReactMarkdown from 'react-markdown'
 
 // The Main component renders one of the three provided
 // Routes (provided that one matches). Both the /roster
@@ -12,40 +12,45 @@ import ReactMarkdown from 'react-markdown';
 // with /roster or /schedule. The / route will only match
 // when the pathname is exactly the string "/"
 
-const importAll = (r) => r.keys().map(r);
+const importAll = (r) => r.keys().map(r)
 
 
 const markdownFiles = importAll(require.context('../../blog', false, /\.md$/))
   .sort()
-  .reverse();
+  .reverse()
 
 
 class WhatsNew extends Component {
-  constructor(props){
+  constructor(props) {
     super(props)
     this.state = {
-      posts: [],
+      posts: []
     }
   }
-   componentDidMount() {
-    const posts =  Promise.all(markdownFiles.map((file) => fetch(file).then((res) => res.text())))
-      .catch((err) => console.error(err)).then(res=>{
-        this.setState((state) => ({ ...state, posts:res }));
-      });
+
+  componentDidMount() {
+    const posts = Promise.all(markdownFiles.map((file) => {
+      console.log(file)
+      debugger
+      fetch(file).then((res) => res.text())
+    }))
+      .catch((err) => console.error(err))
+      .then(res => {
+        this.setState((state) => ({ ...state, posts: res }))
+      })
   }
 
   render() {
     /* eslint-disable react/no-array-index-key */
-    const { posts } = this.state;
-    if(!posts.length){
+    const { posts } = this.state
+    if (!posts.length) {
       return null
     }
     return (
       <Fragment>
-        <Helmet title="What's New" />
+        <Helmet title="What's New"/>
         <section className="hero">
           ... title stuff
-
         </section>
         <section className="section">
           <div className={`container`}>
@@ -54,7 +59,7 @@ class WhatsNew extends Component {
                 <div className="card" key={idx}>
                   <div className="card-content">
                     <div className="content">
-                      <ReactMarkdown source={post} />
+                      <ReactMarkdown source={post}/>
                     </div>
                   </div>
                 </div>
@@ -63,7 +68,7 @@ class WhatsNew extends Component {
           </div>
         </section>
       </Fragment>
-    );
+    )
     /* eslint-enable react/no-array-index-key */
   }
 }
