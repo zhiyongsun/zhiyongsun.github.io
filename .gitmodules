@@ -1,0 +1,9 @@
+[submodule "common"]
+	path = common
+	url = https://github.com/zhiyongsun/common.git
+[submodule "article"]
+	path = article
+	url = https://github.com/zhiyongsun/blog.git
+[submodule "blog"]
+	path = blog
+	url = https://github.com/zhiyongsun/blog.git
