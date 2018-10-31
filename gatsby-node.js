@@ -3,6 +3,8 @@ const _ = require("lodash");
 const moment = require("moment");
 const siteConfig = require("./data/SiteConfig");
 
+const { createFilePath } = require(`gatsby-source-filesystem`);
+
 const postNodes = [];
 
 function addSiblingNodes(createNodeField) {
@@ -83,6 +85,21 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     }
     createNodeField({ node, name: "slug", value: slug });
     postNodes.push(node);
+
+    // 自定义 path
+    // Use `createFilePath` to turn markdown files in our `data/faqs` directory into `/faqs/slug`
+    const relativeFilePath = createFilePath({
+      node,
+      getNode,
+      basePath: "data/faqs/",
+    })
+
+    // Creates new query'able field with name of 'slug'
+    createNodeField({
+      node,
+      name: "slug",
+      value: `${relativeFilePath}`,
+    })
   }
 };
 
