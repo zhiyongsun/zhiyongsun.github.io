@@ -71,6 +71,11 @@
     },
     {
         "componentChunkName": "component---src-templates-category-jsx",
+        "jsonName": "categories-problems-c70",
+        "path": "/categories/problems/"
+    },
+    {
+        "componentChunkName": "component---src-templates-category-jsx",
         "jsonName": "categories-random-64f",
         "path": "/categories/random/"
     },
@@ -93,6 +98,11 @@
         "componentChunkName": "component---cache-dev-404-page-js",
         "jsonName": "dev-404-page-5f9",
         "path": "/dev-404-page/"
+    },
+    {
+        "componentChunkName": "component---src-templates-post-jsx",
+        "jsonName": "problems-to-solve-faf",
+        "path": "/problems-to-solve/"
     },
     {
         "componentChunkName": "component---src-templates-tag-jsx",

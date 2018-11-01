@@ -1,6 +1,5 @@
 ---
-title: "test"
-cover: "https://unsplash.it/1152/300/?random?BirchintheRoses"
+title: "test2"
 date: "01/03/2017"
 category: "tech"
 
