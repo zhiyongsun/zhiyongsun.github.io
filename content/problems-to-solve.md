@@ -1,7 +1,7 @@
 ---
-title: "problems"
-cover: "https://unsplash.it/1152/300/?random?BirchintheRoses"
+title: problems
 category: "problems"
+tags: ["animals", "Chicago", "zoos"]
 date: "01/03/2017"
 ---
 
