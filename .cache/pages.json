@@ -486,8 +486,8 @@
     },
     {
         "componentChunkName": "component---src-templates-post-jsx",
-        "jsonName": "javascript-memory-leak-6c5",
-        "path": "/javascript/memoryLeak/"
+        "jsonName": "javascript-memory-leak-memory-leak-0c5",
+        "path": "/javascript/memory-leak/memoryLeak/"
     },
     {
         "componentChunkName": "component---src-templates-post-jsx",
@@ -518,11 +518,6 @@
         "componentChunkName": "component---src-templates-post-jsx",
         "jsonName": "javascript-promise-promise-d70",
         "path": "/javascript/promise/promise/"
-    },
-    {
-        "componentChunkName": "component---src-templates-post-jsx",
-        "jsonName": "javascript-regexp-regexp-collections-bb1",
-        "path": "/javascript/regexp/regexp-collections/"
     },
     {
         "componentChunkName": "component---src-templates-post-jsx",
@@ -813,6 +808,11 @@
         "componentChunkName": "component---src-templates-tag-jsx",
         "jsonName": "tags-event-d80",
         "path": "/tags/event/"
+    },
+    {
+        "componentChunkName": "component---src-templates-tag-jsx",
+        "jsonName": "tags-expressions-vs-statements-a15",
+        "path": "/tags/expressions-vs-statements/"
     },
     {
         "componentChunkName": "component---src-templates-tag-jsx",
