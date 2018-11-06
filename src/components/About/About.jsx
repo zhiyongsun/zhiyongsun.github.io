@@ -6,7 +6,7 @@ class About extends Component {
     return (
       <div className="about">
         <h1>
-          Edit About component or pages/about.jsx to include your information.
+          孙志勇的个人博客
         </h1>
       </div>
     );
