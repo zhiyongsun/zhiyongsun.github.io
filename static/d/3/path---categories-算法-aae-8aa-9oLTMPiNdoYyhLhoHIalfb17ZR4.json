@@ -1,0 +1,1 @@
+{"data":{"allMarkdownRemark":{"totalCount":1,"edges":[{"node":{"fields":{"slug":"/data-structure/data-structure/","date":"2016-08-29T16:00:00.000Z"},"excerpt":"排序 冒泡排序 插入排序 归并排序     选择排序","timeToRead":1,"frontmatter":{"title":"经典算法及其实现","tags":["算法"],"cover":null,"date":"2016-08-30T10:00:00.000Z"}}}]}},"pageContext":{"category":"算法"}}

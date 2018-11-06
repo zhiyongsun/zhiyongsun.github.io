@@ -1,0 +1,1 @@
+{"data":{"allMarkdownRemark":{"totalCount":1,"edges":[{"node":{"fields":{"slug":"/javascript/closure/","date":"2017-02-14T16:00:00.000Z"},"excerpt":"\"nAdd=function(){n+=1}\"这一行，首先在nAdd前面没有使用var关键字，因此nAdd是一个全局变量,而不是局部变量.","timeToRead":1,"frontmatter":{"title":"闭包 ","tags":["闭包"],"cover":null,"date":"2017-02-15T22:00:01.000Z"}}}]}},"pageContext":{"tag":"闭包"}}

@@ -1,0 +1,1 @@
+{"data":{"allMarkdownRemark":{"totalCount":1,"edges":[{"node":{"fields":{"slug":"/guide/","date":"2016-12-02T16:00:00.000Z"},"excerpt":"使用 lint 工具 代码必要注释，使用能够生成文档的注释比如js doc 代码超出30行，必须抽成方法","timeToRead":1,"frontmatter":{"title":"个人编程规范","tags":["guide","个人编程规范"],"cover":null,"date":"2016-12-03T22:00:00.000Z"}}}]}},"pageContext":{"tag":"guide"}}

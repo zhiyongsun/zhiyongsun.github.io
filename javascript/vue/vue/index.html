@@ -1,0 +1,293 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style data-href="/component---src-templates-post-jsx.f58049f7d31e0c729f0e.css">*{box-sizing:border-box}html{height:100%}body{margin:0;padding:20px}.social-links{align-content:center;align-items:center;display:flex;flex-direction:row;flex-wrap:wrap;justify-content:center;margin:15px 0}.social-links>div{margin:5px 15px}.share-count{text-align:center}code[class*=language-],pre[class*=language-]{-moz-tab-size:4;-ms-hyphens:none;-o-tab-size:4;-webkit-hyphens:none;background:#1d1f21;color:#c5c8c6;direction:ltr;font-family:Consolas,Menlo,Monaco,Andale Mono WT,Andale Mono,Lucida Console,Lucida Sans Typewriter,DejaVu Sans Mono,Bitstream Vera Sans Mono,Liberation Mono,Nimbus Mono L,Courier New,Courier,monospace;font-size:14px;hyphens:none;line-height:1.375;tab-size:4;text-align:left;white-space:pre;word-break:normal;word-spacing:normal}code[class*=language-]::-moz-selection,code[class*=language-] ::-moz-selection,pre[class*=language-]::-moz-selection,pre[class*=language-] ::-moz-selection{background:#b4b7b4;text-shadow:none}code[class*=language-]::selection,code[class*=language-] ::selection,pre[class*=language-]::selection,pre[class*=language-] ::selection{background:#b4b7b4;text-shadow:none}pre[class*=language-]{margin:.5em 0;overflow:auto;padding:1em}:not(pre)>code[class*=language-]{border-radius:.3em;padding:.1em}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#969896}.token.punctuation{color:#c5c8c6}.token.namespace{opacity:.7}.token.boolean,.token.number,.token.operator{color:#de935f}.token.property{color:#f0c674}.token.tag{color:#81a2be}.token.string{color:#8abeb7}.token.selector{color:#b294bb}.token.attr-name{color:#de935f}.language-css .token.string,.style .token.string,.token.entity,.token.url{color:#8abeb7}.token.attr-value,.token.control,.token.directive,.token.keyword,.token.unit{color:#b5bd68}.token.atrule,.token.regex,.token.statement{color:#8abeb7}.token.placeholder,.token.variable{color:#81a2be}.token.deleted{text-decoration:line-through}.token.inserted{border-bottom:1px dotted #fff;text-decoration:none}.token.italic{font-style:italic}.token.bold,.token.important{font-weight:700}.token.important{color:#c66}.token.entity{cursor:help}pre>code.highlight{outline:.4em solid #c66;outline-offset:.4em}.post-meta{display:flex;flex-direction:column;justify-content:center}</style><meta name="generator" content="Gatsby 2.0.0"/><title data-react-helmet="true">vue 学习记录 | 孙志勇的博客</title><meta data-react-helmet="true" name="description" content="指令 v-bind 绑定 v-if 条件 v-for 循环 v-on 添加事件监听器 v-module 实现表单输入和应用状态之间的双向绑定 v-once 指令，你也能执行一次性地插值，当数据改变时，插值处的内容不会更新 Vue 实例 所有的 Vue 组件都是 Vue…"/><meta data-react-helmet="true" name="image"/><meta data-react-helmet="true" property="og:url" content="https://zhiyongsun.github.io/gatsby-advanced-starter/javascript/vue/vue/"/><meta data-react-helmet="true" property="og:type" content="article"/><meta data-react-helmet="true" property="og:title" content="vue 学习记录"/><meta data-react-helmet="true" property="og:description" content="指令 v-bind 绑定 v-if 条件 v-for 循环 v-on 添加事件监听器 v-module 实现表单输入和应用状态之间的双向绑定 v-once 指令，你也能执行一次性地插值，当数据改变时，插值处的内容不会更新 Vue 实例 所有的 Vue 组件都是 Vue…"/><meta data-react-helmet="true" property="og:image"/><meta data-react-helmet="true" property="fb:app_id" content="1825356251115265"/><meta data-react-helmet="true" name="twitter:card" content="summary_large_image"/><meta data-react-helmet="true" name="twitter:creator" content=""/><meta data-react-helmet="true" name="twitter:title" content="vue 学习记录"/><meta data-react-helmet="true" name="twitter:description" content="指令 v-bind 绑定 v-if 条件 v-for 循环 v-on 添加事件监听器 v-module 实现表单输入和应用状态之间的双向绑定 v-once 指令，你也能执行一次性地插值，当数据改变时，插值处的内容不会更新 Vue 实例 所有的 Vue 组件都是 Vue…"/><meta data-react-helmet="true" name="twitter:image"/><script data-react-helmet="true" type="application/ld+json">[{"@context":"http://schema.org","@type":"WebSite","url":"https://zhiyongsun.github.io/gatsby-advanced-starter","name":"vue 学习记录","alternateName":"GatsbyJS Advanced Starter"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://zhiyongsun.github.io/gatsby-advanced-starter/javascript/vue/vue/","name":"vue 学习记录","image":null}}]},{"@context":"http://schema.org","@type":"BlogPosting","url":"https://zhiyongsun.github.io/gatsby-advanced-starter","name":"vue 学习记录","alternateName":"GatsbyJS Advanced Starter","headline":"vue 学习记录","image":{"@type":"ImageObject","url":null},"description":"指令 v-bind 绑定 v-if 条件 v-for 循环 v-on 添加事件监听器 v-module 实现表单输入和应用状态之间的双向绑定 v-once 指令，你也能执行一次性地插值，当数据改变时，插值处的内容不会更新 Vue 实例 所有的 Vue 组件都是 Vue…"}]</script><style type="text/css">
+    .anchor {
+      float: left;
+      padding-right: 4px;
+      margin-left: -20px;
+    }
+    h1 .anchor svg,
+    h2 .anchor svg,
+    h3 .anchor svg,
+    h4 .anchor svg,
+    h5 .anchor svg,
+    h6 .anchor svg {
+      visibility: hidden;
+    }
+    h1:hover .anchor svg,
+    h2:hover .anchor svg,
+    h3:hover .anchor svg,
+    h4:hover .anchor svg,
+    h5:hover .anchor svg,
+    h6:hover .anchor svg,
+    h1 .anchor:focus svg,
+    h2 .anchor:focus svg,
+    h3 .anchor:focus svg,
+    h4 .anchor:focus svg,
+    h5 .anchor:focus svg,
+    h6 .anchor:focus svg {
+      visibility: visible;
+    }
+  </style><script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      var hash = window.decodeURI(location.hash.replace('#', ''))
+      if (hash !== '') {
+        var element = document.getElementById(hash)
+        if (element) {
+          var offset = element.offsetTop
+          // Wait for the browser to finish rendering before scrolling.
+          setTimeout((function() {
+            window.scrollTo(0, offset - 0)
+          }), 0)
+        }
+      }
+    })
+  </script><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link rel="manifest" href="/manifest.webmanifest"/><meta name="theme-color" content="#c62828"/><link rel="alternate" type="application/rss+xml" href="/rss.xml"/><link as="script" rel="preload" href="/component---src-templates-post-jsx-33afbd656b7398bcc863.js"/><link as="script" rel="preload" href="/app-a347329711e85ab453f5.js"/><link as="script" rel="preload" href="/9-82fd327bea8bcb70f95b.js"/><link as="script" rel="preload" href="/0-c8e93ef957f3a9944fae.js"/><link as="script" rel="preload" href="/webpack-runtime-ff6a7e85c58aeb9b7874.js"/><link rel="preload" href="/static/d/451/path---javascript-vue-vue-044-acb-ayK6LwLD8p9iVWwU5wTChkX4.json" as="fetch" crossOrigin="use-credentials"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" role="group"><div><div><div><h1>vue 学习记录</h1><div><h2 id="指令"><a href="#%E6%8C%87%E4%BB%A4" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>指令</h2>
+<ul>
+<li>v-bind 绑定</li>
+<li>v-if 条件</li>
+<li>v-for 循环</li>
+<li>v-on 添加事件监听器</li>
+<li>v-module 实现表单输入和应用状态之间的双向绑定</li>
+<li>v-once 指令，你也能执行一次性地插值，当数据改变时，插值处的内容不会更新</li>
+</ul>
+<h2 id="vue-实例"><a href="#vue-%E5%AE%9E%E4%BE%8B" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Vue 实例</h2>
+<ul>
+<li>所有的 Vue 组件都是 Vue 实例，并且接受相同的选项对象 (一些根实例特有的选项除外)。</li>
+<li>data 上来初始化数据，需要改变的话讲data数据改变，即可改变视图数据（Object.freeze()，这会阻止修改现有的属性，也意味着响应系统无法再追踪变化。）</li>
+<li>Vue 实例还暴露了一些有用的实例属性与方法。它们都有前缀 $，以便与用户定义的属性区分开来。</li>
+<li>实例生命周期钩子。不要在选项属性或回调上使用箭头函数，比如 created: () => console.log(this.a) 或 vm.$watch('a', newValue => this.myMethod())。因为箭头函数是和父级上下文绑定在一起的，this 不会是如你所预期的 Vue 实例。
+
+  <a
+    class="gatsby-resp-image-link"
+    href="/static/lifecycle-6f2c97f045ba988851b02056c01c8d62-abd41.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+  
+  <span
+    class="gatsby-resp-image-wrapper"
+    style="position: relative; display: block; ; max-width: 690px; margin-left: auto; margin-right: auto;"
+  >
+    <span
+      class="gatsby-resp-image-background-image"
+      style="padding-bottom: 253.24999999999997%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,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'); background-size: cover; display: block;"
+    >
+      <img
+        class="gatsby-resp-image-image"
+        style="width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;"
+        alt="lifecycle"
+        title=""
+        src="/static/lifecycle-6f2c97f045ba988851b02056c01c8d62-44d6a.png"
+        srcset="/static/lifecycle-6f2c97f045ba988851b02056c01c8d62-f4799.png 173w,
+/static/lifecycle-6f2c97f045ba988851b02056c01c8d62-b3b1d.png 345w,
+/static/lifecycle-6f2c97f045ba988851b02056c01c8d62-44d6a.png 690w,
+/static/lifecycle-6f2c97f045ba988851b02056c01c8d62-bc0f7.png 1035w,
+/static/lifecycle-6f2c97f045ba988851b02056c01c8d62-abd41.png 1200w"
+        sizes="(max-width: 690px) 100vw, 690px"
+      />
+    </span>
+  </span>
+  
+  </a>
+    </li>
+</ul>
+<h2 id="模板语法"><a href="#%E6%A8%A1%E6%9D%BF%E8%AF%AD%E6%B3%95" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>模板语法</h2>
+<ul>
+<li>数据绑定最常见的形式就是使用“Mustache”语法 (双大括号) 的文本插值</li>
+<li>原始 HTML：双大括号会将数据解释为普通文本，而非 HTML 代码。为了输出真正的 HTML，你需要使用 v-html 指令</li>
+</ul>
+<div class="gatsby-highlight" data-language="js">
+      <pre class="language-js"><code class="language-js"><span class="token operator">&lt;</span>p<span class="token operator">></span>Using mustaches<span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token punctuation">{</span> rawHtml <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">></span>
+<span class="token operator">&lt;</span>p<span class="token operator">></span>Using v<span class="token operator">-</span>html directive<span class="token punctuation">:</span> <span class="token operator">&lt;</span>span v<span class="token operator">-</span>html<span class="token operator">=</span><span class="token string">"rawHtml"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">></span></code></pre>
+      </div>
+<ul>
+<li>特性：Mustache 语法不能作用在 HTML 特性上，遇到这种情况应该使用 v-bind 指令：</li>
+</ul>
+<div class="gatsby-highlight" data-language="js">
+      <pre class="language-js"><code class="language-js"><span class="token operator">&lt;</span>div v<span class="token operator">-</span>bind<span class="token punctuation">:</span>id<span class="token operator">=</span><span class="token string">"dynamicId"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span></code></pre>
+      </div>
+<ul>
+<li>使用 JavaScript 表达式:</li>
+</ul>
+<div class="gatsby-highlight" data-language="js">
+      <pre class="language-js"><code class="language-js"><span class="token punctuation">{</span><span class="token punctuation">{</span> number <span class="token operator">+</span> <span class="token number">1</span> <span class="token punctuation">}</span><span class="token punctuation">}</span>
+
+<span class="token punctuation">{</span><span class="token punctuation">{</span> ok <span class="token operator">?</span> <span class="token string">'YES'</span> <span class="token punctuation">:</span> <span class="token string">'NO'</span> <span class="token punctuation">}</span><span class="token punctuation">}</span>
+
+<span class="token punctuation">{</span><span class="token punctuation">{</span> message<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">reverse</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span> <span class="token punctuation">}</span><span class="token punctuation">}</span>
+
+<span class="token operator">&lt;</span>div v<span class="token operator">-</span>bind<span class="token punctuation">:</span>id<span class="token operator">=</span><span class="token string">"'list-' + id"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span></code></pre>
+      </div>
+<ul>
+<li>
+<p>指令
+指令 (Directives) 是带有 v- 前缀的特殊特性。指令特性的值预期是单个 JavaScript 表达式 (v-for 是例外情况，稍后我们再讨论)。指令的职责是，当表达式的值改变时，将其产生的连带影响，响应式地作用于 DOM。</p>
+</li>
+<li>
+<p>参数
+一些指令能够接收一个“参数”，在指令名称之后以冒号表示。例如，v-bind 指令可以用于响应式地更新 HTML 特性：</p>
+</li>
+</ul>
+<div class="gatsby-highlight" data-language="js">
+      <pre class="language-js"><code class="language-js"><span class="token operator">&lt;</span>a v<span class="token operator">-</span>bind<span class="token punctuation">:</span>href<span class="token operator">=</span><span class="token string">"url"</span><span class="token operator">></span><span class="token operator">...</span><span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">></span></code></pre>
+      </div>
+<ul>
+<li>
+<p>修饰符
+修饰符 (Modifiers) 是以半角句号 . 指明的特殊后缀，用于指出一个指令应该以特殊方式绑定。例如，.prevent 修饰符告诉 v-on 指令对于触发的事件调用 event.preventDefault()：</p>
+</li>
+</ul>
+<div class="gatsby-highlight" data-language="js">
+      <pre class="language-js"><code class="language-js"><span class="token operator">&lt;</span>form v<span class="token operator">-</span>on<span class="token punctuation">:</span>submit<span class="token punctuation">.</span>prevent<span class="token operator">=</span><span class="token string">"onSubmit"</span><span class="token operator">></span><span class="token operator">...</span><span class="token operator">&lt;</span><span class="token operator">/</span>form<span class="token operator">></span></code></pre>
+      </div>
+<ul>
+<li>
+<p>缩写</p>
+<ul>
+<li>v-bind 缩写</li>
+</ul>
+</li>
+</ul>
+<div class="gatsby-highlight" data-language="js">
+      <pre class="language-js"><code class="language-js"><span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> 完整语法 <span class="token operator">--</span><span class="token operator">></span>
+<span class="token operator">&lt;</span>a v<span class="token operator">-</span>bind<span class="token punctuation">:</span>href<span class="token operator">=</span><span class="token string">"url"</span><span class="token operator">></span><span class="token operator">...</span><span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> 缩写 <span class="token operator">--</span><span class="token operator">></span>
+<span class="token operator">&lt;</span>a <span class="token punctuation">:</span>href<span class="token operator">=</span><span class="token string">"url"</span><span class="token operator">></span><span class="token operator">...</span><span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">></span></code></pre>
+      </div>
+<ul>
+<li>v-on 缩写</li>
+</ul>
+<div class="gatsby-highlight" data-language="js">
+      <pre class="language-js"><code class="language-js"><span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> 完整语法 <span class="token operator">--</span><span class="token operator">></span>
+<span class="token operator">&lt;</span>a v<span class="token operator">-</span>on<span class="token punctuation">:</span>click<span class="token operator">=</span><span class="token string">"doSomething"</span><span class="token operator">></span><span class="token operator">...</span><span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">></span>
+
+<span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> 缩写 <span class="token operator">--</span><span class="token operator">></span>
+<span class="token operator">&lt;</span>a @click<span class="token operator">=</span><span class="token string">"doSomething"</span><span class="token operator">></span><span class="token operator">...</span><span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">></span></code></pre>
+      </div>
+<h2 id="计算属性和侦听器"><a href="#%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7%E5%92%8C%E4%BE%A6%E5%90%AC%E5%99%A8" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>计算属性和侦听器</h2>
+<h3 id="计算属性"><a href="#%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>计算属性</h3>
+<p>计算属性是基于它们的依赖进行缓存的</p>
+<div class="gatsby-highlight" data-language="js">
+      <pre class="language-js"><code class="language-js"><span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string">"example"</span><span class="token operator">></span>
+  <span class="token operator">&lt;</span>p<span class="token operator">></span>Original message<span class="token punctuation">:</span> <span class="token string">"{{ message }}"</span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">></span>
+  <span class="token operator">&lt;</span>p<span class="token operator">></span>Computed reversed message<span class="token punctuation">:</span> <span class="token string">"{{ reversedMessage }}"</span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+
+<span class="token keyword">var</span> vm <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  el<span class="token punctuation">:</span> <span class="token string">'#example'</span><span class="token punctuation">,</span>
+  data<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    message<span class="token punctuation">:</span> <span class="token string">'Hello'</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  computed<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 计算属性的 getter</span>
+    reversedMessage<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token comment">// `this` 指向 vm 实例</span>
+      <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>message<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">reverse</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+      </div>
+<h4 id="计算属性缓存-vs-方法"><a href="#%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7%E7%BC%93%E5%AD%98-vs-%E6%96%B9%E6%B3%95" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>计算属性缓存 vs 方法</h4>
+<p>方法</p>
+<div class="gatsby-highlight" data-language="js">
+      <pre class="language-js"><code class="language-js"><span class="token operator">&lt;</span>p<span class="token operator">></span>Reversed message<span class="token punctuation">:</span> <span class="token string">"{{ reversedMessage() }}"</span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">></span>
+
+<span class="token comment">// 在组件中</span>
+methods<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+  reversedMessage<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>message<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">reverse</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+      </div>
+<p>计算属性是基于它们的依赖进行缓存的，这意味着因为 Date.now() 不是响应式依赖：</p>
+<div class="gatsby-highlight" data-language="js">
+      <pre class="language-js"><code class="language-js">computed<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+  now<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+      </div>
+<h3 id="计算属性-vs-侦听属性"><a href="#%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7-vs-%E4%BE%A6%E5%90%AC%E5%B1%9E%E6%80%A7" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>计算属性 vs 侦听属性</h3>
+<p>Vue 提供了一种更通用的方式来观察和响应 Vue 实例上的数据变动：侦听属性。当你有一些数据需要随着其它数据变动而变动时，你很容易滥用 watch——特别是如果你之前使用过 AngularJS。然而，通常更好的做法是使用计算属性而不是命令式的 watch 回调。细想一下这个例子：</p>
+<h3 id="侦听器"><a href="#%E4%BE%A6%E5%90%AC%E5%99%A8" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>侦听器</h3>
+<p><a href="https://cn.vuejs.org/v2/guide/computed.html#%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7%E7%BC%93%E5%AD%98-vs-%E6%96%B9%E6%B3%95">监听器</a></p>
+<h2 id="class-与-style-绑定"><a href="#class-%E4%B8%8E-style-%E7%BB%91%E5%AE%9A" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Class 与 Style 绑定</h2>
+<h3 id="绑定-html-class"><a href="#%E7%BB%91%E5%AE%9A-html-class" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>绑定 HTML Class</h3>
+<ul>
+<li>对象语法</li>
+</ul>
+<h3 id="props"><a href="#props" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>props</h3>
+<ul>
+<li>注意在 JavaScript 中对象和数组是通过引用传入的，所以对于一个数组或对象类型的 prop 来说，在子组件中改变这个对象或数组本身将会影响到父组件的状态。</li>
+<li>传入值数字，布尔值，数组，都需要v-bind，默认是字符串</li>
+</ul>
+<div class="gatsby-highlight" data-language="js">
+      <pre class="language-js"><code class="language-js"><span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> 即便 <span class="token template-string"><span class="token string">`42`</span></span> 是静态的，我们仍然需要 <span class="token template-string"><span class="token string">`v-bind`</span></span> 来告诉 Vue <span class="token operator">--</span><span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> 这是一个 JavaScript 表达式而不是一个字符串。<span class="token operator">--</span><span class="token operator">></span>
+<span class="token operator">&lt;</span>blog<span class="token operator">-</span>post v<span class="token operator">-</span>bind<span class="token punctuation">:</span>likes<span class="token operator">=</span><span class="token string">"42"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>blog<span class="token operator">-</span>post<span class="token operator">></span></code></pre>
+      </div>
+<ul>
+<li>传入一个对象的所有属性
+如果你想要将一个对象的所有属性都作为 prop 传入，你可以使用不带参数的 v-bind (取代 v-bind:prop-name)。例如，对于一个给定的对象 post：</li>
+</ul>
+<div class="gatsby-highlight" data-language="js">
+      <pre class="language-js"><code class="language-js">post<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+  id<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+  title<span class="token punctuation">:</span> <span class="token string">'My Journey with Vue'</span>
+<span class="token punctuation">}</span>
+<span class="token operator">&lt;</span>blog<span class="token operator">-</span>post v<span class="token operator">-</span>bind<span class="token operator">=</span><span class="token string">"post"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>blog<span class="token operator">-</span>post<span class="token operator">></span></code></pre>
+      </div>
+<ul>
+<li>Prop 验证</li>
+</ul>
+<div class="gatsby-highlight" data-language="js">
+      <pre class="language-js"><code class="language-js">Vue<span class="token punctuation">.</span><span class="token function">component</span><span class="token punctuation">(</span><span class="token string">'my-component'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  props<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 基础的类型检查 (`null` 匹配任何类型)</span>
+    propA<span class="token punctuation">:</span> Number<span class="token punctuation">,</span>
+    <span class="token comment">// 多个可能的类型</span>
+    propB<span class="token punctuation">:</span> <span class="token punctuation">[</span>String<span class="token punctuation">,</span> Number<span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token comment">// 必填的字符串</span>
+    propC<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      type<span class="token punctuation">:</span> String<span class="token punctuation">,</span>
+      required<span class="token punctuation">:</span> <span class="token boolean">true</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token comment">// 带有默认值的数字</span>
+    propD<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      type<span class="token punctuation">:</span> Number<span class="token punctuation">,</span>
+      <span class="token keyword">default</span><span class="token punctuation">:</span> <span class="token number">100</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token comment">// 带有默认值的对象</span>
+    propE<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      type<span class="token punctuation">:</span> Object<span class="token punctuation">,</span>
+      <span class="token comment">// 对象或数组且一定会从一个工厂函数返回默认值</span>
+      <span class="token keyword">default</span><span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token punctuation">{</span> message<span class="token punctuation">:</span> <span class="token string">'hello'</span> <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token comment">// 自定义验证函数</span>
+    propF<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      validator<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 这个值必须匹配下列字符串中的一个</span>
+        <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token string">'success'</span><span class="token punctuation">,</span> <span class="token string">'warning'</span><span class="token punctuation">,</span> <span class="token string">'danger'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token operator">!==</span> <span class="token operator">-</span><span class="token number">1</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+      </div>
+<h2 id="疑问点"><a href="#%E7%96%91%E9%97%AE%E7%82%B9" aria-hidden="true" class="anchor"><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>疑问点</h2>
+<ul>
+<li>el有什么作用 ？</li>
+</ul></div><div class="post-meta"><div class="post-tag-container"><a style="text-decoration:none" href="/tags/java-script"><button>JavaScript</button></a><a style="text-decoration:none" href="/tags/vue"><button>vue</button></a></div><div class="social-links"><div role="button" tabindex="0" class="SocialMediaShareButton SocialMediaShareButton--reddit"><div style="width:48px;height:48px"><svg viewBox="0 0 64 64" width="48" height="48" class="social-icon social-icon--reddit "><g><circle cx="32" cy="32" r="31" fill="#5f99cf"></circle></g><g><path d="m 52.8165,31.942362 c 0,-2.4803 -2.0264,-4.4965 -4.5169,-4.4965 -1.2155,0 -2.3171,0.4862 -3.128,1.2682 -3.077,-2.0247 -7.2403,-3.3133 -11.8507,-3.4782 l 2.5211,-7.9373 6.8272,1.5997 -0.0102,0.0986 c 0,2.0281 1.6575,3.6771 3.6958,3.6771 2.0366,0 3.6924,-1.649 3.6924,-3.6771 0,-2.0281 -1.6575,-3.6788 -3.6924,-3.6788 -1.564,0 -2.8968,0.9758 -3.4357,2.3443 l -7.3593,-1.7255 c -0.3213,-0.0782 -0.6477,0.1071 -0.748,0.4233 L 32,25.212062 c -4.8246,0.0578 -9.1953,1.3566 -12.41,3.4425 -0.8058,-0.7446 -1.8751,-1.2104 -3.0583,-1.2104 -2.4905,0 -4.5152,2.0179 -4.5152,4.4982 0,1.649 0.9061,3.0787 2.2389,3.8607 -0.0884,0.4794 -0.1462,0.9639 -0.1462,1.4569 0,6.6487 8.1736,12.0581 18.2223,12.0581 10.0487,0 18.224,-5.4094 18.224,-12.0581 0,-0.4658 -0.0493,-0.9248 -0.1275,-1.377 1.4144,-0.7599 2.3885,-2.2304 2.3885,-3.9406 z m -29.2808,3.0872 c 0,-1.4756 1.207,-2.6775 2.6894,-2.6775 1.4824,0 2.6877,1.2019 2.6877,2.6775 0,1.4756 -1.2053,2.6758 -2.6877,2.6758 -1.4824,0 -2.6894,-1.2002 -2.6894,-2.6758 z m 15.4037,7.9373 c -1.3549,1.3481 -3.4816,2.0043 -6.5008,2.0043 l -0.0221,-0.0051 -0.0221,0.0051 c -3.0209,0 -5.1476,-0.6562 -6.5008,-2.0043 -0.2465,-0.2448 -0.2465,-0.6443 0,-0.8891 0.2465,-0.2465 0.6477,-0.2465 0.8942,0 1.105,1.0999 2.9393,1.6337 5.6066,1.6337 l 0.0221,0.0051 0.0221,-0.0051 c 2.6673,0 4.5016,-0.5355 5.6066,-1.6354 0.2465,-0.2465 0.6477,-0.2448 0.8942,0 0.2465,0.2465 0.2465,0.6443 0,0.8908 z m -0.3213,-5.2615 c -1.4824,0 -2.6877,-1.2002 -2.6877,-2.6758 0,-1.4756 1.2053,-2.6775 2.6877,-2.6775 1.4824,0 2.6877,1.2019 2.6877,2.6775 0,1.4756 -1.2053,2.6758 -2.6877,2.6758 z" fill="white"></path></g></svg></div><div class="SocialMediaShareCount"><div class="share-count"></div></div></div><div role="button" tabindex="0" class="SocialMediaShareButton SocialMediaShareButton--twitter"><div style="width:48px;height:48px"><svg viewBox="0 0 64 64" width="48" height="48" class="social-icon social-icon--twitter "><g><circle cx="32" cy="32" r="31" fill="#00aced"></circle></g><g><path d="M48,22.1c-1.2,0.5-2.4,0.9-3.8,1c1.4-0.8,2.4-2.1,2.9-3.6c-1.3,0.8-2.7,1.3-4.2,1.6 C41.7,19.8,40,19,38.2,19c-3.6,0-6.6,2.9-6.6,6.6c0,0.5,0.1,1,0.2,1.5c-5.5-0.3-10.3-2.9-13.5-6.9c-0.6,1-0.9,2.1-0.9,3.3 c0,2.3,1.2,4.3,2.9,5.5c-1.1,0-2.1-0.3-3-0.8c0,0,0,0.1,0,0.1c0,3.2,2.3,5.8,5.3,6.4c-0.6,0.1-1.1,0.2-1.7,0.2c-0.4,0-0.8,0-1.2-0.1 c0.8,2.6,3.3,4.5,6.1,4.6c-2.2,1.8-5.1,2.8-8.2,2.8c-0.5,0-1.1,0-1.6-0.1c2.9,1.9,6.4,2.9,10.1,2.9c12.1,0,18.7-10,18.7-18.7 c0-0.3,0-0.6,0-0.8C46,24.5,47.1,23.4,48,22.1z" fill="white"></path></g></svg></div></div><div role="button" tabindex="0" class="SocialMediaShareButton SocialMediaShareButton--googlePlus"><div style="width:48px;height:48px"><svg viewBox="0 0 64 64" width="48" height="48" class="social-icon social-icon--google "><g><circle cx="32" cy="32" r="31" fill="#dd4b39"></circle></g><g><path d="M25.3,30.1v3.8h6.3c-0.3,1.6-1.9,4.8-6.3,4.8c-3.8,0-6.9-3.1-6.9-7s3.1-7,6.9-7c2.2,0,3.6,0.9,4.4,1.7l3-2.9c-1.9-1.8-4.4-2.9-7.4-2.9c-6.1,0-11.1,5-11.1,11.1s5,11.1,11.1,11.1c6.4,0,10.7-4.5,10.7-10.9c0-0.7-0.1-1.3-0.2-1.8H25.3L25.3,30.1z M49.8,28.9h-3.2v-3.2h-3.2v3.2h-3.2v3.2h3.2v3.2h3.2v-3.2h3.2" fill="white"></path></g></svg></div><div class="SocialMediaShareCount"><div class="share-count"></div></div></div><div role="button" tabindex="0" class="SocialMediaShareButton SocialMediaShareButton--facebook"><div style="width:48px;height:48px"><svg viewBox="0 0 64 64" width="48" height="48" class="social-icon social-icon--facebook "><g><circle cx="32" cy="32" r="31" fill="#3b5998"></circle></g><g><path d="M34.1,47V33.3h4.6l0.7-5.3h-5.3v-3.4c0-1.5,0.4-2.6,2.6-2.6l2.8,0v-4.8c-0.5-0.1-2.2-0.2-4.1-0.2 c-4.1,0-6.9,2.5-6.9,7V28H24v5.3h4.6V47H34.1z" fill="white"></path></g></svg></div><div class="SocialMediaShareCount"><div class="share-count"></div></div></div><div role="button" tabindex="0" class="SocialMediaShareButton SocialMediaShareButton--linkedin"><div style="width:48px;height:48px"><svg viewBox="0 0 64 64" width="48" height="48" class="social-icon social-icon--linkedin "><g><circle cx="32" cy="32" r="31" fill="#007fb1"></circle></g><g><path d="M20.4,44h5.4V26.6h-5.4V44z M23.1,18c-1.7,0-3.1,1.4-3.1,3.1c0,1.7,1.4,3.1,3.1,3.1 c1.7,0,3.1-1.4,3.1-3.1C26.2,19.4,24.8,18,23.1,18z M39.5,26.2c-2.6,0-4.4,1.4-5.1,2.8h-0.1v-2.4h-5.2V44h5.4v-8.6 c0-2.3,0.4-4.5,3.2-4.5c2.8,0,2.8,2.6,2.8,4.6V44H46v-9.5C46,29.8,45,26.2,39.5,26.2z" fill="white"></path></g></svg></div><div class="SocialMediaShareCount"><div class="share-count"></div></div></div><div role="button" tabindex="0" class="SocialMediaShareButton SocialMediaShareButton--telegram"><div style="width:48px;height:48px"><svg viewBox="0 0 64 64" width="48" height="48" class="social-icon social-icon--telegram "><g><circle cx="32" cy="32" r="31" fill="#37aee2"></circle></g><g><path d="m45.90873,15.44335c-0.6901,-0.0281 -1.37668,0.14048 -1.96142,0.41265c-0.84989,0.32661 -8.63939,3.33986 -16.5237,6.39174c-3.9685,1.53296 -7.93349,3.06593 -10.98537,4.24067c-3.05012,1.1765 -5.34694,2.05098 -5.4681,2.09312c-0.80775,0.28096 -1.89996,0.63566 -2.82712,1.72788c-0.23354,0.27218 -0.46884,0.62161 -0.58825,1.10275c-0.11941,0.48114 -0.06673,1.09222 0.16682,1.5716c0.46533,0.96052 1.25376,1.35737 2.18443,1.71383c3.09051,0.99037 6.28638,1.93508 8.93263,2.8236c0.97632,3.44171 1.91401,6.89571 2.84116,10.34268c0.30554,0.69185 0.97105,0.94823 1.65764,0.95525l-0.00351,0.03512c0,0 0.53908,0.05268 1.06412,-0.07375c0.52679,-0.12292 1.18879,-0.42846 1.79109,-0.99212c0.662,-0.62161 2.45836,-2.38812 3.47683,-3.38552l7.6736,5.66477l0.06146,0.03512c0,0 0.84989,0.59703 2.09312,0.68132c0.62161,0.04214 1.4399,-0.07726 2.14229,-0.59176c0.70766,-0.51626 1.1765,-1.34683 1.396,-2.29506c0.65673,-2.86224 5.00979,-23.57745 5.75257,-27.00686l-0.02107,0.08077c0.51977,-1.93157 0.32837,-3.70159 -0.87096,-4.74991c-0.60054,-0.52152 -1.2924,-0.7498 -1.98425,-0.77965l0,0.00176zm-0.2072,3.29069c0.04741,0.0439 0.0439,0.0439 0.00351,0.04741c-0.01229,-0.00351 0.14048,0.2072 -0.15804,1.32576l-0.01229,0.04214l-0.00878,0.03863c-0.75858,3.50668 -5.15554,24.40802 -5.74203,26.96472c-0.08077,0.34417 -0.11414,0.31959 -0.09482,0.29852c-0.1756,-0.02634 -0.50045,-0.16506 -0.52679,-0.1756l-13.13468,-9.70175c4.4988,-4.33199 9.09945,-8.25307 13.744,-12.43229c0.8218,-0.41265 0.68483,-1.68573 -0.29852,-1.70681c-1.04305,0.24584 -1.92279,0.99564 -2.8798,1.47502c-5.49971,3.2626 -11.11882,6.13186 -16.55882,9.49279c-2.792,-0.97105 -5.57873,-1.77704 -8.15298,-2.57601c2.2336,-0.89555 4.00889,-1.55579 5.75608,-2.23009c3.05188,-1.1765 7.01687,-2.7042 10.98537,-4.24067c7.94051,-3.06944 15.92667,-6.16346 16.62028,-6.43037l0.05619,-0.02283l0.05268,-0.02283c0.19316,-0.0878 0.30378,-0.09658 0.35471,-0.10009c0,0 -0.01756,-0.05795 -0.00351,-0.04566l-0.00176,0zm-20.91715,22.0638l2.16687,1.60145c-0.93418,0.91311 -1.81743,1.77353 -2.45485,2.38812l0.28798,-3.98957" fill="white"></path></g></svg></div></div></div></div><div></div><div><div id="disqus_thread"></div></div></div></div></div></div></div><script>
+  
+  
+  if(true) {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  }
+  if (typeof ga === "function") {
+    ga('create', 'UA-47311644-5', 'auto', {});
+      }
+      </script><script id="gatsby-script-loader">/*<![CDATA[*/window.page={"componentChunkName":"component---src-templates-post-jsx","jsonName":"javascript-vue-vue-044","path":"/javascript/vue/vue/"};window.dataPath="451/path---javascript-vue-vue-044-acb-ayK6LwLD8p9iVWwU5wTChkX4";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-a347329711e85ab453f5.js"],"component---node-modules-gatsby-plugin-offline-app-shell-js":["/component---node-modules-gatsby-plugin-offline-app-shell-js-1ea27c0f82b10bbb09b7.js"],"component---src-templates-post-jsx":["/component---src-templates-post-jsx.f58049f7d31e0c729f0e.css","/component---src-templates-post-jsx-33afbd656b7398bcc863.js"],"component---src-templates-tag-jsx":["/component---src-templates-tag-jsx.9ec4509cb23be598be68.css","/component---src-templates-tag-jsx-33b2970cf994e78c6788.js"],"component---src-templates-category-jsx":["/component---src-templates-category-jsx.9ec4509cb23be598be68.css","/component---src-templates-category-jsx-4ffc4c3fd49920a16ae4.js"],"component---src-pages-about-jsx":["/component---src-pages-about-jsx.069718c6a0933936b8bb.css","/component---src-pages-about-jsx-7684c36df9bcece3bd69.js"],"component---src-pages-index-jsx":["/component---src-pages-index-jsx.9ec4509cb23be598be68.css","/component---src-pages-index-jsx-f50b56746c475a012702.js"]};/*]]>*/</script><script src="/webpack-runtime-ff6a7e85c58aeb9b7874.js" async=""></script><script src="/0-c8e93ef957f3a9944fae.js" async=""></script><script src="/9-82fd327bea8bcb70f95b.js" async=""></script><script src="/app-a347329711e85ab453f5.js" async=""></script><script src="/component---src-templates-post-jsx-33afbd656b7398bcc863.js" async=""></script></body></html>

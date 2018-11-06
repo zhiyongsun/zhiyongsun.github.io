@@ -1,0 +1,1 @@
+{"data":{"allMarkdownRemark":{"totalCount":1,"edges":[{"node":{"fields":{"slug":"/tools/bash/bash/","date":"2017-09-01T16:00:00.000Z"},"excerpt":"新建文件 新建文件并且进入vim编辑 or 新建文件夹 rm -rf 目录名字","timeToRead":1,"frontmatter":{"title":"bash常用命令","tags":["bash"],"cover":null,"date":"2017-09-02T23:05:30.000Z"}}}]}},"pageContext":{"tag":"bash"}}
