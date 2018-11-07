@@ -84,5 +84,7 @@ yarn-error.log*
 
 /.idea
 
+.cache
+
 
 
