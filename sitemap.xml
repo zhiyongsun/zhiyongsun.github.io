@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
 <url> <loc>https://zhiyongsun.github.io/gatsby-advanced-starter/markdown-rules/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://zhiyongsun.github.io/gatsby-advanced-starter/problems-to-solve/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://zhiyongsun.github.io/gatsby-advanced-starter/cooking/cooking/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://zhiyongsun.github.io/gatsby-advanced-starter/blog/ghost/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://zhiyongsun.github.io/gatsby-advanced-starter/blog/hexo-blog/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -123,8 +122,8 @@
 <url> <loc>https://zhiyongsun.github.io/gatsby-advanced-starter/tools/webpack/webpack/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://zhiyongsun.github.io/gatsby-advanced-starter/tools/zsh/zsh-git-plugin/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://zhiyongsun.github.io/gatsby-advanced-starter/tools/zsh/zsh/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://zhiyongsun.github.io/gatsby-advanced-starter/problems-to-solve/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://zhiyongsun.github.io/gatsby-advanced-starter/tags/markdown/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://zhiyongsun.github.io/gatsby-advanced-starter/tags/problems/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://zhiyongsun.github.io/gatsby-advanced-starter/tags/cooking/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://zhiyongsun.github.io/gatsby-advanced-starter/tags/blog/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://zhiyongsun.github.io/gatsby-advanced-starter/tags/books/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -216,7 +215,6 @@
 <url> <loc>https://zhiyongsun.github.io/gatsby-advanced-starter/tags/webstorm/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://zhiyongsun.github.io/gatsby-advanced-starter/tags/zsh/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://zhiyongsun.github.io/gatsby-advanced-starter/categories/markdown/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://zhiyongsun.github.io/gatsby-advanced-starter/categories/problems/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://zhiyongsun.github.io/gatsby-advanced-starter/categories/cooking/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://zhiyongsun.github.io/gatsby-advanced-starter/categories/blog/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://zhiyongsun.github.io/gatsby-advanced-starter/categories/books/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -250,6 +248,7 @@
 <url> <loc>https://zhiyongsun.github.io/gatsby-advanced-starter/categories/skills/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://zhiyongsun.github.io/gatsby-advanced-starter/categories/ssh/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://zhiyongsun.github.io/gatsby-advanced-starter/categories/sketch/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://zhiyongsun.github.io/gatsby-advanced-starter/categories/problems/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://zhiyongsun.github.io/gatsby-advanced-starter/about/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://zhiyongsun.github.io/gatsby-advanced-starter/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 </urlset>
