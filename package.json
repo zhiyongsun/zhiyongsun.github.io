@@ -1,8 +1,8 @@
 {
-  "name": "gatsby-starter-advanced",
-  "description": "GatsbyJS starter that includes examples for advanced use cases.",
-  "version": "1.1.0",
-  "author": "Ruben Harutyunyan <vagr9k@gmail.com>",
+  "name": "sunzhiyong's blog ",
+  "description": "sunzhiyong's blog ",
+  "version": "1.0.0",
+  "author": "sunzhiyong <785037725@qq.com>",
   "dependencies": {
     "gatsby": "2.0.0",
     "gatsby-image": "2.0.0",
