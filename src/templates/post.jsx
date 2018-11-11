@@ -10,6 +10,7 @@ import SEO from "../components/SEO/SEO";
 import config from "../../data/SiteConfig";
 import "./b16-tomorrow-dark.css";
 import "./post.css";
+import Footer from '../components/Footer/Footer.jsx';
 
 export default class PostTemplate extends React.Component {
   render() {
@@ -38,6 +39,7 @@ export default class PostTemplate extends React.Component {
             </div>
             <UserInfo config={config} />
             <Disqus postNode={postNode} />
+            <Footer/>
           </div>
         </div>
       </Layout>

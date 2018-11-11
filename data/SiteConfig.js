@@ -25,21 +25,16 @@ module.exports = {
   userLinks: [
     {
       label: "GitHub",
-      url: "https://github.com/Vagr9K/gatsby-advanced-starter",
+      url: "https://github.com/zhiyongsun",
       iconClassName: "fa fa-github"
     },
     {
-      label: "Twitter",
-      url: "https://twitter.com/Vagr9K",
-      iconClassName: "fa fa-twitter"
-    },
-    {
       label: "Email",
-      url: "mailto:vagr9k@gmail.com",
+      url: "785037725@qq.com",
       iconClassName: "fa fa-envelope"
     }
   ],
-  copyright: "Copyright © 2018. Advanced User", // Copyright string for the footer of the website and RSS feed.
+  copyright: "Copyright © 2018. sunzhiyong", // Copyright string for the footer of the website and RSS feed.
   themeColor: "#c62828", // Used for setting manifest and progress theme colors.
   backgroundColor: "#e0e0e0" // Used for setting manifest background color.
 };
