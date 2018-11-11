@@ -1,7 +1,7 @@
 {
-  "name": "sunzhiyong's blog ",
-  "description": "sunzhiyong's blog ",
-  "version": "1.0.0",
+  "name": "sunzhiyong-blog",
+  "description": "sunzhiyon personal blog",
+  "version": "1.1.0",
   "author": "sunzhiyong <785037725@qq.com>",
   "dependencies": {
     "gatsby": "2.0.0",
