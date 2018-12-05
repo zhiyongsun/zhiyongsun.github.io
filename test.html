@@ -6,14 +6,18 @@
 </head>
 <body>
 <script>
-  function f() { console.log('I am outside!'); }
+  let obj = {
+    p: [
+      'Hello',
+      { y: 'World' }
+    ]
+  };
 
-  (function () {
-    if (false) {
-      function f() { console.log('I am inside!'); }
-    }
-    f();
-  }());
+  let { p: [x, { y }] } = obj;
+
+  console.log(p)
+  console.log(x)
+  console.log(y)
 </script>
 </body>
 </html>
