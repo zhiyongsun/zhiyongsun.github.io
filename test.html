@@ -6,18 +6,11 @@
 </head>
 <body>
 <script>
-  let obj = {
-    p: [
-      'Hello',
-      { y: 'World' }
-    ]
-  };
+  function foo(optional = undefined, b) {
+    console.log(optional, b)
 
-  let { p: [x, { y }] } = obj;
-
-  console.log(p)
-  console.log(x)
-  console.log(y)
+ }
+foo(, 1);
 </script>
 </body>
 </html>
