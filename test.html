@@ -6,11 +6,11 @@
 </head>
 <body>
 <script>
-  function foo(optional = undefined, b) {
-    console.log(optional, b)
-
- }
-foo(, 1);
+  var obj = {a: undefined,b : function() {
+      console.log(2)
+    }};
+  console.log(JSON.parse(JSON.stringify(obj)))
+    debugger
 </script>
 </body>
 </html>
