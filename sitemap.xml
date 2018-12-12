@@ -124,6 +124,16 @@
 <url> <loc>https://www.sunzhiyong.cn/gatsby-advanced-starter/tools/zsh/zsh/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.sunzhiyong.cn/gatsby-advanced-starter/vue/router/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.sunzhiyong.cn/gatsby-advanced-starter/tools/git/git/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://www.sunzhiyong.cn/gatsby-advanced-starter/javascript/deep-clone/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://www.sunzhiyong.cn/gatsby-advanced-starter/javascript/get-set/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://www.sunzhiyong.cn/gatsby-advanced-starter/books/ECMAScript6/2-destructuring/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://www.sunzhiyong.cn/gatsby-advanced-starter/books/ECMAScript6/10-object-function/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://www.sunzhiyong.cn/gatsby-advanced-starter/books/ECMAScript6/1-let-and-const/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://www.sunzhiyong.cn/gatsby-advanced-starter/books/ECMAScript6/3-string/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://www.sunzhiyong.cn/gatsby-advanced-starter/books/ECMAScript6/8-array/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://www.sunzhiyong.cn/gatsby-advanced-starter/books/ECMAScript6/6-number/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://www.sunzhiyong.cn/gatsby-advanced-starter/books/ECMAScript6/7-function/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://www.sunzhiyong.cn/gatsby-advanced-starter/books/ECMAScript6/9-object/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.sunzhiyong.cn/gatsby-advanced-starter/tags/reading/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.sunzhiyong.cn/gatsby-advanced-starter/tags/markdown/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.sunzhiyong.cn/gatsby-advanced-starter/tags/books/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -216,6 +226,7 @@
 <url> <loc>https://www.sunzhiyong.cn/gatsby-advanced-starter/tags/zsh/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.sunzhiyong.cn/gatsby-advanced-starter/tags/webstorm/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.sunzhiyong.cn/gatsby-advanced-starter/tags/router/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://www.sunzhiyong.cn/gatsby-advanced-starter/tags/deepclone/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.sunzhiyong.cn/gatsby-advanced-starter/categories/reading/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.sunzhiyong.cn/gatsby-advanced-starter/categories/markdown/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.sunzhiyong.cn/gatsby-advanced-starter/categories/books/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
