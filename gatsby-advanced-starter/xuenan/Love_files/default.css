@@ -89,11 +89,15 @@ a {
 .snowing {
     position: relative;
     background: linear-gradient(to bottom, #7dbacc, #fafcfd);
+
     font-size: 62.5%;
     width: 100%;
     overflow: hidden;
 }
 
+.snowing.snowing-night {
+    background: linear-gradient(to bottom, #000000, #100e38 89%, #d3d3d3);
+}
 
 @keyframes snow {
     0% {
@@ -110,6 +114,7 @@ a {
         background-position-y: 80rem
     }
 }
+
 .snowing::after {
     content: " ";
     display: block;

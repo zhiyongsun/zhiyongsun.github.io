@@ -54,6 +54,24 @@
 </div>
 
 <script>
+    function changeSnow() {
+      const now = new Date();
+      const className = 'snowing-night';
+      const bodyClass = document.body.classList;
+      if(now.getHours()  >= 18){
+        if(bodyClass.contains(className)){
+        }else {
+          bodyClass.add(className);
+        }
+      }else {
+        if(bodyClass.contains(className)){
+          bodyClass.add(className);
+        }else {
+        }
+      }
+    }
+    changeSnow();
+    setInterval(changeSnow,1000 * 60);
 </script>
 
 <script>
