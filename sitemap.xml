@@ -51,7 +51,6 @@
 <url> <loc>https://www.sunzhiyong.cn/gatsby-advanced-starter/javascript/substring-and-substr/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.sunzhiyong.cn/gatsby-advanced-starter/javascript/js-domain/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.sunzhiyong.cn/gatsby-advanced-starter/javascript/keybord/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://www.sunzhiyong.cn/gatsby-advanced-starter/javascript/this/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.sunzhiyong.cn/gatsby-advanced-starter/react/difference-between-props-and-state/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.sunzhiyong.cn/gatsby-advanced-starter/react/diff/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.sunzhiyong.cn/gatsby-advanced-starter/react/prevent-press-trigger-md/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -135,6 +134,7 @@
 <url> <loc>https://www.sunzhiyong.cn/gatsby-advanced-starter/books/ECMAScript6/2-destructuring/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.sunzhiyong.cn/gatsby-advanced-starter/tools/git/git/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.sunzhiyong.cn/gatsby-advanced-starter/tools/webstorm/webstorm/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://www.sunzhiyong.cn/gatsby-advanced-starter/javascript/this/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.sunzhiyong.cn/gatsby-advanced-starter/tags/markdown/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.sunzhiyong.cn/gatsby-advanced-starter/tags/blog/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.sunzhiyong.cn/gatsby-advanced-starter/tags/books/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -176,7 +176,6 @@
 <url> <loc>https://www.sunzhiyong.cn/gatsby-advanced-starter/tags/falsy/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.sunzhiyong.cn/gatsby-advanced-starter/tags/keyboard-event/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.sunzhiyong.cn/gatsby-advanced-starter/tags/js作用域与块级作用域/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://www.sunzhiyong.cn/gatsby-advanced-starter/tags/this-指向/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.sunzhiyong.cn/gatsby-advanced-starter/tags/react/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.sunzhiyong.cn/gatsby-advanced-starter/tags/webpack/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.sunzhiyong.cn/gatsby-advanced-starter/tags/middleware/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -229,6 +228,7 @@
 <url> <loc>https://www.sunzhiyong.cn/gatsby-advanced-starter/tags/unit-testing/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.sunzhiyong.cn/gatsby-advanced-starter/tags/router/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.sunzhiyong.cn/gatsby-advanced-starter/tags/webstorm/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://www.sunzhiyong.cn/gatsby-advanced-starter/tags/this-指向/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.sunzhiyong.cn/gatsby-advanced-starter/categories/markdown/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.sunzhiyong.cn/gatsby-advanced-starter/categories/blog/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.sunzhiyong.cn/gatsby-advanced-starter/categories/books/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
