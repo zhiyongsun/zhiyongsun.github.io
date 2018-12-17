@@ -6,11 +6,17 @@
 </head>
 <body>
 <script>
-  var obj = {a: undefined,b : function() {
-      console.log(2)
-    }};
-  console.log(JSON.parse(JSON.stringify(obj)))
-    debugger
+  function F() {
+  }
+
+  F.prototype = {
+    _name: 'Eric',
+    getName: function() {
+      return this._name
+    }
+  }
+  const f = new F();
+
 </script>
 </body>
 </html>
