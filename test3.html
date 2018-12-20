@@ -3,85 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <style>
-        @keyframes snow {
-            0% {
-                background-position-x: 0;
-                background-position-y: 0
-            }
 
-            50% {
-                background-position-y: 40rem
-            }
-
-            100% {
-                background-position-x: 40rem;
-                background-position-y: 80rem
-            }
-        }
-
-        body{
-            height: 100vh;
-            width: 100%;
-            /*background: #7dbacc;*/
-            /*background: black;*/
-            position: relative;
-            font-size: 62.5%;
-            background: linear-gradient(to bottom, #7dbacc, #fafcfd);
-        }
-
-        body::after {
-            content: " ";
-            display: block;
-            position: absolute;
-            top: 0;
-            left: -50%;
-            width: 200%;
-            height: 100%;
-            z-index: 10;
-            -webkit-background-size: 40rem 40rem;
-            -moz-background-size: 40rem 40rem;
-            background-size: 40rem 40rem;
-            background-image: url("https://tinypng.com/images/xmas/falling-snow1.png");
-            -webkit-animation: snow 18s linear infinite;
-            -moz-animation: snow 18s linear infinite;
-            -o-animation: snow 18s linear infinite;
-            -ms-animation: snow 18s linear infinite;
-            animation: snow 18s linear infinite;
-            -webkit-transition: opacity 5s;
-            -moz-transition: opacity 5s;
-            -o-transition: opacity 5s;
-            -ms-transition: opacity 5s;
-            transition: opacity 5s
-        }
-
-        body::before {
-            content: " ";
-            display: block;
-            position: absolute;
-            top: 0;
-            left: -50%;
-            width: 200%;
-            height: 100%;
-            z-index: 1;
-            -webkit-background-size: 40rem 40rem;
-            -moz-background-size: 40rem 40rem;
-            background-size: 40rem 40rem;
-            background-image: url("https://tinypng.com/images/xmas/falling-snow2.png");
-            -webkit-animation: snow 28s linear infinite;
-            -moz-animation: snow 28s linear infinite;
-            -o-animation: snow 28s linear infinite;
-            -ms-animation: snow 28s linear infinite;
-            animation: snow 28s linear infinite;
-            -webkit-transition: opacity 10s;
-            -moz-transition: opacity 10s;
-            -o-transition: opacity 10s;
-            -ms-transition: opacity 10s;
-            transition: opacity 10s;
-        }
-    </style>
 </head>
 <body>
+<script>
+  const A = class A {
+    constructor() {
+      this.p = 2;
+    }
+  }
 
+  function B() {
+    this.p = 2;
+  }
+  B.prototype.say=function() {
+
+  }
+  const a = new A();
+  const b = new B();
+ console.log( b.say === b.__proto__.say)
+  a.p = 2;
+  console.log(typeof A);
+  console.log(typeof a);
+  console.log(typeof B);
+  console.log(typeof b);
+  console.log(A.prototype);
+  console.log(A.__proto__ === Function.prototype);
+</script>
 </body>
 </html>
