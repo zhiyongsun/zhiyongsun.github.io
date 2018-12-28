@@ -3,20 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        .user-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .user::after {
+            content: attr(data-num);
+            position: absolute;
+            top: -5px;
+            right: -2.5px;
+            width: 20px;
+            height: 20px;
+            font-size: 11px;
+            line-height: 1.5;
+            color: #FFF;
+            text-align: center;
+            vertical-align: middle;
+            background: #c21414;
+            border-radius: 50%;
+            border: 1px solid #FFF;
+        }
+    </style>
 </head>
 <body>
-<script>
-  function F() {
-  }
+<div id="user" class="user user-icon" data-num="1" data-user="johndoe" data-date-of-birth>John Doe
+</div>
 
-  F.prototype = {
-    _name: 'Eric',
-    getName: function() {
-      return this._name
-    }
-  }
-  const f = new F();
-    console.log(f instanceof F)
+<script>
+  var el = document.querySelector('#user')
+  console.log(el.dataset)
+  el.dataset.dateOfBirth = '1960-10-03'
+  el.dataset.num = '2'
+  console.log(el.dataset)
 </script>
 </body>
 </html>
