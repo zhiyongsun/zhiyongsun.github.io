@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  class Parent {
+    static  print() {
+      console.log(this.x)
+    }
+    constructor() {
+      this.x = 'parent x'
+    }
+
+    p() {
+      return 'p'
+    }
+
+    print() {
+      console.log(this.x)
+    }
+
+    myMethod(msg) {
+      console.log('parent', msg)
+    }
+  }
+
+  class Child extends Parent {
+    // 在静态方法中，指向父类。
+    static myMethod(msg) {
+      super.myMethod(msg)
+      super.print()
+
+      // 注意，使用super的时候，必须显式指定是作为函数、还是作为对象使用，否则会报错。
+      // console.log(super); // 报错
+    }
+
+    static print() {
+      console.log(this.x);
+    }
+
+    static m() {
+      super.print()
+    }
+
+    constructor() {
+      // super()只能用在子类的构造函数之中。
+      super()
+      // super作为对象时，在普通方法中，指向父类的原型对象；在静态方法中，指向父类。
+      console.log(super.p === Parent.prototype.p)
+      console.log(super.p()) // 2
+
+      this.x = 'child x'
+    }
+
+    // ES6 规定，在子类普通方法中通过super调用父类的方法时，方法内部的this指向当前的子类实例。
+    // 在子类的静态方法中通过super调用父类的方法时，方法内部的this指向当前的子类，而不是子类的实例。
+    m() {
+      super.print()
+    }
+
+
+
+    myMethod(msg) {
+      super.myMethod(msg)
+    }
+  }
+
+  Child.x = 'child self x'
+  Child.m();
+  let child = new Child()
+  child.m()
+  child.myMethod(22)
+</script>
+</body>
+</html>
