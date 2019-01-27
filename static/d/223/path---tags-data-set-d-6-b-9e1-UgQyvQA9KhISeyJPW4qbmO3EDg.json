@@ -1,1 +1,0 @@
-{"data":{"allMarkdownRemark":{"totalCount":1,"edges":[{"node":{"fields":{"slug":"/html/data-set/","date":"2018-12-26T16:00:00.000Z"},"excerpt":"dataset 属性不能直接写入 dataset 属性本身可以被读取，但不能直接写入。相反，所有的写入必须是它的“属性”，这反过来表示数据属性。 实例 使用 角标","timeToRead":1,"frontmatter":{"title":"data set","tags":["data-set"],"cover":null,"date":"2018-12-27T22:00:00.000Z"}}}]}},"pageContext":{"tag":"data-set"}}
