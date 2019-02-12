@@ -130,7 +130,6 @@
 <url> <loc>https://www.sunzhiyong.cn/gatsby-advanced-starter/skills/open-brower-happend/open-browser-happend/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.sunzhiyong.cn/gatsby-advanced-starter/javascript/window/open-new-win/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.sunzhiyong.cn/gatsby-advanced-starter/tools/chrome/chrome/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://www.sunzhiyong.cn/gatsby-advanced-starter/tools/git/git/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.sunzhiyong.cn/gatsby-advanced-starter/tools/git/git-flow/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.sunzhiyong.cn/gatsby-advanced-starter/tools/svn/svn/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.sunzhiyong.cn/gatsby-advanced-starter/tools/npm/npm/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -140,6 +139,7 @@
 <url> <loc>https://www.sunzhiyong.cn/gatsby-advanced-starter/tools/webstorm/webstorm/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.sunzhiyong.cn/gatsby-advanced-starter/tools/zsh/zsh/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.sunzhiyong.cn/gatsby-advanced-starter/tools/zsh/zsh-git-plugin/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://www.sunzhiyong.cn/gatsby-advanced-starter/tools/git/git/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.sunzhiyong.cn/gatsby-advanced-starter/tags/todo/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.sunzhiyong.cn/gatsby-advanced-starter/tags/technology/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.sunzhiyong.cn/gatsby-advanced-starter/tags/markdown/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
