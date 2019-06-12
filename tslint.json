@@ -1,0 +1,56 @@
+{
+    "defaultSeverity": "error",
+    "extends": [
+        "tslint:recommended"
+    ],
+    "jsRules": {
+      "indent": false,
+      "object-literal-sort-keys":false,
+      "no-console": [true, "warn", "error"],
+
+      "comment-format": [false, "check-space" ],
+
+      "no-namespace": false,
+
+      "interface-name":[true, "never-prefix"],
+
+      "no-shadowed-variable": false,
+
+      "one-variable-per-declaration":false,
+
+      "no-unused-expression": [true, "allow-fast-null-checks"],
+
+      "radix": false,
+      "only-arrow-functions":false,
+      "member-ordering":false,
+      "trailing-comma":false,
+      "ordered-imports":false
+
+    },
+    "rules": {
+       "indent": false,
+       "object-literal-sort-keys":false,
+       "no-console": [true, "warn", "error"],
+      "quotemark": false,
+
+      "comment-format": [false, "check-space" ],
+
+      "no-namespace": false,
+
+      "interface-name":[true, "never-prefix"],
+
+      "no-shadowed-variable": false,
+
+      "one-variable-per-declaration":false,
+
+      "no-unused-expression": [true, "allow-fast-null-checks"],
+
+      "radix": false,
+      "only-arrow-functions":false,
+      "member-ordering":false,
+      "trailing-comma":false,
+      "ordered-imports":false
+
+    },
+    "rulesDirectory": []
+}
