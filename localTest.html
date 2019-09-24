@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<script>
+  function getParams(url, params = {test: 1}, userId = '2088402567997373') {
+    const result =  `mgw --app finscbff call ${url} '${JSON.stringify(params)}' -u ${userId}</br>`;
+    console.log(result)
+    document.write(result)
+  }
+  getParams('com.alipay.finscbff.activities.dialogs.queryDialogs', {} , '2088302604921038' )
+  getParams('com.alipay.finscbff.activities.p2p.friendRanking.query', {} , '2088302061930925' )
+  getParams('com.alipay.finscbff.activities.p2p.invite.submit', {relationType:"FRIEND_INVITE", inviteeUserId: "2088302661789756"} , '2088302061930925' )
+  getParams('com.alipay.finscbff.stock.home.query', {version: 3} , '2088302620474066' )
+</script>
+</body>
+</html>
