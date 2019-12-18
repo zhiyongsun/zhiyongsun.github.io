@@ -7,28 +7,14 @@
 </head>
 <body>
 <script>
-  const A = class A {
-    constructor() {
-      this.p = 2;
-    }
+  function push(array, ...items) {
+    debugger
+    array.push(...items);
   }
 
-  function B() {
-    this.p = 2;
-  }
-  B.prototype.say=function() {
+  const a = [1, 2];
+  push(a, 3, 4, 5)
 
-  }
-  const a = new A();
-  const b = new B();
- console.log( b.say === b.__proto__.say)
-  a.p = 2;
-  console.log(typeof A);
-  console.log(typeof a);
-  console.log(typeof B);
-  console.log(typeof b);
-  console.log(A.prototype);
-  console.log(A.__proto__ === Function.prototype);
 </script>
 </body>
 </html>
